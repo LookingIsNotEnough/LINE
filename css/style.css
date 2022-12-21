@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5, h6, figure {
   position: relative;
 }
 .fh5co-nav ul li.has-dropdown .dropdown {
-  width                : 140px;
+  width                : 200px;
   -webkit-box-shadow   : 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow      : 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
   box-shadow           : 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
@@ -200,7 +200,7 @@ h1, h2, h3, h4, h5, h6, figure {
   left                 : 0;
   text-align           : left;
   background           : #000;
-  padding              : 20px;
+  padding              : 30px;
   -webkit-border-radius: 4px;
   -moz-border-radius   : 4px;
   -ms-border-radius    : 4px;
@@ -482,6 +482,16 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-light-grey {
   background: #fafafa;
 }
+.blog-text-style {
+  font-size   : 18px;
+  font-weight : 500;
+  color       : rgb(92, 92, 92);
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header-style {
+  background-color: rgba(253, 237, 218, 0.2s);
+  backdrop-filter: blur(4px);
+}
 
 #fh5co-about,
 #fh5co-services,
@@ -490,10 +500,10 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-blog,
 #fh5co-counter,
 #fh5co-footer {
-  font-size   : 17px;
+  /* font-size   : 18px;
   font-weight : 500;
   color       : rgb(92, 92, 92);
-  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   padding     : 6em 3em;
   clear       : both;
 }

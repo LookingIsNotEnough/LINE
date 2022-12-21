@@ -3,10 +3,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>LookingisNotEnough  &mdash; Free Website Template, Free HTML5 Template by freehtml5.co</title>
+		<title>LookingisNotEnough  &mdash; •</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-		<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+		<meta name="description" content="#" />
+		<meta name="keywords" content="#" />
 		<meta name="author" content="freehtml5.co" />
 
 		<!-- 
@@ -67,51 +67,50 @@
 </html>
 
 <body>
-	<div class="fh5co-loader"></div>
 	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container-wrap">
-			<div class="top-menu">
-				<div class="row">
-					<div class="col-xs-2">
-						<div id="fh5co-logo"><a href="index.html">LookingisNotEnough</a></div>
+		<nav class="fh5co-nav" role="navigation">
+			<div class="container-wrap">
+				<div class="top-menu">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="fh5co-logo"><a href="index.html">LookingisNotEnough</a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<!-- <li><a href="index.html">Home</a></li> -->
+								<li class="has-dropdown active">
+									<a href="blog.html">Blog</a>
+									<ul class="dropdown">
+										<li><a href="ConnectingTheDots.html">Connecting the Dots</a></li>
+										<li><a href="UnderstandingNuralNetwork.html">Understanding Neural Networks</a></li>
+									</ul>
+								</li>
+								<!-- <li><a href="work.html">Work</a></li> -->
+								<li><a href="about.html">About</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
 					</div>
-					<div class="col-xs-10 text-right menu-1">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="work.html">Work</a></li>
-							<li class="has-dropdown active">
-								<a href="blog.html">Blog</a>
-								<ul class="dropdown">
-									<li><a href="#">Connecting the Dots</a></li>
-									<li><a href="#">Understanding Neural Networks</a></li>
-								</ul>
-							</li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
-					</div>
+					
 				</div>
-				
 			</div>
-		</div>
-	</nav>
+		</nav>
 	<div class="container-wrap">
-		<!-- <aside id="fh5co-hero">
+		<aside id="fh5co-hero">
 			<div class="flexslider">
 				<ul class="slides">
 			   	<li style=" 
-                  background-image    : url(images/PXL_20220529_113111292.MP.jpg);
-                  background-position : center;
-                  border-radius       : 100px;
-                  padding             : 1%;
-               ">
+                  	background-image: url(images/deepmind-Krw-2KP7bOE-unsplash.jpg);
+                  	/* max-width       : 75%; */
+                  	border-radius   : 70px;
+                  	padding         : 1%;
+						">
 			   		<div class="overlay-gradient"></div>
 			   		<div class="container-fluids">
 			   			<div class="row">
 				   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
-				   				<div class="slider-text-inner text-center">
-				   					<h1>Understanding Neural Networks</h1>
+				   				<div class="slider-text-inner text-center" class="header-style">
+				   					<h1 style="color: rgba(0, 0, 0, 1.9);">Understanding Neural Networks</h1>
 				   				</div>
 				   			</div>
 				   		</div>
@@ -119,13 +118,15 @@
 			   	</li>		   	
             </ul>
          </div>
-		</aside> -->
-		<div id="fh5co-blog">
+		</aside>
+		<div id="fh5co-blog" class="blog-text-style">
 			<div class="blog-text">
             <style>
-               h1 {text-align: center;}
+               h1 {text-align: center; font-weight: 500;}
+               h2 {/* text-align: center; */ font-weight: 400;}
+               h3 {/* text-align: center; */ font-weight: 400;}
             </style>
-            <h1 center>Understanding Neural Networks</h1>
+            <!-- <h1 center>Understanding Neural Networks</h1> -->
             
 				<p><p>Machine learning is everywhere these days, from how google assistant answers you, to how youtube recommends a video it thinks you&#39;d like to watch. From note-taking software to medical diagnosis. Instagram uses it to choose what posts to show you first. As I said, everywhere. I don&#39;t know why but it always intimidated me. How can a machine learn? Like &quot;learn&quot; learn and not just memorize everything bit by bit as a hard drive does, or follow the hard-coded instructions like a CPU does.<br>But you know what? When I finally exposed myself to it, I found the idea of a machine, learning, really simplistic in its essence.</p>
             <p><em>&quot;Machine Learning&quot;</em> is an umbrella term, a tree with sprawling branches of different algorithms, and neural networks are one of them, a very important one I might add. Designed to mimic the way the human brain processes information. It does this by simulating the behavior of the neurons, which are the building blocks of the brain.  </p>
@@ -187,7 +188,7 @@
             <h3 id="but-what-does-it-mean-to-train-a-neural-network">But what does it mean to train a neural network?</h3>
             <p>Well, we train a neural network to find the particular values of the variables, so that its predictions result in something of significance to us.  </p>
             <p><strong>And how do we do that?</strong><br>In our dataset, we&#39;ve got two things, the data (eg. images of cats) and the labels (color of the cats). The labels are the desired output we want from the network, they&#39;re the ground truth. When we input a piece of data and label from the dataset, the network outputs a prediction, a function then compares the label to the prediction, and tells the network how to change its weights and biases so that the prediction gets closer to the actual label. We call it the Cost or Loss function. The closer the output of the loss function is to zero, the closer the predictions are to the labels.<br>Let&#39;s explore the training of a neural network.</p>
-            <h3 id="-gradient-descent">• Gradient Descent</h3>
+            <h2 id="-gradient-descent">Gradient Descent</h3>
             <p>
             <img style="float: right; padding: 0px;" src="https://user-images.githubusercontent.com/74816223/207776057-b5fddc2b-535b-4962-9bae-548c69cf21ed.gif" width=40% height=40%/>
             </p>
@@ -196,9 +197,9 @@
             <p>While training, the network tries to find the steepest downhill path on the valley of the loss function. In its pursuit, the network has to find the weights, and biases that will take the predictions closer to the labels, because then the output of the loss function will be close to zero. The bottom of the valley is reached. The byproduct of this process is that the network&#39;s predictions get better and better as they get closer to the labels.  </p>
             <p>This whole job is done by the optimizer, which uses the gradient descent method we just talked about. And this is what optimization of a neural network means, finding the best weights and biases relative to the dataset to improve the predictions.</p>
             <p>There&#39;re two algorithms that help a neural network optimize itself, forward and backward propagation.</p>
-            <h3 id="-forward-propagation">• Forward-Propagation</h3>
+            <h2 id="-forward-propagation">Forward-Propagation</h3>
             <p>In the forward propagation step, the input data is passed through the network, layer by layer, and the predicted output is produced. This is done by calculating the activation of the first hidden layer, where the activation of the input layer is the data itself. This process is repeated for each subsequent layer, passing the activations forward in the network until the final output is produced.<br>Basically, it calculates the activations of the neurons in a layer and passes them to the next layer.</p>
-            <h3 id="-back-propagation">• Back-Propagation</h3>
+            <h2 id="-back-propagation">Back-Propagation</h3>
             <p>Here lies the meat and potatoes of the training of a neural network. In the backward propagation step, the error between the predicted output and the true label is calculated using the loss function (the error is the output of the loss function), and this error is then used to update the weights of the connections and biases of the neurons in the network in a way that reduces the error, i.e. reaching the lowest point of the loss function. This is done through the calculation of the gradient of the loss function, which indicates the direction in which the hiker must go to reach the lowest point in the valley, or in the network&#39;s case, the direction in which the weights and biases should be adjusted to minimize the error.  </p>
             <p>The gradient of the loss function is calculated by using the multivariable calculus chain rule, which is a can of worms I&#39;m not gonna open here.  </p>
             <p>All you need to know is this, the gradient of any function relative to a variable tells us how that function changes (increases or decreases in value) if we nudge that particular variable a little bit to the negative or positive side.<br>So when we calculate the gradient of the loss function relative to all the variables in the network, we are trying to know whether to subtract or add some value to those variables, i.e. weights and biases, so that the output of the loss function decreases, and in that process, it is minimized. That&#39;s all it does.</p>
@@ -221,7 +222,7 @@
             <p>   <strong>$$\frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k\ \delta^{l}_j $$</strong></p>
             <p>I know I just threw a lot of cryptic symbols upon you but these equations are the beating heart of any neural network.<br>It&#39;s like when you first time see a language written that you don&#39;t speak, all the symbols seem gibberish, and that&#39;s ok. You can always learn that language if you want.</p>
             <p>If you really want a deeper sense of the mathematics of neural networks, I highly recommend going through the book, <a href="http://neuralnetworksanddeeplearning.com/">&quot;Neural Networks and Deep Learning&quot;</a> by Michael Nielsen, and the YouTube series, <a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">&quot;Neural Networks&quot;</a> by 3blue1brown. It&#39;s Chef&#39;s kiss.</p>
-            <h2 id="coda">Coda</h2>
+            <h1 id="coda">Coda</h2>
             <p>Theoretically, these basic neural networks are capable of approximating any function given enough neurons, but due to computing implications, as a problem gets more and more complex, we&#39;ve to come up with smart and efficient architectures to solve it.</p>
             <p>To me, It&#39;s beautiful how a neural network can perform complex tasks such as image recognition, natural language processing, and generative art.<br>But at the heart of it are just these elegant algorithms, beating.  </p>
             <p>All the variables are like ants.<br>On their own, they&#39;re worth nothing.<br>But when they come together, the magic happens.</p>
