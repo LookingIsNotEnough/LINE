@@ -195,7 +195,7 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index              : 1002;
   visibility           : hidden;
   opacity              : 0;
-  position             : relative;
+  position             : absolute;
   top                  : 40px;
   left                 : 0;
   text-align           : left;
