@@ -144,7 +144,7 @@
             <p><strong>$$a^{\ l}\ =\ \sigma\left(\sum_{ }^{ }w^{\ l}\ a^{\ l-1}+b^{\ l}\right)$$</strong></p>
 				<figure>
             	<img class="img-float-left"  src="https://i.imgur.com/YJremM5.png" width=50% height=50%/>
-				</figure> 
+				</figure>
             
             <p>As you can see, the activation of a neuron in layer (\(l\)) is the weighted sum of all activations in the previous layer (\(l-1\)) plus the bias term, passed through an activation function that normalizes it, i.e. squeeze it down to a range between 0 and 1 or -1 and 1, depending upon what activation function we use. This is done so that the output doesn&#39;t get out of control due to all the summed-up multiplications.</p>
             <p>The activation of a neuron is a juggling act between the activations of neurons in the previous layer, the weights connecting them, and the bias of the neuron.<br>This also means that the activation of a neuron is dependent upon the activations of all neurons in the previous layer. The output is dependent upon the activation of the last hidden layer, and its activation is dependent upon the second last layer, and so on.  </p>
