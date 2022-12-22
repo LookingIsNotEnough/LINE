@@ -69,8 +69,8 @@ p {
 
 h1, h2, h3, h4, h5, h6, figure {
   color      : #000;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
   margin     : 0 0 20px 0;
 }
 
@@ -409,9 +409,6 @@ h1, h2, h3, h4, h5, h6, figure {
   min-height: 500px;
   z-index   : 9;
 }
-#fh5co-hero .flexslider .slider-text-backdrop{
-  backdrop-filter: blur(0.1em);
-}
 #fh5co-hero .flexslider .slider-text > .slider-text-inner {
   display       : table-cell;
   vertical-align: middle;
@@ -509,10 +506,6 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-blog,
 #fh5co-counter,
 #fh5co-footer {
-  /* font-size   : 18px;
-  font-weight : 500;
-  color       : rgb(92, 92, 92);
-  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   padding     : 6em 3em;
   clear       : both;
 }
