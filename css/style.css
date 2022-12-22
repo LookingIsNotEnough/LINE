@@ -1,3 +1,8 @@
+:root{
+  --background_col: rgb(253, 237, 218);
+  --ascent_col: #fa7e19;
+}
+
 @font-face {
   font-family: 'icomoon';
   src        : url("../fonts/icomoon/icomoon.eot?srf3rx");
@@ -5,18 +10,14 @@
   font-weight: normal;
   font-style : normal;
 }
-/* =======================================================
-*
-* 	Template Style 
-*
-* ====================================================== = */
+
 body {
   font-family: "Oxygen", sans-serif;
   font-weight: 300;
   font-size  : 14px;
   line-height: 1.7;
   color      : gray;
-  background : rgb(253, 237, 218);
+  background : var(--background_col);
 }
 
 .dark-mode {
@@ -51,13 +52,13 @@ body {
 }
 
 a {
-  color             : #fa7e19;
+  color             : var(--ascent_col);
   -webkit-transition: 0.5s;
   -o-transition     : 0.5s;
   transition        : 0.5s;
 }
 a:hover, a:active, a:focus {
-  color          : #fa7e19;
+  color          : var(--ascent_col);
   outline        : none;
   text-decoration: none;
 }
@@ -75,17 +76,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 ::-webkit-selection {
   color     : #fff;
-  background: #fa7e19;
+  background: var(--ascent_col);
 }
 
 ::-moz-selection {
   color     : #fff;
-  background: #fa7e19;
+  background: var(--ascent_col);
 }
 
 ::selection {
   color     : #fff;
-  background: #fa7e19;
+  background: var(--ascent_col);
 }
 
 .container-wrap {
@@ -93,7 +94,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin        : 0 auto;
   margin-bottom : 1em;
   border-radius : 25px;
-  background    : rgb(253, 237, 218);
+  background    : var(--background_col);
 }
 @media screen and (max-width: 768px) {
   .container-wrap {
@@ -126,7 +127,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-family   : "Source Sans Pro", sans-serif;
 }
 .fh5co-nav #fh5co-logo a span {
-  color: #fa7e19;
+  color: var(--ascent_col);
 }
 .fh5co-nav a {
   padding: 5px 10px;
@@ -168,7 +169,7 @@ h1, h2, h3, h4, h5, h6, figure {
   content           : '';
   width             : 58%;
   height            : 2px;
-  background        : #fa7e19;
+  background        : var(--ascent_col);
   margin            : 0 auto;
   opacity           : 0;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
@@ -249,7 +250,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color  : #fff;
 }
 .fh5co-nav ul li.btn-cta a span {
-  background           : #fa7e19;
+  background           : var(--ascent_col);
   padding              : 4px 10px;
   display              : -moz-inline-stack;
   display              : inline-block;
@@ -347,7 +348,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero {
   min-height: 500px;
   background: #fff url(../images/loader.gif) no-repeat center center;
-  background-color: rgb(253, 237, 218);
+  background-color: var(--background_col);
   width     : 100%;
   float     : left;
 }
@@ -365,7 +366,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .flexslider .slides {
   border       : none;
   background-size     : 75%;
-  background-color: rgb(253, 237, 218);
+  background-color: var(--background_col);
   position: relative;
   overflow: hidden;
 }
@@ -397,7 +398,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .flexslider .flex-control-nav li a.flex-active {
   cursor    : pointer;
   background: transparent;
-  border    : 2px solid #fa7e19;
+  border    : 2px solid var(--ascent_col);
 }
 #fh5co-hero .flexslider .flex-direction-nav {
   display: none;
@@ -485,12 +486,18 @@ h1, h2, h3, h4, h5, h6, figure {
 .blog-text-style {
   font-size   : 18px;
   font-weight : 500;
-  color       : rgb(92, 92, 92);
+  color       : rgb(80, 80, 80);
   font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .header-style {
   background-color: rgba(253, 237, 218, 0.2s);
   backdrop-filter: blur(4px);
+}
+blockquote{
+  background-color: rgb(253, 230, 202);
+  color: rgb(105, 105, 105);
+  border-radius   : 4px 40px 40px 40px;
+  border-left     : 0px;
 }
 
 #fh5co-about,
@@ -969,7 +976,7 @@ input[type="text"] {
   display      : inline-block;
   zoom         : 1;
   *display     : inline;
-  color        : #fa7e19;
+  color        : var(--ascent_col);
   padding-left : 10px;
   padding-right: 10px;
 }
@@ -1292,9 +1299,9 @@ input[type="text"] {
 }
 
 .btn-primary {
-  background: #fa7e19;
+  background: var(--ascent_col);
   color     : #fff;
-  border    : 2px solid #fa7e19;
+  border    : 2px solid var(--ascent_col);
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background  : #7ad98f !important;
@@ -1302,11 +1309,11 @@ input[type="text"] {
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color     : #fa7e19;
-  border    : 2px solid #fa7e19;
+  color     : var(--ascent_col);
+  border    : 2px solid var(--ascent_col);
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #fa7e19;
+  background: var(--ascent_col);
   color     : #fff;
 }
 
@@ -1436,7 +1443,7 @@ input[type="text"] {
 .form-control:active, .form-control:focus {
   outline     : none;
   box-shadow  : none;
-  border-color: #fa7e19;
+  border-color: var(--ascent_col);
 }
 
 .row-pb-md {
