@@ -136,7 +136,10 @@
             
             <p>You can see in the figure to the left, there&#39;s an input layer with some neurons connected to the neurons in the first hidden layer (they&#39;re called hidden layers because their internal structure is not visible when we examine the neural network), that first hidden layer itself is connected to the neurons in the second hidden layer. And finally, the second hidden layer is connected to the output layer. The network is <em>fully-connected</em>.</p>
             <p>The lines are the connections and the thickness of the line shows the weight or importance of the connection. </p>
-            <blockquote>
+            <blockquote style="background-color: rgb(253, 230, 202);
+				color: rgb(104, 104, 104);
+				border-radius   : 4px 40px 40px 40px;
+				border-left     : 0px;">
             <p>These visualizations of neural networks are there just as a device, to be able to understand and think about them. In actual code, all these relationships, the connections (weights), and neurons are just numerical values, represented as a Tensor (n-dimensional array).  </p>
             </blockquote>
             <p>Except for the input layer, each layer also has an activation function (not visualized in the figure), which takes in the relevant variables (like weights and the activation of the neurons in the previous layer), and causes the neurons to be more or less active. The more active a neuron is, the bigger its output to the next layer, and that helps the network make some decisions rather than others from the output space. </p>
