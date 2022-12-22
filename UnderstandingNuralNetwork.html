@@ -136,21 +136,18 @@
             
             <p>You can see in the figure to the left, there&#39;s an input layer with some neurons connected to the neurons in the first hidden layer (they&#39;re called hidden layers because their internal structure is not visible when we examine the neural network), that first hidden layer itself is connected to the neurons in the second hidden layer. And finally, the second hidden layer is connected to the output layer. The network is <em>fully-connected</em>.</p>
             <p>The lines are the connections and the thickness of the line shows the weight or importance of the connection. </p>
-            <blockquote style="background-color: rgb(253, 230, 202);
-				color: rgb(104, 104, 104);
-				border-radius   : 4px 40px 40px 40px;
-				border-left     : 0px;">
+            <blockquote class="blockquote-style">
             <p>These visualizations of neural networks are there just as a device, to be able to understand and think about them. In actual code, all these relationships, the connections (weights), and neurons are just numerical values, represented as a Tensor (n-dimensional array).  </p>
             </blockquote>
             <p>Except for the input layer, each layer also has an activation function (not visualized in the figure), which takes in the relevant variables (like weights and the activation of the neurons in the previous layer), and causes the neurons to be more or less active. The more active a neuron is, the bigger its output to the next layer, and that helps the network make some decisions rather than others from the output space. </p>
             <h2 id="what-does-the-activation-of-a-neuron-means">What does the activation of a neuron means?</h2>
             <p>Let&#39;s take a simple example, let&#39;s say we have a neural network that is trained to classify whether an image of the face of a coin is showing heads or tails. Now let&#39;s input an image showing heads. When the image data reaches the hidden layers, the neurons that learned the patterns of the image showing heads get stimulated by the data and light up (more active), and neurons that learned the patterns of the tails quiet down (less active). These activations flow through all the hidden layers. Once it reaches the output layer (which has two neurons, one for heads and one for tails), the neuron that outputs heads is significantly more active than the one that outputs tails. Finally, the network compares both output neurons for max activation value and outputs heads. This is how the activation of neurons helps a neural network make predictions.</p>
-            <blockquote>
+            <blockquote class="blockquote-style">
             <p>To be more precise, the learned values of weights (connections) affect the activation function, which outputs a value, that is the activation of the neuron.  </p>
             </blockquote>
             <p>I know that was a trivial example, but to get an intuitive sense of what happens inside the network when input is given, and what the activation of a neuron means, I think it did the job just fine.</p>
             <p>I talked a lot about <em>the activation of neurons</em>, but now let&#39;s see how to calculate it mathematically.  </p>
-            <blockquote>
+            <blockquote class="blockquote-style">
             <p>If you find something a little confusing below, don&#39;t worry, I&#39;m right there with you. I too was confused. Just skim past it and come back later. I bet you won&#39;t find it as confusing the second time.</p>
             </blockquote>
             <p>Here to the right, we have a simple network with an input layer, a hidden layer, and an output layer with one neuron each.<br>let&#39;s denote,
@@ -178,7 +175,7 @@
             <p>The activation of a neuron is a juggling act between the activations of neurons in the previous layer, the weights connecting them, and the bias of the neuron.<br>This also means that the activation of a neuron is dependent upon the activations of all neurons in the previous layer. The output is dependent upon the activation of the last hidden layer, and its activation is dependent upon the second last layer, and so on.  </p>
             <p>While training the network, neurons that are active together often, form a microcosm of connections (the value of the weights of the connections between them increases). The saying, &quot;Neurons that fire together, wire together.&quot;, for the biological neurons applies here too. </p>
             <p>And <em>Learning</em> is remembering the patterns of those connections relative to the input data while training so that when the network encounters some input that resembles the learned patterns, it can make predictions based on the neuronal activations.</p>
-            <blockquote>
+            <blockquote class="blockquote-style">
             <p>This is how you and I learn too. As a kid when we saw some color, we heard someone say &quot;Red&quot;, and our brain did the necessary changes to the neural circuit&#39;s activation patterns, and now we know what &quot;Red&quot; means.<br>This is how you&#39;re learning right now, but I digress.  </p>
             </blockquote>
             <p>So we input some data into a neural network, which stimulates relevant neurons, they become active and output the prediction. If the network is trained on a dataset similar to or related to the input, that prediction is meaningful to us.</p>
