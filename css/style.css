@@ -503,6 +503,8 @@ h1, h2, h3, h4, h5, h6, figure {
   float: left; 
   padding: 0px 20px 20px 0px;
 }
+
+/* Optimizing image for phones */
 @media screen and (max-width: 868px) {
   .img-float-left {
     float: center; 
