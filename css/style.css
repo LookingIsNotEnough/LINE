@@ -503,7 +503,7 @@ h1, h2, h3, h4, h5, h6, figure {
   float: left; 
   padding: 0px 20px 0px 0px;
 }
-@media screen and (max-width: 868px) {
+@media screen and (max-width: 968px) {
   .img-float-left {
     float: center; 
     width: 100%; 
