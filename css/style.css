@@ -495,7 +495,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 blockquote{
   background-color: rgb(253, 230, 202);
-  color: rgb(105, 105, 105);
+  color: rgb(104, 104, 104);
   border-radius   : 4px 40px 40px 40px;
   border-left     : 0px;
 }
