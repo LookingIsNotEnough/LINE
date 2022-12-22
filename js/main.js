@@ -240,8 +240,6 @@
 
 	};
 
-
-
 	$(function(){
 		mobileMenuOutsideClick();
 		offcanvasMenu();

@@ -913,7 +913,7 @@ pre code {
 }
 .row:before, .row:after {
   content: " ";
-  display: table;
+  display: block;
 }
 .row:after {
   clear: both;
