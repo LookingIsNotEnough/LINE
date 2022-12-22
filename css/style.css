@@ -499,6 +499,18 @@ h1, h2, h3, h4, h5, h6, figure {
   border-left     : 0px;
 }
 
+.img-float-left{
+  float: left; 
+  padding: 0px 20px 0px 0px;
+}
+@media screen and (max-width: 768px) {
+  .img-float-left {
+    float: none; 
+    width: 100%; 
+    height: 100%
+  }
+}
+
 #fh5co-about,
 #fh5co-services,
 #fh5co-contact,

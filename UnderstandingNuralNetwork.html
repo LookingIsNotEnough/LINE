@@ -98,16 +98,14 @@
             <p>Let&#39;s dive deeper into the world of neural networks. </p>
             <h2 style="text-align: center;" id="what-makes-a-neural-network-tick">What makes a Neural Network tick?</h2>
 				<figure>
-            <p align="center">
-            	<img src="https://i.imgur.com/XvGNrA1.png" width=85% height=85%/>
-            </p>
+					<p align="center">
+						<img src="https://i.imgur.com/XvGNrA1.png" width=100% height=100%/>
+					</p>
 				</figure>
-            
             <p>Neural networks are function approximators. Just like a mathematical function, they take in an input, do some calculations on it, and output the result.<br>  On some level, our brain does the same thing. It takes pressure waves as input and spits out the perception of sound. Electromagnetic radiation goes in, an image comes out. So in a sense, the brain is a very competent and precise function approximator too!<br>This is where the term <em>&quot;Neural Network&quot;</em> comes in. I&#39;ll just leave it at that before I romanticize this notion even more.  </p>
             <p>A more technical definition is, a basic neural network is composed of multiple layers of interconnected nodes called &quot;neurons&quot;, where each layer is fully connected to the next, i.e. each neuron in one layer is connected with every neuron in the next layer. So each neuron in a layer receives inputs from neurons in the previous layer, performs a simple calculation on that input, and passes the result (its output) to the next layer. By flowing the input data through many layers with multiple neurons, a neural network can learn to recognize complex patterns and make predictions or decisions based on that data.</p>
 				<figure>	
-            <!-- <p align="center"> -->
-            	<img  style="float: left; padding: 0px 20px 0px 0px;" src="https://i.imgur.com/OmfVm0u.png" width=50% height=50%/>
+            	<img class="img-float-left" src="https://i.imgur.com/OmfVm0u.png" width=50% height=50%/>
 				</figure>						
             
             <p>You can see in the figure to the left, there&#39;s an input layer with some neurons connected to the neurons in the first hidden layer (they&#39;re called hidden layers because their internal structure is not visible when we examine the neural network), that first hidden layer itself is connected to the neurons in the second hidden layer. And finally, the second hidden layer is connected to the output layer. The network is <em>fully-connected</em>.</p>
@@ -126,10 +124,11 @@
             <blockquote class="blockquote-style">
             <p>If you find something a little confusing below, don&#39;t worry, I&#39;m right there with you. I too was confused. Just skim past it and come back later. I bet you won&#39;t find it as confusing the second time.</p>
             </blockquote>
-            <p>Here to the right, we have a simple network with an input layer, a hidden layer, and an output layer with one neuron each.<br>let&#39;s denote,
-				<figure>
-            <img style="float: right; padding: 0px 20px 0px 0px;"  src="https://i.imgur.com/49vVwhe.png" width=45% height=45%/></p>
-				</figure>
+            <p>Here we've a simple network with an input layer, a hidden layer, and an output layer with one neuron each.
+					<figure>
+						<img class="img-float-left" src="https://i.imgur.com/49vVwhe.png" width=45% height=45%/></p>
+					</figure>
+					<p>let's denote,</p>
             <ul>
 					<li><em>Weights</em> by &#39;<strong>\(w\)</strong>&#39;.  </li>
 					<li><em>Bias</em> by &#39;<strong>\(b\)</strong>&#39; (this is another variable<br>a neuron has that helps it learn).  </li>
@@ -144,7 +143,7 @@
             </ul>
             <p><strong>$$a^{\ l}\ =\ \sigma\left(\sum_{ }^{ }w^{\ l}\ a^{\ l-1}+b^{\ l}\right)$$</strong></p>
 				<figure>
-            	<img style="float: left; padding: 0px 20px 0px 0px;"  src="https://i.imgur.com/YJremM5.png" width=50% height=50%/>
+            	<img class="img-float-left"  src="https://i.imgur.com/YJremM5.png" width=50% height=50%/>
 				</figure>
             
             <p>As you can see, the activation of a neuron in layer (\(l\)) is the weighted sum of all activations in the previous layer (\(l-1\)) plus the bias term, passed through an activation function that normalizes it, i.e. squeeze it down to a range between 0 and 1 or -1 and 1, depending upon what activation function we use. This is done so that the output doesn&#39;t get out of control due to all the summed-up multiplications.</p>
