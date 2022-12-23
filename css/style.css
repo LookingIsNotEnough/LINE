@@ -365,11 +365,11 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 0;
 }
 #fh5co-hero .flexslider .slides {
-  border       : none;
-  background-size     : 75%;
+  border          : none;
+  background-size : 75%;
   background-color: var(--background_col);
-  position: relative;
-  overflow: hidden;
+  position        : relative;
+  overflow        : hidden;
 }
 #fh5co-hero .flexslider .slides li {
   background-repeat  : no-repeat;
@@ -1072,7 +1072,7 @@ input[type="text"] {
 #fh5co-offcanvas {
   position          : absolute;
   z-index           : 1901;
-  width             : 270px;
+  width             : 210px;
   background        : black;
   top               : 0;
   right             : 0;
@@ -1109,6 +1109,7 @@ input[type="text"] {
   color: rgba(255, 255, 255, 0.8);
 }
 #fh5co-offcanvas ul {
+  font-size: 20px;
   padding: 0;
   margin : 0;
 }
