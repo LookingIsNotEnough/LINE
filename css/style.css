@@ -1072,7 +1072,7 @@ input[type="text"] {
 #fh5co-offcanvas {
   position          : absolute;
   z-index           : 1901;
-  width             : 210px;
+  width             : 200px;
   background        : black;
   top               : 0;
   right             : 0;
@@ -1109,7 +1109,7 @@ input[type="text"] {
   color: rgba(255, 255, 255, 0.8);
 }
 #fh5co-offcanvas ul {
-  font-size: 20px;
+  font-size: 25px;
   padding: 0;
   margin : 0;
 }
