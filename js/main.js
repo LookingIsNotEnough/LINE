@@ -1,49 +1,58 @@
-;(function () {
+;(function () 
+{
 	
 	'use strict';
 
-	var isMobile = {
-		Android: function() {
+	var isMobile = 
+	{
+		Android: function() 
+		{
 			return navigator.userAgent.match(/Android/i);
 		},
-			BlackBerry: function() {
+			BlackBerry: function() 
+			{
 			return navigator.userAgent.match(/BlackBerry/i);
 		},
-			iOS: function() {
+			iOS: function() 
+			{
 			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
 		},
-			Opera: function() {
+			Opera: function() 
+			{
 			return navigator.userAgent.match(/Opera Mini/i);
 		},
-			Windows: function() {
+			Windows: function() 
+			{
 			return navigator.userAgent.match(/IEMobile/i);
 		},
-			any: function() {
+			any: function() 
+			{
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	};
 
-	var mobileMenuOutsideClick = function() {
+	var mobileMenuOutsideClick = function() 
+	{
 
-		$(document).click(function (e) {
+		$(document).click(function (e) 
+		{
 	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
+			if (!container.is(e.target) && container.has(e.target).length === 0) 
+			{
 
-	    	if ( $('body').hasClass('offcanvas') ) {
+				if ( $('body').hasClass('offcanvas') ) 
+				{
 
-    			$('body').removeClass('offcanvas');
-    			$('.js-fh5co-nav-toggle').removeClass('active');
-				
-	    	}
-	    
-	    	
-	    }
+					$('body').removeClass('offcanvas');
+					$('.js-fh5co-nav-toggle').removeClass('active');
+				}
+			}
 		});
-
 	};
 
 
-	var offcanvasMenu = function() {
+	var offcanvasMenu = function() 
+	{
 
 		$('#page').prepend('<div id="fh5co-offcanvas" />');
 		$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
@@ -77,7 +86,8 @@
 
 		$(window).resize(function(){
 
-			if ( $('body').hasClass('offcanvas') ) {
+			if ( $('body').hasClass('offcanvas') ) 
+			{
 
     			$('body').removeClass('offcanvas');
     			$('.js-fh5co-nav-toggle').removeClass('active');
@@ -87,15 +97,18 @@
 	};
 
 
-	var burgerMenu = function() {
+	var burgerMenu = function() 
+	{
 
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
 			var $this = $(this);
 
 
-			if ( $('body').hasClass('overflow offcanvas') ) {
+			if ( $('body').hasClass('overflow offcanvas') ) 
+			{
 				$('body').removeClass('overflow offcanvas');
-			} else {
+			} else 
+			{
 				$('body').addClass('overflow offcanvas');
 			}
 			$this.toggleClass('active');
@@ -105,11 +118,14 @@
 	};
 	
 
-	var contentWayPoint = function() {
+	var contentWayPoint = function() 
+	{
 		var i = 0;
-		$('.animate-box').waypoint( function( direction ) {
+		$('.animate-box').waypoint( function( direction ) 
+		{
 
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
+			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) 
+			{
 				
 				i++;
 
@@ -118,15 +134,20 @@
 
 					$('body .animate-box.item-animate').each(function(k){
 						var el = $(this);
-						setTimeout( function () {
+						setTimeout( function () 
+						{
 							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
+							if ( effect === 'fadeIn') 
+							{
 								el.addClass('fadeIn animated-fast');
-							} else if ( effect === 'fadeInLeft') {
+							} else if ( effect === 'fadeInLeft') 
+							{
 								el.addClass('fadeInLeft animated-fast');
-							} else if ( effect === 'fadeInRight') {
+							} else if ( effect === 'fadeInRight') 
+							{
 								el.addClass('fadeInRight animated-fast');
-							} else {
+							} else 
+							{
 								el.addClass('fadeInUp animated-fast');
 							}
 
@@ -138,11 +159,13 @@
 				
 			}
 
-		} , { offset: '85%' } );
+		} , 
+		{ offset: '85%' } );
 	};
 
 
-	var dropdown = function() {
+	var dropdown = function() 
+	{
 
 		$('.has-dropdown').mouseenter(function(){
 
@@ -164,7 +187,8 @@
 	};
 
 
-	var goToTop = function() {
+	var goToTop = function() 
+	{
 
 		$('.js-gotop').on('click', function(event){
 			
@@ -180,9 +204,11 @@
 		$(window).scroll(function(){
 
 			var $win = $(window);
-			if ($win.scrollTop() > 200) {
+			if ($win.scrollTop() > 200) 
+			{
 				$('.js-top').addClass('active');
-			} else {
+			} else 
+			{
 				$('.js-top').removeClass('active');
 			}
 
@@ -192,32 +218,41 @@
 
 
 	// Loading page
-	var loaderPage = function() {
+	var loaderPage = function() 
+	{
 		$(".fh5co-loader").fadeOut("slow");
 	};
 
-	var counter = function() {
+	var counter = function() 
+	{
 		$('.js-counter').countTo({
-			 formatter: function (value, options) {
+			 formatter: function (value, options) 
+			 {
 	      return value.toFixed(options.decimals);
 	    },
 		});
 	};
 
 
-	var counterWayPoint = function() {
-		if ($('#fh5co-counter').length > 0 ) {
-			$('#fh5co-counter').waypoint( function( direction ) {
+	var counterWayPoint = function() 
+	{
+		if ($('#fh5co-counter').length > 0 ) 
+		{
+			$('#fh5co-counter').waypoint( function( direction ) 
+			{
 										
-				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
+				if( direction === 'down' && !$(this.element).hasClass('animated') ) 
+				{
 					setTimeout( counter , 400);					
 					$(this.element).addClass('animated');
 				}
-			} , { offset: '90%' } );
+			} , 
+			{ offset: '90%' } );
 		}
 	};
 
-	var sliderMain = function() {
+	var sliderMain = function() 
+	{
 		
 	  	$('#fh5co-hero .flexslider').flexslider({
 			animation: "fade",
