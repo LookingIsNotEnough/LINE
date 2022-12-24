@@ -67,14 +67,16 @@
 			.removeClass('has-dropdown');
 
 		// Hover dropdown menu on mobile
-		$('.offcanvas-has-dropdown').mouseenter(function(){
+		$('.offcanvas-has-dropdown').mouseenter(function()
+		{
 			var $this = $(this);
 
 			$this
 				.addClass('active')
 				.find('ul')
 				.slideDown(500, 'easeOutExpo');				
-		}).mouseleave(function(){
+		}).mouseleave(function()
+		{
 
 			var $this = $(this);
 			$this
@@ -84,7 +86,8 @@
 		});
 
 
-		$(window).resize(function(){
+		$(window).resize(function()
+		{
 
 			if ( $('body').hasClass('offcanvas') ) 
 			{
@@ -100,7 +103,8 @@
 	var burgerMenu = function() 
 	{
 
-		$('body').on('click', '.js-fh5co-nav-toggle', function(event){
+		$('body').on('click', '.js-fh5co-nav-toggle', function(event)
+		{
 			var $this = $(this);
 
 
@@ -130,9 +134,11 @@
 				i++;
 
 				$(this.element).addClass('item-animate');
-				setTimeout(function(){
+				setTimeout(function()
+				{
 
-					$('body .animate-box.item-animate').each(function(k){
+					$('body .animate-box.item-animate').each(function(k)
+					{
 						var el = $(this);
 						setTimeout( function () 
 						{
@@ -166,8 +172,8 @@
 
 	var dropdown = function() 
 	{
-
-		$('.has-dropdown').mouseenter(function(){
+		$('.has-dropdown').mouseenter(function()
+		{
 
 			var $this = $(this);
 			$this
@@ -175,7 +181,8 @@
 				.css('display', 'block')
 				.addClass('animated-fast fadeInUpMenu');
 
-		}).mouseleave(function(){
+		}).mouseleave(function()
+		{
 			var $this = $(this);
 
 			$this
@@ -189,7 +196,8 @@
 
 	var goToTop = function() 
 	{
-		$('.js-gotop').on('click', function(event){
+		$('.js-gotop').on('click', function(event)
+		{
 			
 			event.preventDefault();
 
@@ -256,14 +264,18 @@
 			animation: "fade",
 			slideshowSpeed: 5000,
 			directionNav: true,
-			start: function(){
-				setTimeout(function(){
+			start: function()
+			{
+				setTimeout(function()
+				{
 					$('.slider-text').removeClass('animated fadeInUp');
 					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
 				}, 500);
 			},
-			before: function(){
-				setTimeout(function(){
+			before: function()
+			{
+				setTimeout(function()
+				{
 					$('.slider-text').removeClass('animated fadeInUp');
 					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
 				}, 500);
@@ -273,7 +285,8 @@
 
 	};
 
-	$(function(){
+	$(function()
+	{
 		mobileMenuOutsideClick();
 		offcanvasMenu();
 		burgerMenu();
