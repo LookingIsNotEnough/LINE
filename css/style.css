@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6, figure {
     padding: 28px 1em;
   }
 }
-.fh5co-nav #fh5co-logo {
+.fh5co-nav .fh5co-logo {
   font-size     : 24px;
   margin        : 0;
   padding       : 0;
@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-weight   : 600;
   font-family   : "Source Sans Pro", sans-serif;
 }
-.fh5co-nav #fh5co-logo a span {
+.fh5co-nav .fh5co-logo a span {
   color: var(--ascent_col);
 }
 .fh5co-nav a {
@@ -137,6 +137,9 @@ h1, h2, h3, h4, h5, h6, figure {
 @media screen and (max-width: 768px) {
   .fh5co-nav .menu-1 {
     display: none;
+  }
+  .fh5co-nav .fh5co-logo{
+    font-size: 20px;
   }
 }
 .fh5co-nav ul {
