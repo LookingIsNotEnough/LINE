@@ -493,8 +493,23 @@ h1, h2, h3, h4, h5, h6, figure {
   color       : rgb(80, 80, 80);
   font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.header-style {
-  background-color: rgba(253, 237, 218);
+.header-style-1 {
+  font-size   : 33px;
+  font-weight : 500;
+  color       : rgb(20, 20, 20);
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header-style-2 {
+  font-size   : 30px;
+  font-weight : 500;
+  color       : rgb(20, 20, 20);
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header-style-3 {
+  font-size   : 27px;
+  font-weight : 500;
+  color       : rgb(20, 20, 20);
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .blockquote-style{
   background-color: rgb(253, 230, 202);
@@ -512,7 +527,7 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 0px 20px 20px 0px;
 }
 
-/* Optimizing phones */
+/* Optimizing for phones */
 @media screen and (max-width: 768px) {
   .img-float-left {
     float: center; 
@@ -529,6 +544,15 @@ h1, h2, h3, h4, h5, h6, figure {
   .blog-text-style {
     font-size   : 15px;
     font-weight : 500;
+  }
+  .header-style-1 {
+    font-size   : 23px;
+  }
+  .header-style-2 {
+    font-size   : 21px;
+  }
+  .header-style-3 {
+    font-size   : 19px;
   }
   .blockquote-style{
     font-size: 14.5px;
