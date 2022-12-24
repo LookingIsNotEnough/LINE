@@ -517,7 +517,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .blockquote-style{
   background-color: rgb(253, 230, 202);
   color: rgb(104, 104, 104);
-  border-radius   : 4px 40px 40px 40px;
+  border-radius   : 8px 40px 40px 40px;
   border-left     : 0px;
 }
 
@@ -549,13 +549,13 @@ h1, h2, h3, h4, h5, h6, figure {
     font-weight : 500;
   }
   .header-style-1 {
-    font-size   : 23px;
+    font-size   : 25px;
   }
   .header-style-2 {
-    font-size   : 21px;
+    font-size   : 23px;
   }
   .header-style-3 {
-    font-size   : 19px;
+    font-size   : 21px;
   }
   .blockquote-style{
     font-size: 14.5px;
@@ -570,6 +570,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-counter,
 #fh5co-footer {
   padding     : 6em 3em;
+  vertical-align: bottom;
   clear       : both;
 }
 @media screen and (max-width: 768px) {

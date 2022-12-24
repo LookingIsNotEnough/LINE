@@ -104,7 +104,7 @@
 					<br>But you know what? When I finally exposed myself to it, I found the idea of a machine, learning, really simplistic in its essence.</p>
 					<p><em>"Machine Learning"</em> is an umbrella term, a tree with sprawling branches of different algorithms, and neural networks are one of them, 
 						a very important one I might add. Designed to mimic the way the human brain processes information. It does this by simulating the behavior of 
-						the neurons, which are the building blocks of the brain.  </p>
+						the neurons, the building blocks of the brain.  </p>
 					<p>Let's dive deeper into the world of neural networks. </p>
 					<h2 class="header-style-2" style="text-align: center;" id="what-makes-a-neural-network-tick">What makes a Neural Network tick?</h2>
 					<figure>
@@ -168,11 +168,14 @@
 					<p>While training the network, neurons that are active together often, form a microcosm of connections (the value of the weights of the connections between them increases). The saying, "Neurons that fire together, wire together.", for the biological neurons applies here too. </p>
 					<p>And <em>Learning</em> is remembering the patterns of those connections relative to the input data while training so that when the network encounters some input that resembles the learned patterns, it can make predictions based on the neuronal activations.</p>
 					<blockquote class="blockquote-style">
-					<p>This is how you and I learn too. As kids when we saw some color, we heard someone say "Red", to learn this relationship brain did the necessary changes to its neural circuit's activation patterns, and now we know what "Red" means.<br>This is how you're learning right now, but I digress.</p>
+					<p>This is how you and I learn too. As kids, we saw some color and heard someone say "Red". To learn this relationship 
+						the brain made necessary changes to its neural circuit's activation patterns for when it next time encounters the input "red". 
+						Now when we see or even think about something related to color red, those same neurons light up at that exact pattern.
+						<br>This is how you're learning right now, but I digress.</p>
 					</blockquote>
 					<p>So we input some data into a neural network, which stimulates relevant neurons, they become active and output the prediction. If the network is trained on a dataset similar to or related to the input, that prediction is meaningful to us.</p>
 					<h3 class="header-style-3">But what does it mean to train a neural network?</h3>
-					<p>Well, we train a neural network to find the particular values of the variables, so that its predictions result in something of significance to us.  </p>
+					<p>Well, we train a neural network to find the particular values of the variables (weights and biases) so that its predictions result in something of significance to us.  </p>
 					<h3 class="header-style-3">And how do we do that?</h3>
 					<p>In our dataset, we've got two things, the data (eg. images of cats) and the labels (color of the cats). The labels are the desired output we want from the network, they're the ground truth. When we input a piece of data and label from the dataset, the network outputs a prediction, a function then compares the label to the prediction, and tells the network how to change its weights and biases so that the prediction gets closer to the actual label. We call it the Cost or Loss function. The closer the output of the loss function is to zero, the closer the predictions are to the labels.<br>Let's explore the training of a neural network.</p>
 					<h2 class="header-style-2" id="-gradient-descent">Gradient Descent</h2>
@@ -188,31 +191,41 @@
 					<p>In the forward propagation step, the input data is passed through the network, layer by layer, and the predicted output is produced. This is done by calculating the activation of the first hidden layer, where the activation of the input layer is the data itself. This process is repeated for each subsequent layer, passing the activations forward in the network until the final output is produced.<br>Basically, it calculates the activations of the neurons in a layer and passes them to the next layer.</p>
 					<h2 class="header-style-2" id="-back-propagation">Back-Propagation</h2>
 					<p>Here lies the meat and potatoes of the training of a neural network. In the backward propagation step, the error between the predicted output and the true label is calculated using the loss function (the error is the output of the loss function), and this error is then used to update the weights of the connections and biases of the neurons in the network in a way that reduces the error, i.e. reaching the lowest point of the loss function. This is done through the calculation of the gradient of the loss function, which indicates the direction in which the hiker must go to reach the lowest point in the valley, or in the network's case, the direction in which the weights and biases should be adjusted to minimize the error.  </p>
-					<p>The gradient of the loss function is calculated by using the multivariable calculus chain rule, which is a can of worms I'm not gonna open here.  </p>
+					<p>The gradient of the loss function is calculated using the multivariable calculus chain rule, which is a can of worms I'm not going to open here.  </p>
 					<p>All you need to know is this, the gradient of any function relative to a variable tells us how that function changes (increases or decreases in value) if we nudge that particular variable a little bit to the negative or positive side.<br>So when we calculate the gradient of the loss function relative to all the variables in the network, we are trying to know whether to subtract or add some value to those variables, i.e. weights and biases, so that the output of the loss function decreases, and in that process, it is minimized. That's all it does.</p>
-					<p>But for the aficionados out there, here are the necessary equations used in the back-propagation algorithm to calculate the gradient of the loss function (again, I don't want you to be confused, so if you want to skip, just skip) -</p>
-					<ul>
-					<li>Error delta (\(\delta\)) of loss function relative to the last layer (\(L\)),</li>
-					</ul>
-					<p>   <strong>$$\delta^{L} = \bigtriangledown_a C\odot\sigma'(z^L)$$</strong>  </p>
-					<ul>
-					<li>Error delta (\(\delta\)) of loss function relative to other layers (\(l\)),</li>
-					</ul>
-					<p>   <strong>$$\delta^{l} = \Big(\ (\ w^{l+1}\ )^T \delta^{l+1}\ \Big)\odot\sigma'(z^l)$$</strong>  </p>
-					<ul>
-					<li>Partial derivative of the Loss function (\(\partial C\)) relative to the bias of the neuron in the index, \(j\), of layer, \(l\) (\(\partial b^l_j\)),</li>
-					</ul>
-					<p>   <strong>$$\frac{\partial C}{\partial b^l_j} = \delta^{l}_j $$</strong></p>
-					<ul>
-					<li>Partial derivative of the Loss function (\(\partial C)\) relative to the weight of the neuron in the index, \(jk\), of layer, \(l\) (\(\partial w^l_{jk}\)),</li>
-					</ul>
-					<p>   <strong>$$\frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k\ \delta^{l}_j $$</strong></p>
-					<p>I know I just threw a lot of cryptic symbols upon you but these equations are the beating heart of any neural network.<br>It's like when you first time see a language written that you don't speak, all the symbols seem gibberish, and that's ok. You can always learn that language if you want.</p>
-					<p>If you really want a deeper sense of the mathematics of neural networks, I highly recommend going through the book, <a href="http://neuralnetworksanddeeplearning.com/">"Neural Networks and Deep Learning"</a> by Michael Nielsen, and the YouTube series, <a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">"Neural Networks"</a> by Grant Sanderson (3Blue1Brown).</p>
+					<blockquote class="blockquote-style">
+						<p>For the aficionados out there, here are the necessary equations used in the back-propagation algorithm to calculate the gradient of the loss function -</p>
+						<ul>
+						<li>Error delta (\(\delta\)) of loss function relative to the last layer (\(L\)),</li>
+						</ul>
+						<p>   <strong>$$\delta^{L} = \bigtriangledown_a C\odot\sigma'(z^L)$$</strong>  </p>
+						<ul>
+						<li>Error delta (\(\delta\)) of loss function relative to other layers (\(l\)),</li>
+						</ul>
+						<p>   <strong>$$\delta^{l} = \Big(\ (\ w^{l+1}\ )^T \delta^{l+1}\ \Big)\odot\sigma'(z^l)$$</strong>  </p>
+						<ul>
+						<li>Partial derivative of the loss function (\(\partial C\)) relative to the bias of the neuron in the index, \(j\), of layer, \(l\) (\(\partial b^l_j\)),</li>
+						</ul>
+						<p>   <strong>$$\frac{\partial C}{\partial b^l_j} = \delta^{l}_j $$</strong></p>
+						<ul>
+						<li>Partial derivative of the loss function (\(\partial C)\) relative to the weight of the neuron in the index, \(jk\), of layer, \(l\) (\(\partial w^l_{jk}\)),</li>
+						</ul>
+						<p>   <strong>$$\frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k\ \delta^{l}_j $$</strong></p>
+						<p>I know it's unfair to throw these cryptic symbols upon you without explaining or deriving them, but these equations are the beating heart of any neural network, 
+							and this blog will feel incomplete to me if I don't even mention them.<br>
+							It's like when you see a language written that you don't speak, all the symbols seem gibberish, and that's ok. You can always learn it if it captures your attention enough.</p>
+						<p>If you really want a deeper sense of the mathematics of neural networks, I highly recommend going through the book, <a href="http://neuralnetworksanddeeplearning.com/">"Neural Networks and Deep Learning"</a> 
+							by Michael Nielsen, and the YouTube series, <a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">"Neural Networks"</a> by Grant Sanderson (3Blue1Brown).</p>
+					</blockquote>
+					<p>After devouring the dataset while training and learning the patterns in it, the neural network is in its full glory, ready to accomplish feats 
+						that would've been impossible to program for traditionally with logic alone.<br>
+						That is what makes them so special, you're not explicitly defining every pixel of an image or every word of a sentence, it learns them.</p>
 					<h2 class="header-style-2" style="text-align: center;" id="coda">Coda</h2>
 					<p>Theoretically, these basic neural networks are capable of approximating any function given enough neurons, but due to computational implications, as a problem gets more and more complex, we've to come up with smart and efficient architectures to solve it.</p>
 					<p>To me, It's beautiful how a neural network can perform complex tasks such as image recognition, natural language processing, and generative art.<br>But at the heart of it are just these elegant algorithms, beating.  </p>
-					<p>All the variables are like ants.<br>On their own, they're worth nothing.<br>But when they come together, the magic happens.</p>
+					<p>All the variables are like ants.<br>
+						On their own, they're worth nothing.<br>
+						But when they come together, the magic happens.</p>
 					<p><strong>And that is what makes a Neural Network tick.</strong>  </p>
 					<p>I hope you had a great time reading.<br>And most importantly, I hope I was able to pull you into the fascinating world of Neural Networks.  </p>
             </p>
