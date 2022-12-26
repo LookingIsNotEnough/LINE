@@ -533,58 +533,58 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 0px 20px 20px 0px;
 }
 article:first-child::first-letter {
-  float: left;
-  padding: 5px 30px 15px;
-  margin-top: -50px;
-  margin-right: 16px;
-  font-family: "Hubot Sans","Mona Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 105px;
-  line-height: 1em;
-  color: #6080ff;
-  background: none;
-  border: 5px solid #4a6beb !important;
-  border-image: linear-gradient(135deg, #4a6beb, #cedfec) 10 !important;
+  float        : left;
+  padding      : 5px 30px 15px;
+  margin-top   : -50px;
+  margin-right : 16px;
+  font-family  : "Hubot Sans", "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size    : 105px;
+  line-height  : 1em;
+  color        : #6080ff;
+  background   : none;
+  border       : 5px solid #4a6beb !important;
+  border-image : linear-gradient(135deg, #4a6beb, #cedfec) 10 !important;
   /* border-image: linear-gradient(135deg, #4a6beb, #fdd9e5) 10 !important; */
   /* border-image: linear-gradient(135deg, #4a6beb, #6ddb90) 10 !important; */
 }
 /* Optimizing for phones */
 @media screen and (max-width: 768px) {
   .img-float-left {
-    float: center; 
+    float  : center;
     padding: 0 0 20px 0;
-    width: 100%; 
-    height: 100%
+    width  : 100%;
+    height : 100%
   }
   .img-float-right{
-    float: center;
+    float  : center;
     padding: 0 20px 0 0;
-    width: 100%; 
-    height: 100%
+    width  : 100%;
+    height : 100%
   }
   .blog-text-style {
-    font-size   : 15px;
-    font-weight : 500;
+    font-size  : 15px;
+    font-weight: 500;
   }
   .header-style-1 {
-    font-size   : 25px;
+    font-size: 25px;
   }
   .header-style-2 {
-    font-size   : 23px;
+    font-size: 23px;
   }
   .header-style-3 {
-    font-size   : 21px;
+    font-size: 21px;
   }
   .blockquote-style{
     font-size: 14.5px;
   }
 
   article:first-child::first-letter {
-    float: left;
-    padding: 5px 15px 15px;
-    margin-top: -20px;
+    float       : left;
+    padding     : 5px 15px 15px;
+    margin-top  : -20px;
     margin-right: 8px;
-    font-size: 65px;
-    line-height: 0.95em;
+    font-size   : 65px;
+    line-height : 1em;
   }
 }
 
@@ -595,9 +595,9 @@ article:first-child::first-letter {
 #fh5co-blog,
 #fh5co-counter,
 #fh5co-footer {
-  padding     : 6em 3em;
+  padding       : 6em 3em;
   vertical-align: bottom;
-  clear       : both;
+  clear         : both;
 }
 @media screen and (max-width: 768px) {
   #fh5co-about,
