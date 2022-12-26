@@ -107,7 +107,7 @@
 			<article class="blog-text">
 				<p>
 					Machine learning is everywhere these days, from how google assistant answers you, to how youtube recommends a video 
-					it thinks you'd like to watch. From note-taking software to medical diagnosis. Twitter and instagram uses it to choose what tweets and posts 
+					it thinks you'd like to watch. From note-taking software to medical diagnosis. Twitter and Instagram use it to choose what tweets and posts 
 					to show you first. As I said, everywhere. I don't know why but it always intimidated me. How can a machine learn? 
 					Like "learn" learn and not just memorize everything bit by bit as a hard drive does, or follow the hard-coded instructions like a CPU does.
 					<br>But you know what? When I finally exposed myself to it, I found the idea of a machine, learning, really simplistic in its essence.
@@ -143,7 +143,7 @@
 				<p>These visualizations of neural networks are there just as a device, to be able to understand and think about them. In actual code, all these relationships, the connections (weights), and neurons are just numerical values, represented as a Tensor (n-dimensional array).  </p>
 				</blockquote>
 				<p>Except for the input layer, each layer also has an activation function (not visualized in the figure), which takes in the relevant variables (like weights and the activation of the neurons in the previous layer), and causes the neurons to be more or less active. The more active a neuron is, the bigger its output to the next layer, and that helps the network make some decisions rather than others from the output space. </p>
-				<h3 class="header-style-3" id="what-does-the-activation-of-a-neuron-means">What does the activation of a neuron means?</h3>
+				<h3 class="header-style-3" id="what-does-the-activation-of-a-neuron-mean">What does the activation of a neuron mean?</h3>
 				<p>Let's take a simple example, let's say we have a neural network that is trained to classify whether an image of the face of a coin is showing heads or tails. Now let's input an image showing heads. When the image data reaches the hidden layers, the neurons that learned the patterns of the image showing heads get stimulated by the data and light up (more active), and neurons that learned the patterns of the tails quiet down (less active). These activations flow through all the hidden layers. Once it reaches the output layer (which has two neurons, one for heads and one for tails), the neuron that outputs heads is significantly more active than the one that outputs tails. Finally, the network compares both output neurons for max activation value and outputs heads. This is how the activation of neurons helps a neural network make predictions.</p>
 				<blockquote class="blockquote-style">
 				<p>To be more precise, the learned values of weights (connections) affect the activation function, which outputs a value, that is the activation of the neuron.  </p>
@@ -207,7 +207,7 @@
 				<p>All you need to know is this, the gradient of any function relative to a variable tells us how that function changes (increases or decreases in value) 
 					if we nudge that particular variable a little bit to the negative or positive side.<br>
 					So when we calculate the gradient of the loss function relative to all the variables (weights and biases) in the network, we are trying to find whether to subtract or 
-					add some value to those variables so that the output of the loss function (error) decreases, going towards the lowest point in the valley of loss function. That's all it does.</p>
+					add some value to those variables so that the output of the loss function (error) decreases, going towards the lowest point in the valley of the loss function. That's all it does.</p>
 				<blockquote class="blockquote-style">
 					<p>For the aficionados out there, here are the necessary equations used in the back-propagation algorithm to calculate the gradient of the loss function -</p>
 					<ul>
