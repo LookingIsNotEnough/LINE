@@ -584,7 +584,7 @@ article:first-child::first-letter {
     margin-top: -20px;
     margin-right: 8px;
     font-size: 65px;
-    line-height: 1em;
+    line-height: 0.95em;
   }
 }
 
