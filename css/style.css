@@ -1,6 +1,7 @@
 :root{
-  --background_col: rgb(253, 237, 218);
-  --ascent_col: #fc9a4a;
+  --background_col_light: rgb(253, 237, 218);
+  /* --background_col_light: rgb(29, 31, 51); */
+  --ascent_col_light: #fc9a4a;
 }
 
 @font-face {
@@ -17,14 +18,16 @@ body {
   font-size  : 14px;
   line-height: 1.7;
   color      : gray;
-  background : var(--background_col);
+  background : var(--background_col_light);
 }
 
 .dark-mode {
  background: rgb(255, 255, 255);
  color: whitesmoke;
 }
-
+.blur-back{
+  backdrop-filter: blur(4px);
+}
 #page {
   position          : relative;
   overflow-x        : hidden;
@@ -53,13 +56,13 @@ body {
 }
 
 a {
-  color             : var(--ascent_col);
+  color             : var(--ascent_col_light);
   -webkit-transition: 0.5s;
   -o-transition     : 0.5s;
   transition        : 0.5s;
 }
 a:hover, a:active, a:focus {
-  color          : var(--ascent_col);
+  color          : var(--ascent_col_light);
   outline        : none;
   text-decoration: none;
 }
@@ -77,17 +80,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 ::-webkit-selection {
   color     : #fff;
-  background: var(--ascent_col);
+  background: var(--ascent_col_light);
 }
 
 ::-moz-selection {
   color     : #fff;
-  background: var(--ascent_col);
+  background: var(--ascent_col_light);
 }
 
 ::selection {
   color     : #fff;
-  background: var(--ascent_col);
+  background: var(--ascent_col_light);
 }
 
 .container-wrap {
@@ -95,7 +98,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin        : 0 auto;
   margin-bottom : 1em;
   border-radius : 25px;
-  background    : var(--background_col);
+  background    : var(--background_col_light);
 }
 @media screen and (max-width: 768px) {
   .container-wrap {
@@ -128,7 +131,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-family   : "Source Sans Pro", sans-serif;
 }
 .fh5co-nav .fh5co-logo a span {
-  color: var(--ascent_col);
+  color: var(--ascent_col_light);
 }
 .fh5co-nav a {
   padding: 5px 10px;
@@ -173,7 +176,7 @@ h1, h2, h3, h4, h5, h6, figure {
   content           : '';
   width             : 58%;
   height            : 2px;
-  background        : var(--ascent_col);
+  background        : var(--ascent_col_light);
   margin            : 0 auto;
   opacity           : 0;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
@@ -254,7 +257,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color  : #fff;
 }
 .fh5co-nav ul li.btn-cta a span {
-  background           : var(--ascent_col);
+  background           : var(--ascent_col_light);
   padding              : 4px 10px;
   display              : -moz-inline-stack;
   display              : inline-block;
@@ -352,7 +355,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero {
   min-height: 500px;
   background: #fff url(../images/loader.gif) no-repeat center center;
-  background-color: var(--background_col);
+  background-color: var(--background_col_light);
   width     : 100%;
   float     : left;
 }
@@ -370,7 +373,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .flexslider .slides {
   border          : none;
   background-size : 75%;
-  background-color: var(--background_col);
+  background-color: var(--background_col_light);
   position        : relative;
   overflow        : hidden;
 }
@@ -402,7 +405,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .flexslider .flex-control-nav li a.flex-active {
   cursor    : pointer;
   background: transparent;
-  border    : 2px solid var(--ascent_col);
+  border    : 2px solid var(--ascent_col_light);
 }
 #fh5co-hero .flexslider .flex-direction-nav {
   display: none;
@@ -529,7 +532,21 @@ h1, h2, h3, h4, h5, h6, figure {
   float: right; 
   padding: 0px 20px 20px 0px;
 }
-
+article:first-child::first-letter {
+  float: left;
+  padding: 5px 30px 15px;
+  margin-top: -50px;
+  margin-right: 16px;
+  font-family: "Hubot Sans","Mona Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 105px;
+  line-height: 1em;
+  color: #6080ff;
+  background: none;
+  border: 5px solid #4a6beb !important;
+  border-image: linear-gradient(135deg, #4a6beb, #cedfec) 10 !important;
+  /* border-image: linear-gradient(135deg, #4a6beb, #fdd9e5) 10 !important; */
+  /* border-image: linear-gradient(135deg, #4a6beb, #6ddb90) 10 !important; */
+}
 /* Optimizing for phones */
 @media screen and (max-width: 768px) {
   .img-float-left {
@@ -559,6 +576,15 @@ h1, h2, h3, h4, h5, h6, figure {
   }
   .blockquote-style{
     font-size: 14.5px;
+  }
+
+  article:first-child::first-letter {
+    float: left;
+    padding: 5px 15px 15px;
+    margin-top: -20px;
+    margin-right: 16px;
+    font-size: 55px;
+    line-height: 1em;
   }
 }
 
@@ -1035,7 +1061,7 @@ input[type="text"] {
   display      : inline-block;
   zoom         : 1;
   *display     : inline;
-  color        : var(--ascent_col);
+  color        : var(--ascent_col_light);
   padding-left : 10px;
   padding-right: 10px;
 }
@@ -1359,9 +1385,9 @@ input[type="text"] {
 }
 
 .btn-primary {
-  background: var(--ascent_col);
+  background: var(--ascent_col_light);
   color     : #fff;
-  border    : 2px solid var(--ascent_col);
+  border    : 2px solid var(--ascent_col_light);
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background  : #7ad98f !important;
@@ -1369,11 +1395,11 @@ input[type="text"] {
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color     : var(--ascent_col);
-  border    : 2px solid var(--ascent_col);
+  color     : var(--ascent_col_light);
+  border    : 2px solid var(--ascent_col_light);
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: var(--ascent_col);
+  background: var(--ascent_col_light);
   color     : #fff;
 }
 
@@ -1503,7 +1529,7 @@ input[type="text"] {
 .form-control:active, .form-control:focus {
   outline     : none;
   box-shadow  : none;
-  border-color: var(--ascent_col);
+  border-color: var(--ascent_col_light);
 }
 
 .row-pb-md {
