@@ -17,14 +17,14 @@
 
 .dark-mode
 {
-  /* Light theme */
+  /* Dark theme */
   --bg-col          : rgb(37, 40, 68);
   --bg-col2         : rgb(49, 54, 88);
   --ascent_col      : rgb(161, 169, 255);
-  --font-col        : rgb(232, 233, 255);
+  --font-col        : rgb(241, 242, 255);
   --font-col2       : rgb(211, 214, 253);
   --font-weight     : 400;
-  --selection-col   : rgb(37, 40, 68);
+  --selection-col   : rgb(0, 0, 0);
   --header-style-col: rgb(255, 255, 255);
   --UI-font-col     : rgb(239, 240, 255);
   --UI-inactive-col : rgba(161, 169, 255, 0.5);
@@ -65,10 +65,6 @@ body
   color      : var(--font-col2);
   background : var(--bg-col);
 }
-svg
-{
-  fill: var(--ascent_col);
-}
 .blur-back{
   backdrop-filter: blur(4px);
 }
@@ -98,6 +94,7 @@ svg
   bottom            : 0;
   left              : 0;
   z-index           : 101;
+  /* backdrop-filter   : blur(4px); */
   background        : rgba(0, 0, 0, 0.7);
   content           : "";
 }
@@ -153,7 +150,7 @@ h1, h2, h3, h4, h5, h6, figure
   margin        : 0 auto;
   margin-bottom : 1em;
   border-radius : 25px;
-  /* background    : var(--background-col); */
+  background    : var(--bg-col);
 }
 @media screen and (max-width: 768px)
 {
@@ -452,7 +449,7 @@ h1, h2, h3, h4, h5, h6, figure
 {
   min-height: 500px;
   background: #fff url(../images/loader.gif) no-repeat center center;
-  /* background-color: var(--background-col); */
+  background-color: var(--bg-col);
   width     : 100%;
   float     : left;
 }
@@ -657,11 +654,11 @@ h1, h2, h3, h4, h5, h6, figure
 
 .img-float-left{
   float: left; 
-  padding: 0px 20px 20px 0px;
+  padding: 0px 20px 5px 0px;
 }
 .img-float-right{
   float: right; 
-  padding: 0px 20px 20px 0px;
+  padding: 0px 0px 5px 20px;
 }
 article:first-child::first-letter
 {
@@ -691,7 +688,7 @@ article:first-child::first-letter
   }
   .img-float-right{
     float  : center;
-    padding: 0 20px 0 0;
+    padding: 0 0 20px 0;
     width  : 100%;
     height : 100%
   }

@@ -20,13 +20,7 @@ darkModeToggle.addEventListener("click", () => {
    darkMode = localStorage.getItem("darkMode");
    console.log("Toggle");
    if ( darkMode !== "enabled" )
-   {
       enableDarkMode();
-      // darkModeToggle.add('icon-moon')
-   }
    else 
-   {
       disableDarkMode();
-      // darkModeToggle.add('icon-sun')
-   }
 })

@@ -1,6 +1,5 @@
 ;(function () 
 {
-	
 	'use strict';
 
 	var isMobile = 
@@ -9,40 +8,37 @@
 		{
 			return navigator.userAgent.match(/Android/i);
 		},
-			BlackBerry: function() 
-			{
+		BlackBerry: function() 
+		{
 			return navigator.userAgent.match(/BlackBerry/i);
 		},
-			iOS: function() 
-			{
+		iOS: function() 
+		{
 			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
 		},
-			Opera: function() 
-			{
+		Opera: function() 
+		{
 			return navigator.userAgent.match(/Opera Mini/i);
 		},
-			Windows: function() 
-			{
+		Windows: function() 
+		{
 			return navigator.userAgent.match(/IEMobile/i);
 		},
-			any: function() 
-			{
+		any: function() 
+		{
 			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
 		}
 	};
 
 	var mobileMenuOutsideClick = function() 
 	{
-
 		$(document).click(function (e) 
 		{
 	    var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
 			if (!container.is(e.target) && container.has(e.target).length === 0) 
 			{
-
 				if ( $('body').hasClass('offcanvas') ) 
 				{
-
 					$('body').removeClass('offcanvas');
 					$('.js-fh5co-nav-toggle').removeClass('active');
 				}
@@ -57,8 +53,8 @@
 		$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
 		var clone1 = $('.menu-1 > ul').clone();
 		$('#fh5co-offcanvas').append(clone1);
-		var clone2 = $('.menu-2 > ul').clone();
-		$('#fh5co-offcanvas').append(clone2);
+		// var clone2 = $('.menu-2 > ul').clone();
+		// $('#fh5co-offcanvas').append(clone2);
 
 		$('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
 		$('#fh5co-offcanvas')
@@ -102,8 +98,6 @@
 		$('body').on('click', '.js-fh5co-nav-toggle', function(event)
 		{
 			var $this = $(this);
-
-
 			if ( $('body').hasClass('overflow offcanvas') ) 
 			{
 				$('body').removeClass('overflow offcanvas');

@@ -1222,32 +1222,32 @@ input[type="text"] {
 	background: transparent;
 }
 .fh5co-nav-toggle.active i::before {
-  top:0;
+  top              : 0;
   -webkit-transform: rotateZ(45deg);
-     -moz-transform: rotateZ(45deg);
-      -ms-transform: rotateZ(45deg);
-       -o-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
-          background: $brand-white;
+  -moz-transform   : rotateZ(45deg);
+  -ms-transform    : rotateZ(45deg);
+  -o-transform     : rotateZ(45deg);
+  transform        : rotateZ(45deg);
+  background       : $brand-white;
 }
 .fh5co-nav-toggle.active i::after {
-  bottom:0;
+  bottom           : 0;
   -webkit-transform: rotateZ(-45deg);
-     -moz-transform: rotateZ(-45deg);
-      -ms-transform: rotateZ(-45deg);
-       -o-transform: rotateZ(-45deg);
-          transform: rotateZ(-45deg);
-          background: $brand-white;
+  -moz-transform   : rotateZ(-45deg);
+  -ms-transform    : rotateZ(-45deg);
+  -o-transform     : rotateZ(-45deg);
+  transform        : rotateZ(-45deg);
+  background       : $brand-white;
 }
 .fh5co-nav-toggle {
   position: absolute;
-  right: 0px;
-  top: 65px;
-  z-index: 21;
-  padding: 6px 0 0 0;
-  display: block;
-  margin: 0 auto;
-  display: none;
+  right   : 0px;
+  top     : 65px;
+  z-index : 21;
+  padding : 6px 0 0 0;
+  display : block;
+  margin  : 0 auto;
+  display : none;
   // background: #f86942;
   height: 44px;
   width: 44px;
