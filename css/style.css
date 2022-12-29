@@ -18,9 +18,9 @@
 .dark-mode
 {
   /* Dark theme */
-  --bg-col          : rgb(37, 40, 68);
-  --bg-col2         : rgb(49, 54, 88);
-  --ascent_col      : rgb(161, 169, 255);
+  --bg-col          : rgb(37, 39, 66);
+  --bg-col2         : rgb(44, 49, 78);
+  --ascent_col      : rgb(173, 179, 255);
   --font-col        : rgb(241, 242, 255);
   --font-col2       : rgb(211, 214, 253);
   --font-weight     : 400;
@@ -102,7 +102,7 @@ body
 a
 {
   font-family       : "Source Sans Pro", sans-serif;
-  font-weight       : 400;
+  font-weight       : 600;
   text-transform    : uppercase;
   color             : var(--ascent_col);
   -webkit-transition: 0.5s;
@@ -1490,8 +1490,9 @@ input[type="text"]
   width                : 50px;
   height               : 50px;
   display              : table;
-  background           : rgba(0, 0, 0, 0.5);
-  color                : #fff;
+  backdrop-filter: blur(10px);
+  background           : rgba(0, 0, 0, 0.2);
+  color                : var(--UI-font-col);
   text-align           : center;
   -webkit-border-radius: 4px;
   -moz-border-radius   : 4px;

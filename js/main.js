@@ -275,6 +275,33 @@
 
 	};
 
+	var darkModeToggle = () => {
+		console.log("dark mode Toggle called");
+		let darkMode = localStorage.getItem("darkMode");
+
+		const enableDarkMode = () => {
+			$('body').addClass('dark-mode');
+			localStorage.setItem("darkMode", "enabled");
+		}
+		
+		const disableDarkMode = () => {
+			$('body').removeClass('dark-mode');
+			localStorage.removeItem("darkMode");
+		}
+		
+		if (darkMode == "enabled")
+		   enableDarkMode();
+
+		$('body').on( 'click', '.theme-icon', function()
+		{
+			console.log("click");
+			darkMode = localStorage.getItem("darkMode");
+			if ( darkMode !== "enabled" )
+				enableDarkMode();
+			else 
+				disableDarkMode();
+		})
+	}
 	$(function()
 	{
 		mobileMenuOutsideClick();
@@ -286,6 +313,7 @@
 		goToTop();
 		loaderPage();
 		counterWayPoint();
+		darkModeToggle();
 	});
 
 
