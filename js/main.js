@@ -1,6 +1,19 @@
 ;(function () 
 {
 	'use strict';
+	$(function()
+	{
+		mobileMenuOutsideClick();
+		offcanvasMenu();
+		burgerMenu();
+		contentWayPoint();
+		sliderMain();
+		dropdown();
+		goToTop();
+		loaderPage();
+		counterWayPoint();
+		darkModeToggle();
+	});
 
 	var isMobile = 
 	{
@@ -276,7 +289,6 @@
 	};
 
 	var darkModeToggle = () => {
-		console.log("dark mode Toggle called");
 		let darkMode = localStorage.getItem("darkMode");
 
 		const enableDarkMode = () => {
@@ -294,7 +306,6 @@
 
 		$('body').on( 'click', '.theme-icon', function()
 		{
-			console.log("click");
 			darkMode = localStorage.getItem("darkMode");
 			if ( darkMode !== "enabled" )
 				enableDarkMode();
@@ -302,19 +313,4 @@
 				disableDarkMode();
 		})
 	}
-	$(function()
-	{
-		mobileMenuOutsideClick();
-		offcanvasMenu();
-		burgerMenu();
-		contentWayPoint();
-		sliderMain();
-		dropdown();
-		goToTop();
-		loaderPage();
-		counterWayPoint();
-		darkModeToggle();
-	});
-
-
 }());
