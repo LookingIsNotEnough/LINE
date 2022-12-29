@@ -26,7 +26,7 @@
   --font-weight     : 400;
   --selection-col   : rgb(0, 0, 0);
   --header-style-col: rgb(255, 255, 255);
-  --UI-font-col     : rgb(239, 240, 255);
+  --UI-font-col     : rgb(255, 255, 255);
   --UI-inactive-col : rgba(161, 169, 255, 0.5);
   --UI-border-col   : rgba(255, 255, 255, 0.05);
   --theme-icon      : "\e0a1";
