@@ -94,13 +94,16 @@ body
   bottom            : 0;
   left              : 0;
   z-index           : 101;
-  /* backdrop-filter   : blur(4px); */
-  background        : rgba(0, 0, 0, 0.7);
+  backdrop-filter   : blur(4px);
+  background        : rgba(0, 0, 0, 0.253);
   content           : "";
 }
 
 a
 {
+  font-family       : "Source Sans Pro", sans-serif;
+  font-weight       : 400;
+  text-transform    : uppercase;
   color             : var(--ascent_col);
   -webkit-transition: 0.5s;
   -o-transition     : 0.5s;
@@ -1372,7 +1375,8 @@ input[type="text"]
   position          : absolute;
   z-index           : 1901;
   width             : 200px;
-  background        : black;
+  backdrop-filter: blur(10px);
+  background        : rgba(0, 0, 0, 0.25);
   top               : 0;
   right             : 0;
   top               : 0;
@@ -1406,7 +1410,7 @@ input[type="text"]
 }
 #fh5co-offcanvas a
 {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
 }
 #fh5co-offcanvas a:hover
 {
@@ -1529,7 +1533,7 @@ input[type="text"]
   display       : inline-block;
   width         : 25px;
   height        : 2px;
-  color         : #252525;
+  color         : #ff0000;
   font          : bold 14px/.4 Helvetica;
   text-transform: uppercase;
   text-indent   : -55px;
