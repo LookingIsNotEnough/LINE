@@ -177,7 +177,6 @@
 	{
 		$('.has-dropdown').mouseenter(function()
 		{
-
 			var $this = $(this);
 			$this
 				.find('.dropdown')
