@@ -21,7 +21,7 @@
   /* Dark theme */
   --bg-col          : rgb(37, 39, 66);
   --bg-col2         : rgb(44, 49, 78);
-  --ascent_col      : rgb(173, 179, 255);
+  --ascent_col      : rgb(183, 188, 255);
   --font-col        : rgb(241, 242, 255);
   --font-col2       : rgb(211, 214, 253);
   --font-weight     : 400;
@@ -34,13 +34,14 @@
   --theme-icon      : "\e0a1";
   --main-art        : url(images/curves_dark.svg)
 }
-.theme-icon:after
+.theme-toggle:after
 {
   transition : 100ms;
   font-family: 'icomoon';
   font-weight: normal;
   font-style : normal;
   font-size  : larger;
+  align-items: center;
   content    : var(--theme-icon);
 }
 .main-art
@@ -102,6 +103,15 @@ body
 }
 
 a
+{
+  font-family       : "Source Sans Pro", sans-serif;
+  font-weight       : 600;
+  color             : var(--ascent_col);
+  -webkit-transition: 0.5s;
+  -o-transition     : 0.5s;
+  transition        : 0.5s;
+}
+li a
 {
   font-family       : "Source Sans Pro", sans-serif;
   font-weight       : 600;
@@ -664,15 +674,6 @@ h1, h2, h3, h4, h5, h6, figure
   border-left     : 0px;
 }
 
-.img-float-left{
-  float: left; 
-  padding: 0px 20px 5px 0px;
-}
-.img-float-right{
-  float: right; 
-  padding: 0px 0px 5px 20px;
-}
-
 article:first-child::first-letter
 {
   float        : left;
@@ -681,13 +682,22 @@ article:first-child::first-letter
   margin-right : 16px;
   font-family  : "Hubot Sans", "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size    : 105px;
-  line-height  : 1em;
+  line-height  : 1.1em;
   color        : #6080ff;
   background   : none;
   border       : 5px solid #4a6beb !important;
   border-image : linear-gradient(135deg, #4a6beb, #cedfec) 10 !important;
   /* border-image: linear-gradient(135deg, #4a6beb, #fdd9e5) 10 !important; */
   /* border-image: linear-gradient(135deg, #4a6beb, #6ddb90) 10 !important; */
+}
+
+.img-float-left{
+  float: left; 
+  padding: 0px 20px 5px 0px;
+}
+.img-float-right{
+  float: right; 
+  padding: 0px 0px 5px 20px;
 }
 /* Optimizing for phones */
 @media screen and (max-width: 768px)
@@ -729,7 +739,7 @@ article:first-child::first-letter
   article:first-child::first-letter
   {
     float       : left;
-    padding     : 5px 15px 15px;
+    padding     : 5px 15px 13px;
     margin-top  : -20px;
     margin-right: 8px;
     font-size   : 65px;
@@ -953,8 +963,13 @@ article:first-child::first-letter
   background-size    : cover;
   background-position: center center;
   background-repeat  : no-repeat;
-  position           : relative;
+  position           : abs;
   height             : 270px;
+  transition         : 300ms;
+}
+.fh5co-blog .blog-bg:hover
+{
+  transform: scale(1.035);
 }
 @media screen and (max-width: 768px)
 {
@@ -1872,6 +1887,25 @@ input[type="text"]
   height    : 100%;
   z-index   : 9999;
   background: url(../images/loader.gif) center no-repeat #fff;
+}
+#progress {
+	position        : fixed;
+	z-index         : 1;
+	top             : 0;
+	left            : -6px;
+	width           : 1%;
+	height          : 3px;
+	background-color: var(--ascent_col);
+  
+  -moz-border-radius   : 1px;
+  -webkit-border-radius: 1px;
+  border-radius        : 1px;
+
+  -moz-transition   : width 600ms ease-out,  opacity 500ms linear;
+  -ms-transition    : width 600ms ease-out,  opacity 500ms linear;
+  -o-transition     : width 600ms ease-out,  opacity 500ms linear;
+  -webkit-transition: width 600ms ease-out,  opacity 500ms linear;
+  transition        : width 1000ms ease-out, opacity 500ms linear;
 }
 
 .js .animate-box
