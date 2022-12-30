@@ -11,6 +11,7 @@
   --UI-font-col     : rgb(0, 0, 0);
   --UI-inactive-col : rgba(0, 0, 0, 0.3);
   --UI-border-col   : rgba(0, 0, 0, 0.05);
+  --gototop-bg-col  : rgba(255, 168, 61, 0.2);
   --theme-icon      : "\ea04";
   --main-art        : url(images/curves_light.svg)
 }
@@ -29,6 +30,7 @@
   --UI-font-col     : rgb(255, 255, 255);
   --UI-inactive-col : rgba(161, 169, 255, 0.5);
   --UI-border-col   : rgba(255, 255, 255, 0.05);
+  --gototop-bg-col  : rgba(126, 141, 255, 0.2);
   --theme-icon      : "\e0a1";
   --main-art        : url(images/curves_dark.svg)
 }
@@ -623,6 +625,13 @@ h1, h2, h3, h4, h5, h6, figure
   font-weight : var(--font-weight);
   color       : var(--font-col);
   font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.blog-title-style
+{
+  color: black; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-weight: 600; 
+  font-size: 100px;
 }
 .header-style-1
 {
@@ -1492,7 +1501,7 @@ input[type="text"]
   height               : 50px;
   display              : table;
   backdrop-filter: blur(10px);
-  background           : rgba(0, 0, 0, 0.2);
+  background           : var(--gototop-bg-col);
   color                : var(--UI-font-col);
   text-align           : center;
   -webkit-border-radius: 4px;
