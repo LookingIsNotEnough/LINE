@@ -325,7 +325,6 @@
 		
 			root.style.setProperty('--mouse-x', x);
 			root.style.setProperty('--mouse-y', y);
-			console.log(x, y);
 	  })
 	}
 
