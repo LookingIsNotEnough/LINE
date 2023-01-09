@@ -1,14 +1,5 @@
 
-TITLE: 
-Neat - 100% Fully Responsive Free HTML5 Bootstrap Template
-
-AUTHOR:
-DESIGNED & DEVELOPED by FreeHTML5.co
-
-Website: http://freehtml5.co/
-Twitter: http://twitter.com/fh5co
-Facebook: http://facebook.com/fh5co
-
+This is a repository for my blog, I used a template from FreeHTML5.co and did my own customizations.
 
 CREDITS:
 
