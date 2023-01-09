@@ -1,5 +1,5 @@
 
-**This is a repository for my blog, I used a template from FreeHTML5.co and did my own customizations.**
+This is a repository for my blog, I used a template from FreeHTML5.co and did my own customizations.
 
 CREDITS:
 
