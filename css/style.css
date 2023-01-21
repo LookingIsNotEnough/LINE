@@ -13,8 +13,9 @@
   --UI-border-col   : rgba(0, 0, 0, 0.05);
   --gototop-bg-col  : rgba(255, 197, 126, 0.2);
   --theme-icon      : "\ea04";
-  --main-art        : url(images/curves_light.svg)
+  --main-art        : url(images/curves_light.svg);
 }
+
 .dark-mode
 {
   /* Dark theme */
@@ -31,7 +32,7 @@
   --UI-border-col   : rgba(255, 255, 255, 0.05);
   --gototop-bg-col  : rgba(126, 141, 255, 0.2);
   --theme-icon      : "\e0a1";
-  --main-art        : url(images/curves_dark.svg)
+  --main-art        : url(images/curves_dark.svg);
 }
 
 .theme-toggle:after
@@ -43,6 +44,11 @@
   font-size  : larger;
   align-items: center;
   content    : var(--theme-icon);
+}
+.main-art
+{
+  background-image   : var(--main-art);
+  background-position: center;
 }
 
 @font-face
