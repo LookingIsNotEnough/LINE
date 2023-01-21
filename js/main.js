@@ -14,8 +14,6 @@
 		counterWayPoint();
 		darkModeToggle();
 		mousePos();
-		perspectiveRotate();
-		// window.onload = () => { progressBar(); };
 	});
 
 	var isMobile = 
@@ -162,11 +160,9 @@
 							{
 								el.addClass('fadeInUp animated-fast');
 							}
-
 							el.removeClass('item-animate');
 						},  k * 200, 'easeInOutExpo' );
 					});
-					
 				}, 100);
 				
 			}
@@ -325,50 +321,7 @@
 		
 			root.style.setProperty('--mouse-x', x);
 			root.style.setProperty('--mouse-y', y);
-	  })
-	}
-
-	var perspectiveRotate = () => 
-	{
-		let mouseOverContainer = document.getElementById("fh5co-blog");
-		let blogBG             = document.getElementById("blog-bg");
-		let constrain          = 20;
-
-		function transforms(x, y, el) {
-		let box   = el.getBoundingClientRect();
-		let calcX = -(y - box.y - (box.height / 2)) / constrain;
-		let calcY = (x - box.x - (box.width / 2)) / constrain;
-		
-		return "perspective(100px) "
-			+ "rotateX("+ calcX +"deg)"
-			+ "rotateY("+ calcY +"deg)";
-		};
-
-		function transformElement(el, xyEl) {
-		el.style.transform  = transforms.apply(null, xyEl);
-		}
-
-		mouseOverContainer.onmousemove = function(e) {
-			let xy = [e.clientX, e.clientY];
-			let position = xy.concat([blogBG]);
-
-			window.requestAnimationFrame(function(){
-				transformElement(blogBG, position);
-			});
-		};
-	}
-
-	var progressBar = () => 
-	{
-		if ($("#progress").length === 0) {
-			// inject the bar..
-			$("body").append($("<div><b></b><i></i></div>").attr("id", "progress"));
 			
-			// animate the progress..
-			$("#progress").width("101%").delay(800).fadeOut(1000, function() {
-				// ..then remove it.
-				$(this).remove();
-			});  
-		}
+		})
 	}
 }());
