@@ -463,7 +463,7 @@ h1, h2, h3, h4, h5, h6, figure
 #fh5co-hero
 {
   min-height: 500px;
-  background: #fff url(../images/loader.gif) no-repeat center center;
+  background: #fff url(../images/loading.svg) no-repeat center center;
   background-color: var(--bg-col);
   width     : 100%;
   float     : left;
@@ -1886,7 +1886,7 @@ input[type="text"]
   width     : 100%;
   height    : 100%;
   z-index   : 9999;
-  background: url(../images/loader.gif) center no-repeat white;
+  background: url(../images/loading.svg) center no-repeat whitesmoke;
 }
 #progress {
 	position        : fixed;
