@@ -13,7 +13,7 @@
 		loaderPage();
 		counterWayPoint();
 		darkModeToggle();
-		mousePos();
+		// mousePos();
 	});
 
 	var isMobile = 
@@ -289,12 +289,14 @@
 	var darkModeToggle = () => {
 		let darkMode = localStorage.getItem("darkMode");
 
-		const enableDarkMode = () => {
+		const enableDarkMode = () => 
+		{
 			$('body').addClass('dark-mode');
 			localStorage.setItem("darkMode", "enabled");
 		}
 		
-		const disableDarkMode = () => {
+		const disableDarkMode = () => 
+		{
 			$('body').removeClass('dark-mode');
 			localStorage.removeItem("darkMode");
 		}
