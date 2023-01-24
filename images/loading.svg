@@ -1,34 +1,38 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
    <style>
       .loading-spinner {
-         fill            : none;
+         fill            : aqua;
          animation       : rotate 2s ease-in-out infinite;
          transform-origin: 50%;
          stroke-linecap  : round ;
          stroke-linejoin : round ;
          stroke-dasharray: 60 120;
-         stroke          : rgba(0,0,0,0.432);
+         /* stroke          : rgba(0,0,0,0.432); */
          stroke-width: 0.5;
       }
-
+      .bounce2 {
+         animation: bounce2 2s ease infinite;
+      }
       @keyframes rotate {
-         0% {
-            stroke-dashoffset: 0;
-            transform: rotate(0deg);
+         0% { transform: translateX(20px); }
+         50% { 
+            fill     : blueviolet;
+            transform: translateX(-20px); 
          }
-         50% {
-            stroke-dashoffset: -23;
-            /* transform: rotate(360deg); */
+         100% { 
+            transform: translateX(20px);
          }
-         100% {
-            stroke-dashoffset: 0;
-            transform: rotate(360deg);
-         }
+         
+      }
+      @keyframes bounce2 {
+         0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+         40% {transform: translateY(-30px);}
+         60% {transform: translateY(-15px);}
       }
 
    </style>
-  <circle cx="50" cy="50" r="4" class="loading-spinner"/>
-  <circle cx="50" cy="50" r="4" filter="blur(0.3px)" class="loading-spinner"/>
+   <circle cx="50" cy="50" r="1%" class="loading-spinner"/>
+   <circle cx="50" cy="50" r="1%" filter="blur(1px)" class="loading-spinner"/>
 </svg>
 
 

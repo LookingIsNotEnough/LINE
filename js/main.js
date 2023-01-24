@@ -229,7 +229,8 @@
 	{
 		$(window).on( 'load', function(evant) 
 		{
-			$(".fh5co-loader").fadeOut("slow");
+			$(".loader").fadeOut("slow");
+			console.log("Page mode loaded.")
 		});
 	};
 
@@ -264,7 +265,7 @@
 	var sliderMain = function() 
 	{
 		
-	  	$('#fh5co-hero .flexslider').flexslider({
+	  	$('#hero .flexslider').flexslider({
 			animation: "fade",
 			slideshowSpeed: 5000,
 			directionNav: true,
