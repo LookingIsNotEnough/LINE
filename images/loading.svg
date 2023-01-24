@@ -18,7 +18,7 @@
          }
          50% {
             stroke-dashoffset: -23;
-            transform: rotate(360deg);
+            /* transform: rotate(360deg); */
          }
          100% {
             stroke-dashoffset: 0;

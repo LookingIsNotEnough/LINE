@@ -1023,6 +1023,11 @@ article:first-child::first-letter
 {
   font-size    : 14px;
   padding-right: 5px;
+  transition: 0.25s;
+}
+.fh5co-blog .blog-text .stuff li i:hover {
+  font-size    : 18px;
+  color: var(--UI-font-col);
 }
 .fh5co-blog .blog-text h3
 {
@@ -1312,12 +1317,11 @@ input[type="text"]
 .social-icons li a i
 {
   font-size: 20px;
-  transition: 0.2s;
+  transition: 0.25s;
 }
 .social-icons li a i:hover {
-  color: white;
+  color: var(--UI-font-col);
 }
-
 .fh5co-heading
 {
   margin-bottom: 5em;
@@ -1515,7 +1519,7 @@ input[type="text"]
   width                : 50px;
   height               : 50px;
   display              : table;
-  backdrop-filter: blur(10px);
+  backdrop-filter      : blur(10px);
   background           : var(--gototop-bg-col);
   color                : var(--UI-font-col);
   text-align           : center;
