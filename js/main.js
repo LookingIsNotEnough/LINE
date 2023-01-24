@@ -301,14 +301,15 @@
 		const disableDarkMode = () => 
 		{
 			$('body').removeClass('dark-mode');
-			localStorage.removeItem("darkMode");
+			localStorage.setItem("darkMode", "disabled");
 		}
 		
-		if (darkMode == "enabled")
+		if ( darkMode == "enabled" || ( darkMode != "disabled" && window.matchMedia('(prefers-color-scheme: dark)').matches) )
 		   enableDarkMode();
 
 		$('body').on( 'click', '.theme-toggle', function()
 		{
+			console.log(darkMode);
 			darkMode = localStorage.getItem("darkMode");
 			if ( darkMode !== "enabled" )
 				enableDarkMode();

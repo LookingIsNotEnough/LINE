@@ -1507,7 +1507,7 @@ input[type="text"]
   visibility        : hidden;
   -webkit-transition: 0.5s;
   -o-transition     : 0.5s;
-  transition        : 0.5s;
+  transition        : 0.25s;
 }
 .gototop.active
 {
@@ -1534,8 +1534,16 @@ input[type="text"]
   display       : table-cell;
   vertical-align: middle;
 }
+.gototop a i:hover {
+  animation: up 0.4s ease-in-out;
+}
+@keyframes up {
+  30% { transform: translateY(-7px); }
+  70% { transform: translateY(3px); }
+}
 .gototop a:hover, .gototop a:active, .gototop a:focus
 {
+  scale: 1.1;
   text-decoration: none;
   outline        : none;
 }
