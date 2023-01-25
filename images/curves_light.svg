@@ -17,13 +17,13 @@
       }
       
       .wd-1 { stroke-width: 1.2; }
-      .wd-2 { stroke-width: 2; }
-      .wd-3 { stroke-width: 3; }
+      .wd-2 { stroke-width: 2.2; }
+      .wd-3 { stroke-width: 3.2; }
       @media screen and (max-width: 768px) 
       {
-         .wd-1 { stroke-width: 2; }
-         .wd-2 { stroke-width: 4; }
-         .wd-3 { stroke-width: 6; }
+         .wd-1 { stroke-width: 2.4; }
+         .wd-2 { stroke-width: 4.4; }
+         .wd-3 { stroke-width: 6.4; }
       }
    </style>
    <g transform="scale(2)">
