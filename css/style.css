@@ -21,7 +21,8 @@
   /* Dark theme */
   /* --bg-col          : rgb(37, 39, 66); */
   --bg-col          : rgb(34, 36, 65);
-  --bg-col2         : rgb(44, 49, 78);
+  /* --bg-col2         : rgb(44, 49, 78); */
+  --bg-col2         : rgb(40, 43, 78);
   --ascent-col      : rgb(183, 188, 255);
   --font-col        : rgb(241, 242, 255);
   --font-col2       : rgb(211, 214, 253);
