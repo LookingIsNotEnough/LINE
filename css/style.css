@@ -249,7 +249,8 @@ h1, h2, h3, h4, h5, h6, figure
   font-family   : "Source Sans Pro", sans-serif;
 }
 .nav .logo:hover {
-  letter-spacing : 2px;
+  /* transition    : 0.25s; */
+  letter-spacing: 2px;
 }
 .nav .logo a span
 {
@@ -316,6 +317,7 @@ h1, h2, h3, h4, h5, h6, figure
 }
 .nav ul li a:hover
 {
+  transition: 0.25s;
   letter-spacing: 3px;
   color: var(--UI-font-col);
 }
@@ -1051,6 +1053,7 @@ article:first-child::first-letter
   opacity: 0.5;
 }
 .blog .blog-text a:hover {
+  transition        : 0.25s;
   letter-spacing: 2px;
 }
 .blog .blog-text .stuff
