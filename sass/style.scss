@@ -193,7 +193,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		}
 
 	}
-	.fh5co-logo {
+	.logo {
 		font-size: 24px;
 		margin: 0;
 		padding: 0;
@@ -358,7 +358,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	}
 }
 
-#fh5co-counter,
+#counter,
 .fh5co-bg{
 	background-size: cover;
 	background-position: top center;
@@ -548,17 +548,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 
-.fh5co-light-grey{
+.light-grey{
 	background: lighten($brand-black,98%);
 }
 
-#fh5co-about,
-#fh5co-services,
-#fh5co-contact,
-#fh5co-work,
-#fh5co-blog,
-#fh5co-counter,
-#fh5co-footer{
+#about,
+#services,
+#contact,
+#work,
+#blog,
+#counter,
+#footer{
 	padding: 6em 3em;
 	clear: both;
 	@media screen and (max-width: $screen-sm) {
@@ -681,7 +681,7 @@ h1, h2, h3, h4, h5, h6, figure {
 	.counter-wrap{
 		border: 1px solid red !important;
 	}
-	.fh5co-counter {
+	.counter {
 		font-size: 40px;
 		display: block;
 		color: rgba($brand-black,1);
@@ -691,7 +691,7 @@ h1, h2, h3, h4, h5, h6, figure {
 		margin-bottom: .3em;
 		font-family: $font-secondary;
 	}
-	.fh5co-counter-label {
+	.counter-label {
 		font-size: 12px;
 		margin-bottom: 2em;
 		display: block;
@@ -704,7 +704,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 // BLOG
-.fh5co-blog{
+.blog{
 	width: 100%;
 	float: left;
 	margin-bottom: 30px;
@@ -1015,9 +1015,9 @@ input[type="text"] {
 }
 
 
-#fh5co-footer {
+#footer {
 	margin-top: 20px !important;
-	.fh5co-footer-links {
+	.footer-links {
 		padding: 0;
 		margin: 0;
 		@media screen and(max-width: $screen-sm){

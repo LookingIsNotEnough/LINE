@@ -246,9 +246,9 @@
 
 	var counterWayPoint = function() 
 	{
-		if ($('#fh5co-counter').length > 0 ) 
+		if ($('#counter').length > 0 ) 
 		{
-			$('#fh5co-counter').waypoint( function( direction ) 
+			$('#counter').waypoint( function( direction ) 
 			{
 										
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) 
