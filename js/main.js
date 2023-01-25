@@ -220,9 +220,7 @@
 			}
 
 		});
-	
 	};
-
 
 	// Loading page
 	var loaderPage = function() 
@@ -294,7 +292,6 @@
 
 		const enableDarkMode = () => 
 		{
-			// $('body').removeClass('light-mode');
 			$('body').addClass('dark-mode');
 			localStorage.setItem("darkMode", "enabled");
 		}
@@ -302,14 +299,11 @@
 		const disableDarkMode = () => 
 		{
 			$('body').removeClass('dark-mode');
-			// $('body').addClass('light-mode');
 			localStorage.setItem("darkMode", "disabled");
 		}
 		
-		if ( darkMode == "enabled" || ( darkMode != "disabled" && window.matchMedia('(prefers-color-scheme: dark)').matches) )
+		if ( darkMode == "enabled" || ( darkMode != "disabled" && window.matchMedia('(prefers-color-scheme: dark)').matches ) )
 		   enableDarkMode();
-		// else
-		// 	disableDarkMode();
 
 		$('body').on( 'click', '.theme-toggle', function()
 		{

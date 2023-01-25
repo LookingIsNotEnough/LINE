@@ -266,27 +266,27 @@
 				<blockquote class="blockquote-style">
 					<p>For the aficionados out there, here are the necessary equations used in the back-propagation algorithm to calculate the gradient of the loss function -</p>
 					<ul>
-					<li>Error delta (\(\delta\)) of loss function relative to the last layer (\(L\)),</li>
+						<li>Error delta (\(\delta\)) of loss function relative to the last layer (\(L\)),</li>
 					</ul>
 					<p>   <strong>$$\delta^{L} = \bigtriangledown_a C\odot\sigma'(z^L)$$</strong>  </p>
 					<ul>
-					<li>Error delta (\(\delta\)) of loss function relative to other layers (\(l\)),</li>
+						<li>Error delta (\(\delta\)) of loss function relative to other layers (\(l\)),</li>
 					</ul>
 					<p>   <strong>$$\delta^{l} = \Big(\ (\ w^{l+1}\ )^T \delta^{l+1}\ \Big)\odot\sigma'(z^l)$$</strong>  </p>
 					<ul>
-					<li>Partial derivative of the loss function (\(\partial C\)) relative to the bias of the neuron in the index, \(j\), of layer, \(l\) (\(\partial b^l_j\)),</li>
+						<li>Partial derivative of the loss function (\(\partial C\)) relative to the bias of the neuron in the index, \(j\), of layer, \(l\) (\(\partial b^l_j\)),</li>
 					</ul>
 					<p>   <strong>$$\frac{\partial C}{\partial b^l_j} = \delta^{l}_j $$</strong></p>
 					<ul>
-					<li>Partial derivative of the loss function (\(\partial C)\) relative to the weight of the neuron in the index, \(jk\), of layer, \(l\) (\(\partial w^l_{jk}\)),</li>
+						<li>Partial derivative of the loss function (\(\partial C)\) relative to the weight of the neuron in the index, \(jk\), of layer, \(l\) (\(\partial w^l_{jk}\)),</li>
 					</ul>
 					<p>   <strong>$$\frac{\partial C}{\partial w^l_{jk}} = a^{l-1}_k\ \delta^{l}_j $$</strong></p>
 					<p>I know it's unfair to throw these cryptic symbols on you without explaining or deriving them, but these equations are the beating heart of any neural network, 
 						and this blog will feel incomplete to me if I don't even mention them.<br>
 						It's like when you see a language written that you don't speak, all the symbols seem gibberish, and that's ok. You can always learn it if it captures your attention enough.</p>
-					<p>If you really want a deeper sense of the mathematics of neural networks, I highly recommend going through the book, <a href="http://neuralnetworksanddeeplearning.com/">"Neural Networks and Deep Learning"</a> 
-						by Michael Nielsen, and the YouTube series, <a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">"Neural Networks"</a> by Grant Sanderson (3Blue1Brown). 
-						I also have a GitHub repository, <a href="https://github.com/ShawakSaraf/Neural-Network-from-Scratch">"Neural Network from Scratch"</a>, 
+					<p>If you really want a deeper sense of the mathematics of neural networks, I highly recommend going through the book, <a href="http://neuralnetworksanddeeplearning.com/" target="_blank">"Neural Networks and Deep Learning"</a> 
+						by Michael Nielsen, and the YouTube series, <a href="https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi" target="_blank">"Neural Networks"</a> by Grant Sanderson (3Blue1Brown). 
+						I also have a GitHub repository, <a href="https://github.com/ShawakSaraf/Neural-Network-from-Scratch" target="_blank">"Neural Network from Scratch"</a>, 
 						where I've built a neural network in python without using modern ML frameworks like Tensorflow or PyTorch. So if you fancy playing with code, have fun.</p>
 
 				</blockquote>
@@ -310,15 +310,15 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<ul class="social-icons">
-						<li><a href="https://twitter.com/ShawakSaraf"><i class="icon-twitter2"></i></a></li>
-						<li><a href="https://www.instagram.com/shawaksaraf/"><i class="icon-instagram"></i></a></li>
-						<li><a href="https://www.github.com/shawaksaraf/"><i class="icon-github"></i></a></li>
+						<li><a href="https://twitter.com/ShawakSaraf" target="_blank"><i class="icon-twitter2"></i></a></li>
+						<li><a href="https://www.instagram.com/shawaksaraf/" target="_blank"><i class="icon-instagram"></i></a></li>
+						<li><a href="https://www.github.com/shawaksaraf/" target="_blank"><i class="icon-github"></i></a></li>
 					</ul>
 				</div>
 			</div>
 		</footer>
-	</div><!-- END container-wrap -->
-</div>
+	</div>
+</div><!-- END container-wrap -->
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>

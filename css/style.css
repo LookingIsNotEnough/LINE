@@ -2,24 +2,7 @@
   /* Light theme */
   --bg-col          : rgb(253, 237, 218);
   --bg-col2         : rgb(253, 230, 202);
-  --ascent_col      : rgb(250, 126, 25);
-  --font-col        : rgb(80, 80, 80);
-  --font-col2       : rgb(104, 104, 104);
-  --font-weight     : 500;
-  --selection-col   : rgb(255, 255, 255);
-  --header-style-col: rgb(20, 20, 20);
-  --UI-font-col     : rgb(0, 0, 0);
-  --UI-inactive-col : rgba(0, 0, 0, 0.3);
-  --UI-border-col   : rgba(0, 0, 0, 0.05);
-  --gototop-bg-col  : rgba(255, 197, 126, 0.2);
-  --theme-icon      : "\ea04";
-  --main-art        : url(images/curves_light.svg);
-}
-.light-mode{
-  /* Light theme */
-  --bg-col          : rgb(253, 237, 218);
-  --bg-col2         : rgb(253, 230, 202);
-  --ascent_col      : rgb(250, 126, 25);
+  --ascent-col      : rgb(250, 126, 25);
   --font-col        : rgb(80, 80, 80);
   --font-col2       : rgb(104, 104, 104);
   --font-weight     : 500;
@@ -38,7 +21,7 @@
   /* Dark theme */
   --bg-col          : rgb(37, 39, 66);
   --bg-col2         : rgb(44, 49, 78);
-  --ascent_col      : rgb(183, 188, 255);
+  --ascent-col      : rgb(183, 188, 255);
   --font-col        : rgb(241, 242, 255);
   --font-col2       : rgb(211, 214, 253);
   --font-weight     : 400;
@@ -60,11 +43,6 @@
   font-size  : larger;
   align-items: center;
   content    : var(--theme-icon);
-}
-.main-art
-{
-  background-image   : var(--main-art);
-  background-position: center;
 }
 
 @font-face
@@ -133,7 +111,7 @@ body
 }
 
 .pace .pace-progress {
-	background   : var(--ascent_col);
+	background   : var(--ascent-col);
 	position     : fixed;
 	border-radius: 10px;
 	/* box-shadow   : 0 0 2px; */
@@ -148,7 +126,7 @@ a
 {
   font-family       : "Source Sans Pro", sans-serif;
   font-weight       : 600;
-  color             : var(--ascent_col);
+  color             : var(--ascent-col);
   -webkit-transition: 0.5s;
   -o-transition     : 0.5s;
   transition        : 0.5s;
@@ -158,14 +136,14 @@ li a
   font-family       : "Source Sans Pro", sans-serif;
   font-weight       : 600;
   text-transform    : uppercase;
-  color             : var(--ascent_col);
+  color             : var(--ascent-col);
   -webkit-transition: 0.5s;
   -o-transition     : 0.5s;
   transition        : 0.5s;
 }
 a:hover, a:active, a:focus
 {
-  color          : var(--ascent_col);
+  color          : var(--ascent-col);
   outline        : none;
   text-decoration: none;
 }
@@ -186,19 +164,19 @@ h1, h2, h3, h4, h5, h6, figure
 ::-webkit-selection
 {
   color     : var(--selection-col);
-  background: var(--ascent_col);
+  background: var(--ascent-col);
 }
 
 ::-moz-selection
 {
   color     : var(--selection-col);
-  background: var(--ascent_col);
+  background: var(--ascent-col);
 }
 
 ::selection
 {
   color     : var(--selection-col);
-  background: var(--ascent_col);
+  background: var(--ascent-col);
 }
 
 .container-wrap
@@ -254,7 +232,7 @@ h1, h2, h3, h4, h5, h6, figure
 }
 .nav .logo a span
 {
-  color: var(--ascent_col);
+  color: var(--ascent-col);
 }
 .nav a
 {
@@ -307,7 +285,7 @@ h1, h2, h3, h4, h5, h6, figure
   width             : 58%;
   height            : 2px;
   border-radius     : 10px;
-  background        : var(--ascent_col);
+  background        : var(--ascent-col);
   margin            : 0 auto;
   opacity           : 0;
   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
@@ -402,7 +380,7 @@ h1, h2, h3, h4, h5, h6, figure
 }
 .nav ul li.btn-cta a span
 {
-  background           : var(--ascent_col);
+  background           : var(--ascent-col);
   padding              : 4px 10px;
   display              : -moz-inline-stack;
   display              : inline-block;
@@ -572,7 +550,7 @@ h1, h2, h3, h4, h5, h6, figure
 {
   cursor    : pointer;
   background: transparent;
-  border    : 2px solid var(--ascent_col);
+  border    : 2px solid var(--ascent-col);
 }
 #hero .flexslider .flex-direction-nav
 {
@@ -693,7 +671,7 @@ h1, h2, h3, h4, h5, h6, figure
 }
 .blog-text-style a
 {
-  color: var(--ascent_col);
+  color: var(--ascent-col);
   transition        : 0.25s;
 }
 .blog-text-style a:hover
@@ -1373,7 +1351,7 @@ input[type="text"]
   display      : inline-block;
   zoom         : 1;
   *display     : inline;
-  color        : var(--ascent_col);
+  color        : var(--ascent-col);
   padding-left : 10px;
   padding-right: 10px;
 }
@@ -1763,9 +1741,9 @@ input[type="text"]
 
 .btn-primary
 {
-  background: var(--ascent_col);
+  background: var(--ascent-col);
   color     : #fff;
-  border    : 2px solid var(--ascent_col);
+  border    : 2px solid var(--ascent-col);
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active
 {
@@ -1775,12 +1753,12 @@ input[type="text"]
 .btn-primary.btn-outline
 {
   background: transparent;
-  color     : var(--ascent_col);
-  border    : 2px solid var(--ascent_col);
+  color     : var(--ascent-col);
+  border    : 2px solid var(--ascent-col);
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active
 {
-  background: var(--ascent_col);
+  background: var(--ascent-col);
   color     : #fff;
 }
 
@@ -1934,7 +1912,7 @@ input[type="text"]
 {
   outline     : none;
   box-shadow  : none;
-  border-color: var(--ascent_col);
+  border-color: var(--ascent-col);
 }
 
 .row-pb-md
@@ -1970,7 +1948,7 @@ input[type="text"]
 	left            : -6px;
 	width           : 1%;
 	height          : 3px;
-	background-color: var(--ascent_col);
+	background-color: var(--ascent-col);
   
   -moz-border-radius   : 1px;
   -webkit-border-radius: 1px;
