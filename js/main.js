@@ -230,7 +230,6 @@
 		$(window).on( 'load', function(evant) 
 		{
 			$(".loader").fadeOut("slow");
-			console.log("Page mode loaded.")
 		});
 	};
 
@@ -266,10 +265,10 @@
 	{
 		
 	  	$('#hero .flexslider').flexslider({
-			animation: "fade",
+			animation     : "fade",
 			slideshowSpeed: 5000,
-			directionNav: true,
-			start: function()
+			directionNav  : true,
+			start         : function()
 			{
 				setTimeout(function()
 				{
@@ -295,6 +294,7 @@
 
 		const enableDarkMode = () => 
 		{
+			// $('body').removeClass('light-mode');
 			$('body').addClass('dark-mode');
 			localStorage.setItem("darkMode", "enabled");
 		}
@@ -302,15 +302,17 @@
 		const disableDarkMode = () => 
 		{
 			$('body').removeClass('dark-mode');
+			// $('body').addClass('light-mode');
 			localStorage.setItem("darkMode", "disabled");
 		}
 		
 		if ( darkMode == "enabled" || ( darkMode != "disabled" && window.matchMedia('(prefers-color-scheme: dark)').matches) )
 		   enableDarkMode();
+		// else
+		// 	disableDarkMode();
 
 		$('body').on( 'click', '.theme-toggle', function()
 		{
-			console.log(darkMode);
 			darkMode = localStorage.getItem("darkMode");
 			if ( darkMode !== "enabled" )
 				enableDarkMode();
