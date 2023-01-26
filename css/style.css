@@ -25,7 +25,7 @@
   --bg-col2         : rgb(40, 43, 78);
   --ascent-col      : rgb(183, 188, 255);
   --font-col        : rgb(241, 242, 255);
-  --font-col2       : rgb(211, 214, 253);
+  --font-col2       : rgb(224, 226, 255);
   --font-weight     : 400;
   --selection-col   : rgb(0, 0, 0);
   --header-style-col: rgb(255, 255, 255);
@@ -181,30 +181,31 @@ h1, h2, h3, h4, h5, h6, figure
   background: var(--ascent-col);
 }
 
-.container-wrap
-{
+.container-wrap {
   max-width     : 1360px;
   margin        : 0 auto;
-  margin-bottom : 1em;
+  margin-bottom : 0em;
   border-radius : 25px;
   background    : var(--bg-col);
 }
-@media screen and (max-width: 768px)
-{
-  .container-wrap
-  {
+@media screen and (max-width: 768px) {
+  .container-wrap {
     width: 100%;
   }
 }
-
-.nav
-{
+.vignette {
+  position  : fixed;
+  top       : 0;
+  left      : 0;
+  width     : 100%;
+  height    : 100%;
+  box-shadow: 0 0 200px rgba(0, 0, 0, 0.164) inset;
+}
+.nav {
   margin: 5em 0 0 0;
 }
-@media screen and (max-width: 768px)
-{
-  .nav
-  {
+@media screen and (max-width: 768px) {
+  .nav {
     margin: 0;
   }
 }
@@ -227,6 +228,8 @@ h1, h2, h3, h4, h5, h6, figure
   text-transform: uppercase;
   font-weight   : 600;
   font-family   : "Source Sans Pro", sans-serif;
+  /* transition    : 0.5s; */
+
 }
 .nav .logo:hover {
   /* transition    : 0.25s; */
@@ -786,34 +789,21 @@ article:first-child::first-letter
   }
 }
 
-#about,
-#services,
-#contact,
-#work,
-#blog,
-#counter,
-#footer
+#about, #services, #contact, #work, #blog, #counter, #footer
 {
   padding       : 6em 3em;
-  vertical-align: bottom;
+  vertical-align: middle;
   clear         : both;
 }
 @media screen and (max-width: 768px)
 {
-  #about,
-  #services,
-  #contact,
-  #work,
-  #blog,
-  #counter,
-  #footer
+  #about, #services, #contact, #work, #blog, #counter, #footer
   {
     padding: 3em 1em;
   }
 }
 
-.services
-{
+.services {
   position          : relative;
   -webkit-transition: 0.3s;
   -o-transition     : 0.3s;
@@ -1002,19 +992,15 @@ article:first-child::first-letter
   height             : 270px;
   transition         : 300ms;
 }
-.blog .blog-bg:hover
-{
-  transform: scale(1.035);
+.blog .blog-bg:hover {
+  transform: scale(1.050);
 }
-@media screen and (max-width: 768px)
-{
-  .blog .blog-bg
-  {
+@media screen and (max-width: 768px) {
+  .blog .blog-bg {
     height: 300px;
   }
 }
-.blog .blog-text
-{
+.blog .blog-text {
   position          : relative;
   width             : 100%;
   padding           : 30px;
@@ -1025,8 +1011,7 @@ article:first-child::first-letter
   -o-transition     : 0.3s;
   transition        : 0.3s;
 }
-.blog .blog-text span
-{
+.blog .blog-text span {
   display      : inline-block;
   margin-bottom: 20px;
   font-size    : 14px !important;
@@ -1975,28 +1960,39 @@ input[type="text"]
   float        : left;
 }
 
-.fh5co-project-detail .fh5co-project-title
+.project-detail .project-title
 {
+  font-size   : 40px;
+  font-weight : var(--font-weight);
+  color       : var(--font-col);
+  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* font-size    : 20px; */
   margin-bottom: 5px;
 }
-.fh5co-project-detail .fh5co-project-sub
+.project-detail .project-content {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: var(--font-weight);
+  color: var(--font-col);
+  opacity: 1;
+}
+.project-detail .project-sub
 {
   margin-bottom: 20px;
   display      : block;
   font-weight  : 400;
 }
-.fh5co-project-detail .fh5co-project-service h3
+.project-detail .project-service h3
 {
   font-size    : 18px;
   margin-bottom: 5px;
 }
-.fh5co-project-detail .fh5co-project-service ul li, .fh5co-project-detail .fh5co-project-service ul
+.project-detail .project-service ul li, .project-detail .project-service ul
 {
   padding: 0;
   margin : 0;
 }
-.fh5co-project-detail .fh5co-project-service ul li
+.project-detail .project-service ul li
 {
   color      : ligthen(#000, 70%);
   list-style : none;
