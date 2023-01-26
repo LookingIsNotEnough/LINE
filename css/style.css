@@ -587,8 +587,8 @@ h1, h2, h3, h4, h5, h6, figure
   margin     : 0;
   padding    : 0;
   color      : var(--UI-font-col);
-  font-family: "Oxygen", sans-serif;
-  transition: 0.5s;
+  font-family: "Aboreto";
+  transition : 0.5s;
 }
 #hero .flexslider .slider-text > .slider-text-inner h1
 {
