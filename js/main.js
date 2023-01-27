@@ -322,7 +322,6 @@
 
 		window.addEventListener('scroll', ()=> {
 			var v = window.scrollY;
-			console.log(v);
 			title.style.top = v * 0.1  + 'px';
 		})
 	}
