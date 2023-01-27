@@ -154,8 +154,10 @@ p
 {
   margin-bottom: 20px;
 }
-
-h1, h2, h3, h4, h5, h6, figure
+h1, h2, h3 {
+  margin: 0 0 0 0;
+}
+.blog h1, h2, h3, h4, h5, h6, figure
 {
   color      : var(--font-col);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -683,15 +685,48 @@ h1, h2, h3, h4, h5, h6, figure
 {
   color: var(--UI-font-col);
 }
-
-
+.blog-title-style h1 {
+  font-size     : 100px;
+  padding       : 20% 0 20% 0;
+  text-align    : center;
+  color         : rgb(0, 0, 0);
+  font-family   : "Aboreto";
+  text-transform: uppercase;
+  animation     : slide 1.5s ease-out;
+  transition    : 0.5s;
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 980px)
+{
+  .blog-title-style h1 {
+    font-size  : 75px;
+  }
+}
+@media screen and (max-width: 768px)
+{
+  .blog-title-style h1 {
+    font-size  : 38px;
+    font-weight: 400;
+    padding    : 50% 10px 50% 10px;
+  }
+}
 .header-style-1
 {
-  font-size   : 33px;
-  font-weight : 500;
+  font-size  : 33px;
+  font-weight: 500;
   padding-top: 22px;
-  color       : var(--header-style-col);
-  font-family : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color      : var(--header-style-col);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .header-style-2
 {

@@ -225,15 +225,14 @@
 	// Loading page
 	var loaderPage = function() 
 	{
-		$(window).on( 'load', function(evant) 
-		{
+		$(window).on( 'load', function(evant) {
 			$(".loader").fadeOut("slow");
 		});
 	};
 
 	var counter = function() 
 	{
-		$('.js-counter').countTo({
+		$('.js-counter').countTo( {
 			 formatter: function (value, options) 
 			 {
 	      return value.toFixed(options.decimals);
@@ -242,10 +241,8 @@
 	};
 
 
-	var counterWayPoint = function() 
-	{
-		if ($('#counter').length > 0 ) 
-		{
+	var counterWayPoint = function() {
+		if ($('#counter').length > 0 ) {
 			$('#counter').waypoint( function( direction ) 
 			{
 										
@@ -259,37 +256,28 @@
 		}
 	};
 
-	var sliderMain = function() 
-	{
-		
+	var sliderMain = function() {
 	  	$('#hero .flexslider').flexslider({
 			animation     : "fade",
 			slideshowSpeed: 5000,
 			directionNav  : true,
-			start         : function()
-			{
-				setTimeout(function()
-				{
-					$('.slider-text').removeClass('animated fadeInUp');
-					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+			start         : function() {
+				setTimeout(function() {
+					$('.slider-text, .blog-title-style').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text, .blog-title-style').addClass('animated fadeInUp');
 				}, 500);
 			},
-			before: function()
-			{
-				setTimeout(function()
-				{
-					$('.slider-text').removeClass('animated fadeInUp');
-					$('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
+			before: function() {
+				setTimeout(function() {
+					$('.slider-text, .blog-title-style').removeClass('animated fadeInUp');
+					$('.flex-active-slide').find('.slider-text, .blog-title-style').addClass('animated fadeInUp');
 				}, 500);
 			}
-
 	  	});
-
 	};
 
 	var darkModeToggle = () => {
 		let darkMode = localStorage.getItem("darkMode");
-
 		const enableDarkMode = () => 
 		{
 			$('body').addClass('dark-mode');
