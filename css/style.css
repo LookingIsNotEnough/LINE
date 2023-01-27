@@ -703,7 +703,6 @@ figure {
   color         : rgb(0, 0, 0);
   font-family   : "Aboreto";
   text-transform: uppercase;
-  transition    : 0.5s;
   /* text-shadow: 1px 1px 10px; */
   transform: translateZ(-200px);
 }
