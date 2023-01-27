@@ -321,8 +321,8 @@
 		let title = document.getElementById("title");
 
 		window.addEventListener('scroll', ()=> {
-			var v = window.scrollY;
-			title.style.top = v * 0.1  + 'px';
+			var val = window.scrollY;
+			title.style.top = val * 0.1  + 'px';
 		})
 	}
 }());
