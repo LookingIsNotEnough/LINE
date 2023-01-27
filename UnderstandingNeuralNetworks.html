@@ -3,7 +3,7 @@
 	<head>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-231507627-1"></script>
-		<script>
+		<script type="text/javascript">
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
@@ -117,7 +117,12 @@
 						">
 						<div class="blog-title-style">
 							<div class="slider-text-inner text-center">
-								<h1 style="color: #000000;">Understanding<br>Neural Networks</h1>
+								<h1 id="title" style="
+								color: #000000;
+								/* background             : linear-gradient(135deg, #7a4aeb, #162563);
+								-webkit-text-fill-color: transparent;
+								-webkit-background-clip: text; */
+								">Understanding<br>Neural Networks</h1>
 							</div>
 						</div>
 						<!-- <p style="color: black; vertical-align: bottom; float: right;">Artwork by DeepMind</p> -->
@@ -321,6 +326,10 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
 	</div>
+	
+	<script type="text/javascript">
+		scrollParallax("title");
 
+	</script>
 </body>
 

@@ -14,6 +14,7 @@
 		counterWayPoint();
 		darkModeToggle();
 		// mousePos();
+		scrollParallax();
 	});
 
 	var isMobile = 
@@ -313,6 +314,16 @@
 			root.style.setProperty('--mouse-x', x);
 			root.style.setProperty('--mouse-y', y);
 			
+		})
+	}
+	var scrollParallax = () => 
+	{
+		let title = document.getElementById("title");
+
+		window.addEventListener('scroll', ()=> {
+			var v = window.scrollY;
+			console.log(v);
+			title.style.top = Math.min( v , 300 ) * 0.2  + 'px';
 		})
 	}
 }());

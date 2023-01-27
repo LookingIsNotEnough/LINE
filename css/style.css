@@ -687,9 +687,15 @@ figure {
 .blog-text-style a:hover {
   color: var(--UI-font-col);
 }
-.blog-title-style {
-  opacity       : 0;
 
+#title {
+  position: relative;
+  perspective: 1px;
+  transform: translateZ(-20px);
+}
+.blog-title-style {
+  opacity    : 0;
+  overflow-x : hidden;
 }
 .blog-title-style>.slider-text-inner h1 {
   font-size     : 100px;
@@ -698,6 +704,8 @@ figure {
   font-family   : "Aboreto";
   text-transform: uppercase;
   transition    : 0.5s;
+  /* text-shadow: 1px 1px 10px; */
+  transform: translateZ(-200px);
 }
 
 @media screen and (max-width: 980px) {
@@ -1964,12 +1972,12 @@ input[type="text"] {
 }
 
 .loader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
+  position  : fixed;
+  left      : 0px;
+  top       : 0px;
+  width     : 100%;
+  height    : 100%;
+  z-index   : 999;
   background: center no-repeat var(--bg-col);
 }
 
