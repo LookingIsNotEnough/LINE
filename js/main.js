@@ -225,7 +225,7 @@
 	// Loading page
 	var loaderPage = function() 
 	{
-		$(window).on( 'load', function(evant) {
+		$(window).on( 'DOMContentLoaded', function(evant) {
 			$(".loader").fadeOut("slow");
 		});
 	};
