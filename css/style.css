@@ -708,7 +708,7 @@ figure {
 
 @media screen and (max-width: 768px) {
   .blog-title-style>.slider-text-inner h1 {
-    font-size: 35px;
+    font-size: 34px;
     font-weight: 600;
     padding: 60% 10px 60% 10px;
   }
