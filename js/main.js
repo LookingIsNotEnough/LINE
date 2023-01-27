@@ -323,7 +323,7 @@
 		window.addEventListener('scroll', ()=> {
 			var v = window.scrollY;
 			console.log(v);
-			title.style.top = Math.min( v , 350 ) * 0.2  + 'px';
+			title.style.top = Math.min( v , 400 ) * 0.2  + 'px';
 		})
 	}
 }());
