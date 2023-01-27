@@ -257,7 +257,7 @@
 	};
 
 	var sliderMain = function() {
-	  	$('#hero .flexslider').flexslider({
+	  	$('#hero .flexslider').flexslider( {
 			animation     : "fade",
 			slideshowSpeed: 5000,
 			directionNav  : true,
