@@ -1,39 +1,43 @@
 :root {
   /* Light theme */
-  --bg-col: rgb(253, 237, 218);
-  --bg-col2: rgb(253, 230, 202);
-  --ascent-col: rgb(250, 126, 25);
-  --font-col: rgb(80, 80, 80);
-  --font-col2: rgb(104, 104, 104);
-  --font-weight: 500;
-  --selection-col: rgb(255, 255, 255);
+  --bg-col          : rgb(253, 237, 218);
+  --bg-col2         : rgb(253, 230, 202);
+  --ascent-col      : rgb(250, 126, 25);
+  --ascent-col-alpha: rgba(105, 105, 105, 0.45);
+  --ascent-col-alpha-2: rgba(105, 105, 105, 0.65);
+  --font-col        : rgb(80, 80, 80);
+  --font-col2       : rgb(104, 104, 104);
+  --font-weight     : 500;
+  --selection-col   : rgb(255, 255, 255);
   --header-style-col: rgb(20, 20, 20);
-  --UI-font-col: rgb(0, 0, 0);
-  --UI-inactive-col: rgba(0, 0, 0, 0.3);
-  --UI-border-col: rgba(0, 0, 0, 0.05);
-  --gototop-bg-col: rgba(255, 197, 126, 0.2);
-  --theme-icon: "\ea04";
-  --main-art: url(images/curves_light.svg);
+  --UI-font-col     : rgb(0, 0, 0);
+  --UI-inactive-col : rgba(0, 0, 0, 0.3);
+  --UI-border-col   : rgba(0, 0, 0, 0.05);
+  --gototop-bg-col  : rgba(255, 197, 126, 0.2);
+  --theme-icon      : "\ea04";
+  --main-art        : url(images/curves_light.svg);
 }
 
 .dark-mode {
   /* Dark theme */
   /* --bg-col          : rgb(37, 39, 66); */
   /* --bg-col2         : rgb(44, 49, 78); */
-  --bg-col: rgb(34, 36, 65);
-  --bg-col2: rgb(40, 43, 78);
-  --ascent-col: rgb(183, 188, 255);
-  --font-col: rgb(241, 242, 255);
-  --font-col2: rgb(224, 226, 255);
-  --font-weight: 400;
-  --selection-col: rgb(0, 0, 0);
+  --bg-col          : rgb(34, 36, 65);
+  --bg-col2         : rgb(40, 43, 78);
+  --ascent-col      : rgb(183, 188, 255);
+  --ascent-col-alpha: rgb(183, 188, 255, 0.4);
+  --ascent-col-alpha-2: rgb(183, 188, 255, 0.55);
+  --font-col        : rgb(241, 242, 255);
+  --font-col2       : rgb(224, 226, 255);
+  --font-weight     : 400;
+  --selection-col   : rgb(0, 0, 0);
   --header-style-col: rgb(255, 255, 255);
-  --UI-font-col: rgb(255, 255, 255);
-  --UI-inactive-col: rgba(161, 169, 255, 0.5);
-  --UI-border-col: rgba(255, 255, 255, 0.05);
-  --gototop-bg-col: rgba(126, 141, 255, 0.2);
-  --theme-icon: "\e0a1";
-  --main-art: url(images/curves_dark.svg);
+  --UI-font-col     : rgb(255, 255, 255);
+  --UI-inactive-col : rgba(161, 169, 255, 0.5);
+  --UI-border-col   : rgba(255, 255, 255, 0.05);
+  --gototop-bg-col  : rgba(126, 141, 255, 0.2);
+  --theme-icon      : "\e0a1";
+  --main-art        : url(images/curves_dark.svg);
 }
 
 .theme-toggle:after {
@@ -55,12 +59,12 @@
 }
 
 body {
-  font-family: "Oxygen", sans-serif;
+  font-family: "Oxygen";
   font-weight: 300;
-  font-size: 14px;
+  font-size  : 14px;
   line-height: 1.7;
-  color: var(--font-col2);
-  background: var(--bg-col);
+  color      : var(--font-col2);
+  background : var(--bg-col);
 }
 
 .blur-back {
@@ -432,10 +436,10 @@ figure {
 
 #counter,
 .fh5co-bg {
-  background-size: cover;
+  background-size    : cover;
   background-position: top center;
-  background-repeat: no-repeat;
-  position: relative;
+  background-repeat  : no-repeat;
+  position           : relative;
 }
 
 .fh5co-video {
@@ -695,15 +699,14 @@ figure {
 }
 .blog-title-style {
   opacity    : 0;
-  overflow-x : hidden;
 }
 .blog-title-style>.slider-text-inner h1 {
+  display: block;
   font-size     : 100px;
   padding       : 20% 0 20% 0;
   color         : rgb(0, 0, 0);
   font-family   : "Aboreto";
   text-transform: uppercase;
-  /* text-shadow: 1px 1px 10px; */
   transform: translateZ(-200px);
 }
 
@@ -836,9 +839,14 @@ article:first-child::first-letter {
   vertical-align: middle;
   clear: both;
 }
+#blog_thumbnail {
+  padding       : 6em 3em;
+  vertical-align: middle;
+  clear         : both;
+  z-index: 9999;
+}
 
 @media screen and (max-width: 768px) {
-
   #about,
   #services,
   #contact,
@@ -847,6 +855,9 @@ article:first-child::first-letter {
   #counter,
   #footer {
     padding: 3em 1em;
+  }
+  #blog_thumbnail {
+    padding: 4em 1em;
   }
 }
 
@@ -1022,25 +1033,30 @@ article:first-child::first-letter {
 }
 
 .blog .blog-bg {
-  display: block;
-  width: 100%;
-  background-size: cover;
+  display            : block;
+  width              : 100%;
+  background-size    : cover;
   background-position: center center;
-  background-repeat: no-repeat;
-  position: abs;
-  height: 270px;
-  transition: 300ms;
+  background-repeat  : no-repeat;
+  position           : abs;
+  height             : 270px;
+  transition         : 300ms;
+  box-shadow         : 0px 0px 20px var(--ascent-col-alpha);
 }
 
 .blog .blog-bg:hover {
-  transform: scale(1.050);
+  transform : scale(1.050);
+  box-shadow: 0px 0px 35px var(--ascent-col-alpha-2);
+  z-index   : 1000;
+  transition: 0.5s;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .blog .blog-bg {
-    height: 300px;
-  }
+    height    : 300px;
+    box-shadow: 0px 0px 30px;
 }
+} */
 
 .blog .blog-text {
   position: relative;
@@ -1466,26 +1482,26 @@ input[type="text"] {
 }
 
 #fh5co-offcanvas {
-  position: absolute;
-  z-index: 1901;
-  width: 200px;
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.25);
-  top: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  padding: 75px 40px 40px 40px;
-  overflow-y: auto;
-  display: none;
-  -moz-transform: translateX(270px);
-  -webkit-transform: translateX(270px);
-  -ms-transform: translateX(270px);
-  -o-transform: translateX(270px);
-  transform: translateX(270px);
+  position          : absolute;
+  z-index           : 1901;
+  width             : 200px;
+  backdrop-filter   : blur(10px);
+  background        : rgba(0, 0, 0, 0.25);
+  top               : 0;
+  right             : 0;
+  top               : 0;
+  bottom            : 0;
+  padding           : 75px 40px 40px 40px;
+  overflow-y        : auto;
+  display           : none;
+  -moz-transform    : translateX(270px);
+  -webkit-transform : translateX(270px);
+  -ms-transform     : translateX(270px);
+  -o-transform      : translateX(270px);
+  transform         : translateX(270px);
   -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
+  -o-transition     : 0.5s;
+  transition        : 0.5s;
 }
 
 @media screen and (max-width: 768px) {
@@ -1977,7 +1993,7 @@ input[type="text"] {
   width     : 100%;
   height    : 100%;
   z-index   : 999;
-  background: center no-repeat var(--bg-col);
+  background: var(--bg-col);
 }
 
 #progress {

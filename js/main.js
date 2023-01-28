@@ -226,7 +226,7 @@
 	// Loading page
 	var loaderPage = function() 
 	{
-		$(window).on( 'DOMContentLoaded', function(evant) {
+		$(window).on( 'DOMContentLoaded', function() {
 			$(".loader").fadeOut("slow");
 		});
 	};
@@ -246,7 +246,6 @@
 		if ($('#counter').length > 0 ) {
 			$('#counter').waypoint( function( direction ) 
 			{
-										
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) 
 				{
 					setTimeout( counter , 400);					
@@ -322,7 +321,7 @@
 
 		window.addEventListener('scroll', ()=> {
 			var val = window.scrollY;
-			title.style.top = val * 0.1  + 'px';
+			title.style.top = val*0.1 + 'px';
 		})
 	}
 }());
