@@ -719,7 +719,7 @@ figure {
 @media screen and (max-width: 768px) {
   .blog-title-style>.slider-text-inner h1 {
     font-size  : 33px;
-    padding     : 50% 0 0 0;
+    padding     : 55% 0 55% 0;
     margin: auto;
   }
 }
