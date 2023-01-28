@@ -15,6 +15,7 @@
 		darkModeToggle();
 		// mousePos();
 		scrollParallax();
+		mobileOpt();
 	});
 
 	var isMobile = 
@@ -318,10 +319,22 @@
 	var scrollParallax = () => 
 	{
 		let title = document.getElementById("title");
-
 		window.addEventListener('scroll', ()=> {
 			var val = window.scrollY;
 			title.style.top = val*0.1 + 'px';
 		})
+	}
+
+	var mobileOpt = () => {
+		if (isMobile.Android() !== null || isMobile.iOS() !== null) {
+			let title     = document.getElementById("title");
+			let font_size = title.getAttribute('font-size-mobile');
+
+			if( font_size !== null && screen.width < 768 )
+			{
+				title.setAttribute( 'style', 'font-size: ' + font_size );
+				console.log( "Mobile device detected!", "setting title font size :", font_size );
+			}
+		}
 	}
 }());
