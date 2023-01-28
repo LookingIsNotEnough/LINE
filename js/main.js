@@ -320,13 +320,15 @@
 	{
 		let title = document.getElementById("title");
 		window.addEventListener('scroll', ()=> {
-			var val = window.scrollY;
-			title.style.top = val*0.1 + 'px';
+			var Y_val = window.scrollY;
+			title.style.top = Y_val*0.15 + 'px';
 		})
 	}
 
-	var mobileOpt = () => {
-		if (isMobile.Android() !== null || isMobile.iOS() !== null) {
+	var mobileOpt = () => 
+	{
+		if (isMobile.Android() !== null || isMobile.iOS() !== null) 
+		{
 			let title     = document.getElementById("title");
 			let font_size = title.getAttribute('font-size-mobile');
 
