@@ -18,7 +18,7 @@
 		mobileOpt();
 	});
 
-	var isMobile = 
+	var isDevice = 
 	{
 		Android: function() 
 		{
@@ -42,9 +42,12 @@
 		},
 		any: function() 
 		{
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+			return (isDevice.Android() || isDevice.BlackBerry() || isDevice.iOS() || isDevice.Opera() || isDevice.Windows());
 		}
 	};
+	var isMobile = () => {
+		return isDevice.Android() || isDevice.iOS();
+	}
 
 	var mobileMenuOutsideClick = function() 
 	{
@@ -176,6 +179,9 @@
 
 	var dropdown = function() 
 	{
+		if (isMobile() !== null)
+			return;
+
 		$('.has-dropdown').mouseenter(function()
 		{
 			var $this = $(this);
@@ -258,7 +264,7 @@
 	};
 
 	var sliderMain = function() {
-	  	$('#hero .flexslider').flexslider( {
+	  	$('.flexslider').flexslider( {
 			animation     : "fade",
 			slideshowSpeed: 5000,
 			directionNav  : true,
@@ -279,7 +285,7 @@
 
 	var darkModeToggle = () => {
 		let darkMode = localStorage.getItem("darkMode");
-		const enableDarkMode = () => 
+		const enableDarkMode = () =>
 		{
 			$('body').addClass('dark-mode');
 			localStorage.setItem("darkMode", "enabled");
@@ -318,25 +324,67 @@
 	}
 	var scrollParallax = () => 
 	{
-		let title = document.getElementById("title");
+		let page          = document.getElementById("page");
+		let hero          = document.getElementById("hero");
+		let title         = document.getElementById("title");
+		let blog_main_art = document.getElementById("blog_main_art");
+		let blog          = document.getElementById("blog");
+
+		if (blog_main_art === null)
+			return;
+			
+		hero.style.maxHeight = 0;
+		blog.style.opacity   = 0;
+		blog.style.scale     = 0;
+
+		var innerW     = window.innerWidth;
+		var innerH     = window.innerHeight;
+		var scroll_padding = 50;
+		var blog_padding   = innerW > 768 ? 0.65 : 1;
+
 		window.addEventListener('scroll', ()=> {
-			var Y_val = window.scrollY;
-			title.style.top = Y_val*0.15 + 'px';
+			var Y_val          = window.scrollY;
+			var parallax_Val   = Y_val * 1;
+
+			blog.style.opacity = Math.min( 1, easeInCubic( Y_val/ innerW, 0, 1, 1) );
+			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val/ innerW, 0, 1, 1) );
+			// blog.style.left = -parallax_Val + 'px';
+
+			if ( innerW + scroll_padding > Y_val )
+			{
+				page.style.top           = parallax_Val + 'px';
+				blog_main_art.style.left = parallax_Val + 'px';
+				title.style.left         = -parallax_Val*0.9 + 'px';
+				title.style.top          = Y_val * 0.25 + 'px';
+				blog.style.transform     = 'translateY(' + - Math.min( innerH * blog_padding, Y_val) + 'px)';
+			}
 		})
 	}
 
 	var mobileOpt = () => 
 	{
-		if (isMobile.Android() !== null || isMobile.iOS() !== null) 
+		if (isMobile() !== null)
 		{
 			let title     = document.getElementById("title");
-			let font_size = title.getAttribute('font-size-mobile');
-
+			let font_size = title !== null ? title.getAttribute('font-size-mobile') : null;
+			
 			if( font_size !== null && screen.width < 768 )
 			{
 				title.setAttribute( 'style', 'font-size: ' + font_size );
-				console.log( "Mobile device detected!", "setting title font size :", font_size );
 			}
 		}
+	}
+	function easeInCubic(t, b, c, d) {
+		return c*(t/=d)*t*t + b;
+	}
+	function easeOutCubic(t, b, c, d) {
+		return c*((t=t/d-1)*t*t + 1) + b;
+	}
+	function easeOutQuint(t, b, c, d) {
+		return c*((t=t/d-1)*t*t*t*t + 1) + b;
+	}
+	
+	function easeOutExpo( t, b, c, d ) {
+		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
 	}
 }());

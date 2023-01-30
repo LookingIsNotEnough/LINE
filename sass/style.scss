@@ -712,13 +712,13 @@ h1, h2, h3, h4, h5, h6, figure {
 		width: 100%;
 	}
 	.blog-bg{
-		display: block;
-		width: 100%;
-		background-size: cover;
+		display            : block;
+		width              : 100%;
+		background-size    : cover;
 		background-position: center center;
-		background-repeat: no-repeat;
-		position: relative;
-		height: 270px;
+		background-repeat  : no-repeat;
+		position           : relative;
+		height             : 270px;
 		@media screen and(max-width: $screen-sm){
 			height: 300px;
 		}
