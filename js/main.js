@@ -324,6 +324,9 @@
 	}
 	var scrollParallax = () => 
 	{
+		// TODO: Make is smoother. really jittery on phones. 
+		if ( isMobile() !== null ) return;
+		
 		let page          = document.getElementById("page");
 		let hero          = document.getElementById("hero");
 		let title         = document.getElementById("title");
