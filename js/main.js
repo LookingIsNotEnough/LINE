@@ -286,14 +286,16 @@
 		{
 			$('body').addClass('dark-mode');
 			localStorage.setItem("darkMode", "enabled");
-			title_back.style.color = title_col_light !== null ? title_col_light : 'white';
+			if ( title_back !== null )
+				title_back.style.color = title_col_light !== null ? title_col_light : 'white';
 		}
 		
 		const disableDarkMode = () => 
 		{
 			$('body').removeClass('dark-mode');
 			localStorage.setItem("darkMode", "disabled");
-			title_back.style.color = title_col_dark !== null ? title_col_dark : 'black';
+			if ( title_back !== null )
+				title_back.style.color = title_col_dark !== null ? title_col_dark : 'black';
 		}
 		
 		if ( darkMode == "enabled" || ( darkMode != "disabled" && window.matchMedia('(prefers-color-scheme: dark)').matches ) )
