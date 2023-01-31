@@ -333,19 +333,11 @@
 		let blog_main_art = document.getElementById("blog_main_art");
 		if (blog_main_art === null) return;
 
-		let body        = document.body;
 		let page        = document.getElementById("page");
 		let hero        = document.getElementById("hero");
 		let title_front = document.getElementById("title-front");
 		let title_back  = document.getElementById("title-back");
 		let blog        = document.getElementById("blog");
-		
-		
-		const backgroundColor = window.getComputedStyle(body).backgroundColor;
-		// const rgb = backgroundColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
-		// const brightness = (parseInt(rgb[1]) + parseInt(rgb[2]) + parseInt(rgb[3])) / 3;
-		// title_back.style.color = brightness > 128 ? "black" : "white";
-
 			
 		hero.style.maxHeight = 0;
 		blog.style.opacity   = 0;
@@ -354,29 +346,29 @@
 		var innerW           = window.innerWidth;
 		var innerH           = window.innerHeight;
 		var scroll_padding   = 50;
-		var blog_tf_coef     = innerW > 768 ? 0.2 : 0.25;
-		var titleScrollY_pad = innerW > 768 ? 100 : 50;
+		var blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
+		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
 		var initTitlePadding = getPadding(title_front).top;
 		console.log('initTitlePadding: ', initTitlePadding);
 		
 		window.addEventListener('scroll', ()=> {
 			var Y_val        = window.scrollY;
-			var Y_val_W_norm = Y_val/innerW;
+			var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+			var Y_val_W_norm = scrollspeed/innerW;
 			
 			blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
 			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
 			console.log( blog.style.opacity );
-			if ( innerW + scroll_padding > Y_val )
+			if ( innerW + scroll_padding > scrollspeed )
 			{
-				// page.style.position           =  'fixed';
+				// page.style.position          = 'fixed';
 				// blog_main_art.style.position = 'fixed';
 				page.style.top               = Y_val + 'px';
-				blog_main_art.style.left     = Y_val + 'px';
-				title_front.style.left       = -Y_val + 'px';
+				blog.style.transform         = 'translateY(' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px)';
+				blog_main_art.style.left     = scrollspeed + 'px';
+				title_front.style.left       = -scrollspeed + 'px';
 				title_front.style.paddingTop = initTitlePadding - easeOutCubic(Y_val_W_norm, 0, initTitlePadding - titleScrollY_pad, 1) + 'px';
 				title_back.style.paddingTop  = initTitlePadding - easeOutCubic(Y_val_W_norm, 0, initTitlePadding - titleScrollY_pad, 1) + 'px';
-
-				blog.style.transform     = 'translateY(' + - Math.min( innerH * blog_tf_coef, Y_val) + 'px)';
 			}
 		})
 	}
@@ -399,26 +391,26 @@
 		const rect = el.getBoundingClientRect();
 		return {
 			left: rect.left + window.scrollX,
-			top: rect.top + window.scrollY
+			top : rect.top + window.scrollY
 		};
 	}
 	
 	function getPadding(element) {
-		let parent = element.parentNode;
+		let parent       = element.parentNode;
 		let parentHeight = parent.offsetHeight;
-		let parentWidth = parent.offsetWidth;
+		let parentWidth  = parent.offsetWidth;
 
-		let boxSizing = window.getComputedStyle(element).boxSizing;
-		let paddingTop = parseFloat(window.getComputedStyle(element).paddingTop);
+		let boxSizing     = window.getComputedStyle(element).boxSizing;
+		let paddingTop    = parseFloat(window.getComputedStyle(element).paddingTop);
 		let paddingBottom = parseFloat(window.getComputedStyle(element).paddingBottom);
-		let paddingLeft = parseFloat(window.getComputedStyle(element).paddingLeft);
-  		let paddingRight = parseFloat(window.getComputedStyle(element).paddingRight);
+		let paddingLeft   = parseFloat(window.getComputedStyle(element).paddingLeft);
+		let paddingRight  = parseFloat(window.getComputedStyle(element).paddingRight);
 
 		if (boxSizing === "border-box") {
-			paddingTop += parseFloat(window.getComputedStyle(element).borderTopWidth);
+			paddingTop    += parseFloat(window.getComputedStyle(element).borderTopWidth);
 			paddingBottom += parseFloat(window.getComputedStyle(element).borderBottomWidth);
-			paddingLeft += parseFloat(window.getComputedStyle(element).borderLeftWidth);
-    		paddingRight += parseFloat(window.getComputedStyle(element).borderRightWidth);
+			paddingLeft   += parseFloat(window.getComputedStyle(element).borderLeftWidth);
+			paddingRight  += parseFloat(window.getComputedStyle(element).borderRightWidth);
 		}
 
 		let paddingPercentage = ((paddingTop + paddingBottom) / parentHeight) * 100;
@@ -444,8 +436,4 @@
 	function easeOutExpo( t, b, c, d ) {
 		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
 	}
-
-
-
-
 }());

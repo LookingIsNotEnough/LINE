@@ -9,7 +9,7 @@
   --font-col2       : rgb(104, 104, 104);
   --font-weight     : 500;
   --selection-col   : rgb(255, 255, 255);
-  --header-style-col: rgb(20, 20, 20);
+  --h-style-col: rgb(20, 20, 20);
   --UI-font-col     : rgb(0, 0, 0);
   --UI-inactive-col : rgba(0, 0, 0, 0.3);
   --UI-border-col   : rgba(0, 0, 0, 0.05);
@@ -31,7 +31,7 @@
   --font-col2       : rgb(224, 226, 255);
   --font-weight     : 400;
   --selection-col   : rgb(0, 0, 0);
-  --header-style-col: rgb(255, 255, 255);
+  --h-style-col: rgb(255, 255, 255);
   --UI-font-col     : rgb(255, 255, 255);
   --UI-inactive-col : rgba(161, 169, 255, 0.5);
   --UI-border-col   : rgba(255, 255, 255, 0.05);
@@ -367,28 +367,23 @@ h1, h2, h3 {
   }
 }
 
-.header-style-1 {
+.h1-style, .h2-style, .h3-style {
   font-size  : 33px;
-  font-weight: 500;
   padding-top: 22px;
-  color      : var(--header-style-col);
-  font-family: Tahoma;
+  font-weight: 500;
+  color      : var(--h-style-col);
+  font-family: Helvetica;
+  /* text-transform: uppercase; */
 }
 
-.header-style-2 {
+.h2-style {
   font-size  : 30px;
-  font-weight: 500;
   padding-top: 20px;
-  color      : var(--header-style-col);
-  font-family: Tahoma;
 }
 
-.header-style-3 {
+.h3-style {
   font-size  : 27px;
-  font-weight: 500;
   padding-top: 15px;
-  color      : var(--header-style-col);
-  font-family: Tahoma;
 }
 
 .blockquote-style {
@@ -445,15 +440,15 @@ article:first-child::first-letter {
     font-weight: var(--font-weight);
   }
 
-  .header-style-1 {
+  .h1-style {
     font-size: 25px;
   }
 
-  .header-style-2 {
+  .h2-style {
     font-size: 23px;
   }
 
-  .header-style-3 {
+  .h3-style {
     font-size: 21px;
   }
 
@@ -483,7 +478,6 @@ article:first-child::first-letter {
   clear           : both;
 }
 #blog_main_art li {
-  background-position: center;
   border-radius      : 50px;
   margin             : auto;
   box-shadow         : 0px 0px 35px var(--ascent-alpha-2);
