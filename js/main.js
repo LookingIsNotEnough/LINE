@@ -351,35 +351,30 @@
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
-		var innerW            = window.innerWidth;
-		var innerH            = window.innerHeight;
-		var scroll_padding    = 50;
-		var blog_tf_coef      = innerW > 768 ? 0.2 : 0.25;
-		var titleScrollY_coef = innerW > 768 ? 0.1 : 0.45;
-		var pageOriginalTop = page.offsetTop;
+		var innerW           = window.innerWidth;
+		var innerH           = window.innerHeight;
+		var scroll_padding   = 50;
+		var blog_tf_coef     = innerW > 768 ? 0.2 : 0.25;
+		var titleScrollY_pad = innerW > 768 ? 100 : 50;
 		var initTitlePadding = getPadding(title_front).top;
 		console.log('initTitlePadding: ', initTitlePadding);
 		
 		window.addEventListener('scroll', ()=> {
 			var Y_val        = window.scrollY;
-			var Y_val_norm        = window.scrollY/innerH;
+			var Y_val_W_norm = Y_val/innerW;
 			
-			blog.style.opacity = Math.min( 1, easeInCubic( Y_val/ innerW, 0, 1, 1) );
-			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val/ innerW, 0, 1, 1) );
-			// blog.style.left = -parallax_Val + 'px';
+			blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
+			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+			console.log( blog.style.opacity );
 			if ( innerW + scroll_padding > Y_val )
 			{
-				// page.style.transform     = 'translateY(' + Y_val + 'px)';
-				page.style.top           =  Y_val + 'px';
-				blog_main_art.style.left = Y_val + 'px';
-				title_front.style.left   = -Y_val + 'px';
-				// title_front.style.top    = -Y_val * titleScrollY_coef + 'px';
-				// title_back.style.top     = -Y_val * titleScrollY_coef + 'px';
-				// title_front.style.paddingTop    = Math.max( 0.2, (1-Y_val_norm)) * initTitlePadding + 'px';
-				// title_back.style.paddingTop     = Math.max( 0.2, (1-Y_val_norm)) * initTitlePadding + 'px';
-
-				title_front.style.paddingTop    = initTitlePadding - easeOutCubic(Y_val/ innerW, 0, initTitlePadding-100, 1) + 'px';
-				title_back.style.paddingTop     = initTitlePadding - easeOutCubic(Y_val/ innerW, 0, initTitlePadding-100, 1) + 'px';
+				// page.style.position           =  'fixed';
+				// blog_main_art.style.position = 'fixed';
+				page.style.top               = Y_val + 'px';
+				blog_main_art.style.left     = Y_val + 'px';
+				title_front.style.left       = -Y_val + 'px';
+				title_front.style.paddingTop = initTitlePadding - easeOutCubic(Y_val_W_norm, 0, initTitlePadding - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingTop  = initTitlePadding - easeOutCubic(Y_val_W_norm, 0, initTitlePadding - titleScrollY_pad, 1) + 'px';
 
 				blog.style.transform     = 'translateY(' + - Math.min( innerH * blog_tf_coef, Y_val) + 'px)';
 			}
@@ -428,11 +423,11 @@
 
 		let paddingPercentage = ((paddingTop + paddingBottom) / parentHeight) * 100;
 		return {
-			top   : paddingTop,
-			bottom: paddingBottom,
-			left  : paddingLeft,
-			right : paddingRight,
-			percent : paddingPercentage
+			top    : paddingTop,
+			bottom : paddingBottom,
+			left   : paddingLeft,
+			right  : paddingRight,
+			percent: paddingPercentage
 		}
 	 }
 

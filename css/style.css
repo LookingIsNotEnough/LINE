@@ -37,7 +37,7 @@
   --UI-border-col   : rgba(255, 255, 255, 0.05);
   --gototop-bg-col  : rgba(126, 141, 255, 0.2);
   --theme-icon      : "\e0a1";
-  --main-art        : url(images/curves_dark.svg);
+  --main-art        : url(images/curves_dark.svg); 
 }
 
 .theme-toggle:after {
@@ -482,8 +482,11 @@ article:first-child::first-letter {
   vertical-align  : middle;
   clear           : both;
 }
-#blog_main_art {
-  overflow: visible;
+#blog_main_art li {
+  background-position: center;
+  border-radius      : 50px;
+  margin             : auto;
+  box-shadow         : 0px 0px 35px var(--ascent-alpha-2);
 }
 
 .stop-scrolling {

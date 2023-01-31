@@ -14,7 +14,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Understanding Neural Networks</title>
-		<link rel  = "icon" type           = "image/favicon.ico" href="images/web_icon.ico" />
+		<link rel  = "icon" type           = "image/favicon.ico" href="images/UNN/web_icon.ico" />
 		<meta name = "viewport" content    = "width=device-width, initial-scale=1">
 		<meta name = "description" content = "#" />
 		<meta name = "keywords" content    = "#" />
@@ -22,7 +22,7 @@
 
 		<!-- Open graph integration -->
 		<meta property = "og:title" content       = "Understanding Neural Networks" />
-		<meta property = "og:image" content       = "https://lookingisnotenough.com/images/NeuralNetworks.png" />
+		<meta property = "og:image" content       = "https://lookingisnotenough.com/images/UNN/UNN(Medium).PNG" />
 		<meta property = "og:url" content         = "https://lookingisnotenough.com/UnderstandingNeuralNetworks" />
 		<meta property = "og:description" content = "What makes a Neural Network tick?" />
 		<meta property = "og:site-name" content   = "Looking Is Not Enough" />
@@ -117,13 +117,7 @@
 			</div>
 			<div class="flexslider">
 				<ul class="slides" id="blog_main_art" style="overflow: visible;">
-					<li style=" 
-							background-image   : url(images/deepmind-9Y4ronQmPjk-unsplash.jpg);
-							background-position: center;
-							border-radius      : 70px;
-							margin             : auto;
-							box-shadow: 0px 0px 35px var(--ascent-alpha-2);
-						">
+					<li style="background-image : url(images/UNN/deepmind-9Y4ronQmPjk-unsplash.jpg); background-position: center;">
 						<div class="blog-title-style" style="overflow: hidden;">
 							<div class="slider-text-inner text-center">
 								<h1 id="title-front" style="
@@ -161,7 +155,7 @@
 					<h2 class="header-style-2" style="text-align: center;" id="what-makes-a-neural-network-tick">What makes a Neural Network tick?</h2>
 					<figure>
 						<p align="center">
-							<img src="images/NeuralNetworks.png" width=100% height=100%/>
+							<img src="images/UNN/NeuralNetworks.png" width=100% height=100%/>
 						</p>
 					</figure>
 					<p>Neural networks are function approximators. Just like a mathematical function, they take in an input, do some calculations on it, and output the result.<br>  
@@ -174,7 +168,7 @@
 						the result (their output) to the next layer. By flowing the input data through many layers with multiple neurons, 
 						a neural network can learn to recognize complex patterns and make predictions or decisions based on that data.</p>
 					<figure>	
-						<img class="img-float-left" src="images/NN_layers.png" width=50% height=50%/>
+						<img class="img-float-left" src="images/UNN/NN_layers.png" width=50% height=50%/>
 					</figure>						
 					
 					<p>You can see in the figure, there's an input layer with some neurons connected to the neurons in the first hidden layer (they're called hidden layers because 
@@ -204,7 +198,7 @@
 					</blockquote>
 					<p>Here we've a simple network with an input layer, a hidden layer, and an output layer with one neuron each.</p>
 						<figure>
-							<img class="img-float-right" src="images/output_activation.png" width=45% height=45%/>
+							<img class="img-float-right" src="images/UNN/output_activation.png" width=45% height=45%/>
 						</figure>
 						<p>let's denote,</p>
 					<ul>
@@ -221,7 +215,7 @@
 					</ul>
 					<p><strong>$$a^{\ l}\ =\ \sigma\left(\sum_{ }^{ }w^{\ l}\ a^{\ l-1}+b^{\ l}\right)$$</strong></p>
 					<figure>
-						<img class="img-float-left"  src="images/layer_activation.png" width=50% height=50%/>
+						<img class="img-float-left"  src="images/UNN/layer_activation.png" width=50% height=50%/>
 					</figure>
 					
 					<p>As you can see, the activation of a neuron in a layer (\(l\)) is the weighted sum of all activations in the previous layer (\(l-1\)) plus the bias term, 
@@ -251,7 +245,7 @@
 						The closer the output of the loss function is to zero, the closer the predictions are to the labels.<br>Let's explore the training of a neural network.</p>
 					<h2 class="header-style-2" id="-gradient-descent">Gradient Descent</h2>
 					<figure>
-						<img style="float: right;" src="images/Gradient_Desent.gif" width=40% height=40%/>
+						<img style="float: right;" src="images/UNN/Gradient_Desent.gif" width=40% height=40%/>
 					</figure>
 					
 					<p>Think of the loss function as a mountain range, and you as a hiker traveling through it. You want to reach the lowest point of a valley which also is the lowest point in 
