@@ -1,43 +1,43 @@
 :root {
   /* Light theme */
-  --bg-col          : rgb(253, 237, 218);
-  --bg-col2         : rgb(253, 230, 202);
-  --ascent-col      : rgb(250, 126, 25);
-  --ascent-alpha    : rgba(105, 105, 105, 0.45);
-  --ascent-alpha-2  : rgba(105, 105, 105, 0.65);
-  --font-col        : rgb(80, 80, 80);
-  --font-col2       : rgb(104, 104, 104);
-  --font-weight     : 500;
-  --selection-col   : rgb(255, 255, 255);
-  --h-style-col: rgb(20, 20, 20);
-  --UI-font-col     : rgb(0, 0, 0);
-  --UI-inactive-col : rgba(0, 0, 0, 0.3);
-  --UI-border-col   : rgba(0, 0, 0, 0.05);
-  --gototop-bg-col  : rgba(255, 197, 126, 0.2);
-  --theme-icon      : "\ea04";
-  --main-art        : url(images/curves_light.svg);
+  --bg-col         : rgb(253, 237, 218);
+  --bg-col2        : rgb(253, 230, 202);
+  --ascent-col     : rgb(250, 126, 25);
+  --shadow-alpha   : rgba(0, 0, 0, 0.45);
+  --shadow-alpha-2 : rgba(0, 0, 0, 0.55);
+  --font-col       : rgb(80, 80, 80);
+  --font-col2      : rgb(104, 104, 104);
+  --font-weight    : 500;
+  --selection-col  : rgb(255, 255, 255);
+  --h-style-col    : rgb(20, 20, 20);
+  --UI-font-col    : rgb(0, 0, 0);
+  --UI-inactive-col: rgba(0, 0, 0, 0.3);
+  --UI-border-col  : rgba(0, 0, 0, 0.05);
+  --gototop-bg-col : rgba(255, 197, 126, 0.2);
+  --theme-icon     : "\ea04";
+  --main-art       : url(images/curves_light.svg);
 }
 
 .dark-mode {
   /* Dark theme */
   /* --bg-col          : rgb(37, 39, 66); */
   /* --bg-col2         : rgb(44, 49, 78); */
-  --bg-col          : rgb(30, 32, 65);
-  --bg-col2         : rgb(40, 43, 78);
-  --ascent-col      : rgb(183, 188, 255);
-  --ascent-alpha    : rgb(183, 188, 255, 0.4);
-  --ascent-alpha-2  : rgb(183, 188, 255, 0.55);
-  --font-col        : rgb(241, 242, 255);
-  --font-col2       : rgb(224, 226, 255);
-  --font-weight     : 400;
-  --selection-col   : rgb(0, 0, 0);
-  --h-style-col: rgb(255, 255, 255);
-  --UI-font-col     : rgb(255, 255, 255);
-  --UI-inactive-col : rgba(161, 169, 255, 0.5);
-  --UI-border-col   : rgba(255, 255, 255, 0.05);
-  --gototop-bg-col  : rgba(126, 141, 255, 0.2);
-  --theme-icon      : "\e0a1";
-  --main-art        : url(images/curves_dark.svg); 
+  --bg-col         : rgb(30, 32, 65);
+  --bg-col2        : rgb(40, 43, 78);
+  --ascent-col     : rgb(183, 188, 255);
+  --shadow-alpha   : rgba(0, 0, 0, 0.75);
+  --shadow-alpha-2 : rgba(0, 0, 0, 0.9);
+  --font-col       : rgb(241, 242, 255);
+  --font-col2      : rgb(224, 226, 255);
+  --font-weight    : 400;
+  --selection-col  : rgb(0, 0, 0);
+  --h-style-col    : rgb(255, 255, 255);
+  --UI-font-col    : rgb(255, 255, 255);
+  --UI-inactive-col: rgba(161, 169, 255, 0.5);
+  --UI-border-col  : rgba(255, 255, 255, 0.05);
+  --gototop-bg-col : rgba(126, 141, 255, 0.2);
+  --theme-icon     : "\e0a1";
+  --main-art       : url(images/curves_dark.svg);
 }
 
 .theme-toggle:after {
@@ -226,12 +226,12 @@ h1, h2, h3 {
   background-repeat  : no-repeat;
   position           : relative;
   height             : 270px;
-  box-shadow         : 0px 0px 20px var(--ascent-alpha);
+  box-shadow         : 0px 0px 20px var(--shadow-alpha);
   transition         : 0.5s;
 }
 .blog .blog-bg:hover {
   transform : scale(1.050);
-  box-shadow: 0px 0px 35px var(--ascent-alpha-2);
+  box-shadow: 0px 0px 35px var(--shadow-alpha-2);
 }
 
 .blog .blog-text {
@@ -480,7 +480,8 @@ article:first-child::first-letter {
 #blog_main_art li {
   border-radius      : 50px;
   margin             : auto;
-  box-shadow         : 0px 0px 35px var(--ascent-alpha-2);
+  box-shadow         : 0px 0px 35px var(--shadow-alpha-2);
+  color: none;
 }
 
 .stop-scrolling {
