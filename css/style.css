@@ -25,8 +25,8 @@
   --bg-col         : rgb(30, 32, 65);
   --bg-col2        : rgb(40, 43, 78);
   --ascent-col     : rgb(183, 188, 255);
-  --shadow-alpha   : rgba(0, 0, 0, 0.75);
-  --shadow-alpha-2 : rgba(0, 0, 0, 0.9);
+  --shadow-alpha   : rgba(0, 0, 0, 0.55);
+  --shadow-alpha-2 : rgba(0, 0, 0, 0.75);
   --font-col       : rgb(241, 242, 255);
   --font-col2      : rgb(224, 226, 255);
   --font-weight    : 400;
