@@ -45,9 +45,7 @@
 			return (isDevice.Android() || isDevice.BlackBerry() || isDevice.iOS() || isDevice.Opera() || isDevice.Windows());
 		}
 	};
-	var isMobile = () => {
-		return isDevice.Android() || isDevice.iOS();
-	}
+	var isMobile = () => { return ( isDevice.Android() || isDevice.iOS() ) !== null ? true :false; }
 
 	var mobileMenuOutsideClick = function() 
 	{
@@ -110,7 +108,6 @@
 		});
 	};
 
-
 	var burgerMenu = function() 
 	{
 
@@ -129,7 +126,6 @@
 
 		});
 	};
-	
 
 	var contentWayPoint = function() 
 	{
@@ -176,10 +172,9 @@
 		{ offset: '85%' } );
 	};
 
-
 	var dropdown = function() 
 	{
-		if (isMobile() !== null)
+		if (isMobile())
 			return;
 
 		$('.has-dropdown').mouseenter(function()
@@ -201,7 +196,6 @@
 		});
 
 	};
-
 
 	var goToTop = function() 
 	{
@@ -247,7 +241,6 @@
 	    },
 		});
 	};
-
 
 	var counterWayPoint = function() {
 		if ($('#counter').length > 0 ) {
@@ -325,23 +318,23 @@
 	var scrollParallax = () => 
 	{
 		// TODO: Make is smoother. really jittery on phones. 
-		if ( isMobile() !== null ) return;
+		// if ( isMobile() ) return;
 		
+		let blog_main_art = document.getElementById("blog_main_art");
+		if (blog_main_art === null) return;
+
 		let page          = document.getElementById("page");
 		let hero          = document.getElementById("hero");
 		let title         = document.getElementById("title");
-		let blog_main_art = document.getElementById("blog_main_art");
 		let blog          = document.getElementById("blog");
 
-		if (blog_main_art === null)
-			return;
 			
 		hero.style.maxHeight = 0;
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
-		var innerW     = window.innerWidth;
-		var innerH     = window.innerHeight;
+		var innerW         = window.innerWidth;
+		var innerH         = window.innerHeight;
 		var scroll_padding = 50;
 		var blog_padding   = innerW > 768 ? 0.65 : 1;
 
@@ -352,13 +345,15 @@
 			blog.style.opacity = Math.min( 1, easeInCubic( Y_val/ innerW, 0, 1, 1) );
 			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val/ innerW, 0, 1, 1) );
 			// blog.style.left = -parallax_Val + 'px';
-
+			var pageLastPos = getOffset(page);
+			console.log( pageLastPos.top );
 			if ( innerW + scroll_padding > Y_val )
 			{
-				page.style.top           = parallax_Val + 'px';
+				page.style.transform = 'translateY(' + parallax_Val + 'px)';
+				// page.style.top           = parallax_Val + 'px';
 				blog_main_art.style.left = parallax_Val + 'px';
 				title.style.left         = -parallax_Val*0.9 + 'px';
-				title.style.top          = Y_val * 0.25 + 'px';
+				title.style.top          = Y_val * 0.2 + 'px';
 				blog.style.transform     = 'translateY(' + - Math.min( innerH * blog_padding, Y_val) + 'px)';
 			}
 		})
@@ -366,7 +361,7 @@
 
 	var mobileOpt = () => 
 	{
-		if (isMobile() !== null)
+		if ( isMobile() )
 		{
 			let title     = document.getElementById("title");
 			let font_size = title !== null ? title.getAttribute('font-size-mobile') : null;
@@ -377,6 +372,15 @@
 			}
 		}
 	}
+
+	function getOffset(el) {
+		const rect = el.getBoundingClientRect();
+		return {
+			left: rect.left + window.scrollX,
+			top: rect.top + window.scrollY
+		};
+	}
+
 	function easeInCubic(t, b, c, d) {
 		return c*(t/=d)*t*t + b;
 	}
