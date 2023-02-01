@@ -328,7 +328,7 @@
 	var scrollParallax = () => 
 	{
 		// TODO: Make is smoother. really jittery on phones. 
-		if ( isMobile() ) return;
+		// if ( isMobile() ) return;
 		
 		let blog_main_art = document.getElementById("blog_main_art");
 		if (blog_main_art === null) return;
@@ -343,13 +343,18 @@
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
-		var innerW           = window.innerWidth;
-		var innerH           = window.innerHeight;
+		var innerW = window.innerWidth;
+		var innerH = window.innerHeight;
+
+		window.addEventListener( 'resize', ()=> {
+			innerW = window.innerWidth;
+			innerH = window.innerHeight;
+		})
+		
 		var scroll_padding   = 50;
 		var blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
 		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
-		var initTitlePadding = getPadding(title_front).top;
-		console.log('initTitlePadding: ', initTitlePadding);
+		var initTitleTopPad  = getPadding(title_front).top;
 		
 		window.addEventListener('scroll', ()=> {
 			var Y_val        = window.scrollY;
@@ -358,17 +363,15 @@
 			
 			blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
 			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-			console.log( blog.style.opacity );
-			if ( innerW + scroll_padding > scrollspeed )
+			if ( scrollspeed < innerW + scroll_padding )
 			{
 				// page.style.position          = 'fixed';
-				// blog_main_art.style.position = 'fixed';
-				page.style.top               = Y_val + 'px';
-				blog.style.transform         = 'translateY(' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px)';
-				blog_main_art.style.left     = scrollspeed + 'px';
-				title_front.style.left       = -scrollspeed + 'px';
-				title_front.style.paddingTop = initTitlePadding - easeOutCubic(Y_val_W_norm, 0, initTitlePadding - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingTop  = initTitlePadding - easeOutCubic(Y_val_W_norm, 0, initTitlePadding - titleScrollY_pad, 1) + 'px';
+				page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
+				blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
+				blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
+				title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
+				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
 			}
 		})
 	}
@@ -413,13 +416,15 @@
 			paddingRight  += parseFloat(window.getComputedStyle(element).borderRightWidth);
 		}
 
-		let paddingPercentage = ((paddingTop + paddingBottom) / parentHeight) * 100;
+		let paddingPercentageH = ((paddingTop + paddingBottom) / parentHeight) * 100;
+		let paddingPercentageW = ((paddingLeft + paddingRight) / parentWidth) * 100;
 		return {
 			top    : paddingTop,
 			bottom : paddingBottom,
 			left   : paddingLeft,
 			right  : paddingRight,
-			percent: paddingPercentage
+			percentH: paddingPercentageH,
+			percentW: paddingPercentageW
 		}
 	 }
 
