@@ -328,7 +328,7 @@
 	var scrollParallax = () => 
 	{
 		// TODO: Make is smoother. really jittery on phones. 
-		if ( isMobile() ) return;
+		// if ( isMobile() ) return;
 		
 		let blog_main_art = document.getElementById("blog_main_art");
 		if (blog_main_art === null) return;
