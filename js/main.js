@@ -47,7 +47,7 @@
 	};
 	var isMobile = () => { return ( isDevice.Android() || isDevice.iOS() ) !== null ? true :false; }
 
-	var mobileMenuOutsideClick = function() 
+	var mobileMenuOutsideClick = ()=> 
 	{
 		$(document).click(function (e) 
 		{
@@ -64,7 +64,7 @@
 	};
 
 
-	var offcanvasMenu = function() 
+	var offcanvasMenu = ()=> 
 	{
 		$('#page').prepend('<div id="fh5co-offcanvas" />');
 		$('#page').prepend('<a href="#" class="js-nav-toggle nav-toggle nav-white"><i></i></a>');
@@ -108,7 +108,7 @@
 		});
 	};
 
-	var burgerMenu = function() 
+	var burgerMenu = ()=> 
 	{
 
 		$('body').on('click', '.js-nav-toggle', function(event)
@@ -127,7 +127,7 @@
 		});
 	};
 
-	var contentWayPoint = function() 
+	var contentWayPoint = ()=> 
 	{
 		var i = 0;
 		$('.animate-box').waypoint( function( direction ) 
@@ -172,7 +172,7 @@
 		{ offset: '85%' } );
 	};
 
-	var dropdown = function() 
+	var dropdown = ()=> 
 	{
 		if (isMobile())
 			return;
@@ -197,7 +197,7 @@
 
 	};
 
-	var goToTop = function() 
+	var goToTop = ()=> 
 	{
 		$('.js-gotop').on('click', function(event)
 		{
@@ -225,14 +225,14 @@
 	};
 
 	// Loading page
-	var loaderPage = function() 
+	var loaderPage = ()=> 
 	{
 		$(window).on( 'DOMContentLoaded', function() {
 			$(".loader").fadeOut("slow");
 		});
 	};
 
-	var counter = function() 
+	var counter = ()=> 
 	{
 		$('.js-counter').countTo( {
 			 formatter: function (value, options) 
@@ -242,7 +242,7 @@
 		});
 	};
 
-	var counterWayPoint = function() {
+	var counterWayPoint = ()=> {
 		if ($('#counter').length > 0 ) {
 			$('#counter').waypoint( function( direction ) 
 			{
@@ -256,7 +256,7 @@
 		}
 	};
 
-	var sliderMain = function() {
+	var sliderMain = ()=> {
 	  	$('.flexslider').flexslider( {
 			animation     : "fade",
 			slideshowSpeed: 5000,
@@ -276,7 +276,7 @@
 	  	});
 	};
 
-	var darkModeToggle = () => {
+	var darkModeToggle = ()=> {
 		let darkMode = localStorage.getItem("darkMode");
 		let title_back = document.getElementById("title-back");
 		const title_col_light = title_back !== null ? title_back.getAttribute('light_col') : 'white';
@@ -345,34 +345,39 @@
 
 		var innerW = window.innerWidth;
 		var innerH = window.innerHeight;
-
-		window.addEventListener( 'resize', ()=> {
-			innerW = window.innerWidth;
-			innerH = window.innerHeight;
-		})
 		
 		var scroll_padding   = 50;
 		var blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
 		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
+
+		window.addEventListener( 'resize', ()=> {
+			innerW = window.innerWidth;
+			innerH = window.innerHeight;
+			blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
+			titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+			initTitleTopPad  = getPadding(title_front).top;
+		})
 		
 		window.addEventListener('scroll', ()=> {
-			var Y_val        = window.scrollY;
-			var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
-			var Y_val_W_norm = scrollspeed/innerW;
-			
-			blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
-			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-			if ( scrollspeed < innerW + scroll_padding )
-			{
-				// page.style.position          = 'fixed';
-				page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
-				blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
-				blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
-				title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
-				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-			}
+			var Y_val = window.scrollY;
+			requestAnimationFrame( ()=> {
+				var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+				var Y_val_W_norm = scrollspeed/innerW;
+				
+				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
+				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+				if ( scrollspeed < innerW + scroll_padding )
+				{
+					// page.style.position          = 'fixed';
+					page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
+					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
+					blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
+					title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
+					title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+					title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				}
+			});
 		})
 	}
 
