@@ -351,17 +351,19 @@
 		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
 
-		window.addEventListener( 'resize', ()=> {
+		window.addEventListener( 'resize', ()=> 
+		{
 			innerW = window.innerWidth;
 			innerH = window.innerHeight;
-			blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
-			titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
-			initTitleTopPad  = getPadding(title_front).top;
+			// blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
+			// titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+			// initTitleTopPad  = getPadding(title_front).top;
 		})
 		
 		window.addEventListener('scroll', ()=> {
 			var Y_val = window.scrollY;
-			requestAnimationFrame( ()=> {
+			requestAnimationFrame( ()=> 
+			{
 				var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
 				var Y_val_W_norm = scrollspeed/innerW;
 				
