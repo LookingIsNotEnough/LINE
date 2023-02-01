@@ -328,7 +328,7 @@
 	var scrollParallax = () => 
 	{
 		// TODO: Make is smoother. really jittery on phones. 
-		if ( isMobile() ) return;
+		// if ( isMobile() ) return;
 		
 		let blog_main_art = document.getElementById("blog_main_art");
 		if (blog_main_art === null) return;
@@ -351,34 +351,82 @@
 		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
 
-		window.addEventListener( 'resize', ()=> {
+		window.addEventListener( 'resize', ()=> 
+		{
 			innerW = window.innerWidth;
 			innerH = window.innerHeight;
-			blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
-			titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
-			initTitleTopPad  = getPadding(title_front).top;
+			// blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
+			// titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+			// initTitleTopPad  = getPadding(title_front).top;
 		})
+
 		
-		window.addEventListener('scroll', ()=> {
-			var Y_val = window.scrollY;
-			requestAnimationFrame( ()=> {
-				var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
-				var Y_val_W_norm = scrollspeed/innerW;
-				
-				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
-				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-				if ( scrollspeed < innerW + scroll_padding )
-				{
-					// page.style.position          = 'fixed';
-					page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
-					title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
-					title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-					title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		var scroll = function (Y_val) {
+			var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+			var Y_val_W_norm = scrollspeed/innerW;
+			
+			blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
+			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+			if ( scrollspeed < innerW + scroll_padding )
+			{
+				// page.style.position          = 'fixed';
+				page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
+				blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
+				blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
+				title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
+				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+			}
+		};
+
+		
+			var raf = window.requestAnimationFrame ||
+			window.webkitRequestAnimationFrame ||
+			window.mozRequestAnimationFrame ||
+			window.msRequestAnimationFrame ||
+			window.oRequestAnimationFrame;
+			var $window = $(window);
+			var lastScrollTop = $window.scrollTop();
+
+			if (raf) {
+				loop();
+			}
+		
+		function loop() {
+				var scrollTop = $window.scrollTop();
+				if (lastScrollTop === scrollTop) {
+					raf(loop);
+					return;
+				} else {
+					lastScrollTop = scrollTop;
+		
+					// fire scroll function if scrolls vertically
+					scroll(lastScrollTop);
+					raf(loop);
 				}
-			});
-		})
+		}
+		
+		// window.addEventListener('scroll', ()=> {
+		// 	var Y_val = window.scrollY;
+		// 	requestAnimationFrame( ()=> 
+		// 	{
+		// 		var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+		// 		var Y_val_W_norm = scrollspeed/innerW;
+				
+		// 		blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
+		// 		blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+		// 		if ( scrollspeed < innerW + scroll_padding )
+		// 		{
+		// 			// page.style.position          = 'fixed';
+		// 			page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
+		// 			blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
+		// 			blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
+		// 			title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
+		// 			title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		// 			title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		// 		}
+		// 	});
+		// })
 	}
 
 	var mobileOpt = () => 
