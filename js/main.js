@@ -370,7 +370,7 @@
 			if ( scrollspeed < innerW + scroll_padding )
 			{
 				// page.style.position          = 'fixed';
-				page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
+				// page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
 				blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
 				blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
 				title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
@@ -393,17 +393,17 @@
 			}
 		
 		function loop() {
-				var scrollTop = $window.scrollTop();
-				if (lastScrollTop === scrollTop) {
-					raf(loop);
-					return;
-				} else {
-					lastScrollTop = scrollTop;
-		
-					// fire scroll function if scrolls vertically
-					scroll(lastScrollTop);
-					raf(loop);
-				}
+			var scrollTop = $window.scrollTop();
+			if (lastScrollTop === scrollTop) {
+				raf(loop);
+				return;
+			} else {
+				lastScrollTop = scrollTop;
+	
+				// fire scroll function if scrolls vertically
+				scroll(lastScrollTop);
+				raf(loop);
+			}
 		}
 		
 		// window.addEventListener('scroll', ()=> {
