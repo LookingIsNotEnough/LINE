@@ -17,11 +17,8 @@
   --theme-icon     : "\ea04";
   --main-art       : url(images/curves_light.svg);
 }
-
 .dark-mode {
   /* Dark theme */
-  /* --bg-col          : rgb(37, 39, 66); */
-  /* --bg-col2         : rgb(44, 49, 78); */
   --bg-col         : rgb(30, 32, 65);
   --bg-col2        : rgb(40, 43, 78);
   --ascent-col     : rgb(183, 188, 255);
@@ -64,8 +61,8 @@ body {
   font-size       : 14px;
   line-height     : 1.7;
   color           : var(--font-col2);
+  margin          : 0;
   background-color: var(--bg-col);
-  margin: 0;
 }
 
 .blur-back {
@@ -79,7 +76,7 @@ body {
   width     : 100%;
   height    : 100%;
   background-color: var(--bg-col);
-  /* transition: 0.5s; */
+  transition: background-color 0.5s;
 }
 
 .offcanvas #page {
@@ -481,7 +478,7 @@ article:first-child::first-letter {
 #blog_main_art li {
   border-radius: 50px;
   margin       : auto;
-  position     : fixed;
+  /* position     : fixed; */
   box-shadow   : 0px 0px 35px var(--shadow-alpha-2);
   color        : none;
 }
@@ -839,6 +836,12 @@ article:first-child::first-letter {
   margin    : auto;
 }
 
+@media screen and (max-width: 1820px) {
+  #hero {
+    margin    : auto 10px;
+  }
+}
+
 #hero .btn {
   font-size: 24px;
 }
@@ -990,7 +993,7 @@ article:first-child::first-letter {
   }
 }
 
-#fh5co-offcanvas {
+#offcanvas {
   position          : absolute;
   z-index           : 1901;
   width             : 200px;
@@ -1014,12 +1017,12 @@ article:first-child::first-letter {
 }
 
 @media screen and (max-width: 768px) {
-  #fh5co-offcanvas {
+  #offcanvas {
     display: block;
   }
 }
 
-.offcanvas #fh5co-offcanvas {
+.offcanvas #offcanvas {
   -moz-transform   : translateX(0px);
   -webkit-transform: translateX(0px);
   -ms-transform    : translateX(0px);
@@ -1027,37 +1030,38 @@ article:first-child::first-letter {
   transform        : translateX(0px);
 }
 
-#fh5co-offcanvas a {
+#offcanvas a {
   color: rgb(255, 255, 255);
 }
 
-#fh5co-offcanvas a:hover {
-  color: rgba(255, 255, 255, 0.8);
+#offcanvas a:hover {
+  letter-spacing: 3px;
+  font-size: 30px;
 }
 
-#fh5co-offcanvas ul {
+#offcanvas ul {
   font-size: 25px;
   padding  : 0;
   margin   : 0;
 }
 
-#fh5co-offcanvas ul li {
+#offcanvas ul li {
   padding   : 0;
   margin    : 0;
   list-style: none;
 }
 
-#fh5co-offcanvas ul li>ul {
+#offcanvas ul li>ul {
   padding-left: 20px;
   display     : none;
 }
 
-#fh5co-offcanvas ul li.offcanvas-has-dropdown>a {
+#offcanvas ul li.offcanvas-has-dropdown>a {
   display : block;
   position: relative;
 }
 
-#fh5co-offcanvas ul li.offcanvas-has-dropdown>a:after {
+#offcanvas ul li.offcanvas-has-dropdown>a:after {
   position      : absolute;
   right         : 0px;
   font-family   : 'icomoon';
@@ -1078,7 +1082,7 @@ article:first-child::first-letter {
   transition             : 0.5s;
 }
 
-#fh5co-offcanvas ul li.offcanvas-has-dropdown.active a:after {
+#offcanvas ul li.offcanvas-has-dropdown.active a:after {
   -webkit-transform: rotate(-180deg);
   -moz-transform   : rotate(-180deg);
   -ms-transform    : rotate(-180deg);

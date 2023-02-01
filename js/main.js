@@ -14,8 +14,9 @@
 		counterWayPoint();
 		darkModeToggle();
 		// mousePos();
-		// scrollParallax();
-		customScrollParallax();
+		scrollParallax();
+		// scrollParallax_2();
+		// customScrollParallax();
 		mobileOpt();
 	});
 
@@ -52,7 +53,7 @@
 	{
 		$(document).click(function (e) 
 		{
-	    var container = $("#fh5co-offcanvas, .js-nav-toggle");
+	    var container = $("#offcanvas, .js-nav-toggle");
 			if (!container.is(e.target) && container.has(e.target).length === 0) 
 			{
 				if ( $('body').hasClass('offcanvas') ) 
@@ -67,15 +68,15 @@
 
 	var offcanvasMenu = ()=> 
 	{
-		$('#page').prepend('<div id="fh5co-offcanvas" />');
+		$('#page').prepend('<div id="offcanvas" />');
 		$('#page').prepend('<a href="#" class="js-nav-toggle nav-toggle nav-white"><i></i></a>');
 		var clone1 = $('.menu-1 > ul').clone();
-		$('#fh5co-offcanvas').append(clone1);
+		$('#offcanvas').append(clone1);
 		// var clone2 = $('.menu-2 > ul').clone();
-		// $('#fh5co-offcanvas').append(clone2);
+		// $('#offcanvas').append(clone2);
 
-		$('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
-		$('#fh5co-offcanvas')
+		$('#offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
+		$('#offcanvas')
 			.find('li')
 			.removeClass('has-dropdown');
 
@@ -328,8 +329,18 @@
 	}
 	var scrollParallax = () => 
 	{
-		// TODO: Make is smoother. really jittery on phones. 
-		// if ( isMobile() ) return;
+		// TODO: Make is smoother, poor performance on phones.
+		if ( isMobile() ) 
+		{
+			let title_front = document.getElementById("title-front");
+			window.addEventListener('scroll', ()=> {
+				var Y_val = window.scrollY;
+				requestAnimationFrame( ()=> {
+					title_front.style.transform  = 'translateY(' + Y_val*0.15 + 'px';
+				});
+			})
+			return;
+		}
 		
 		let blog_main_art = document.getElementById("blog_main_art");
 		if (blog_main_art === null) return;
@@ -344,6 +355,9 @@
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
+		// blog_main_art.style.position = 'fixed';
+		// title_back.style.position = 'fixed';
+
 		var innerW = window.innerWidth;
 		var innerH = window.innerHeight;
 		
@@ -354,34 +368,103 @@
 
 		window.addEventListener( 'resize', ()=> 
 		{
-			innerW = window.innerWidth;
-			innerH = window.innerHeight;
+			innerW           = window.innerWidth;
+			innerH           = window.innerHeight;
 			blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
 			titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+			// initTitleTopPad  = getPadding(title_front).top;
 		})
 		
 		window.addEventListener('scroll', ()=> {
 			var Y_val = window.scrollY;
 			requestAnimationFrame( ()=> 
 			{
-				var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
-				var Y_val_W_norm = scrollspeed/innerW;
+				var imgScrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+				var Y_val_W_norm = Math.min(1, imgScrollspeed/innerW);
 				
 				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
 				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-				if ( scrollspeed < innerW + scroll_padding )
+				if ( imgScrollspeed < innerW + scroll_padding )
 				{
 					// page.style.position          = 'fixed';
 					page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
-					title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
+					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, imgScrollspeed) + 'px, 0)';
+					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px, 0, 0)';
+					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px, 0, 0)';
 					title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
 					title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
 				}
 			});
 		})
 	}
+
+	var scrollParallax_2 = () => 
+	{
+		// TODO: Make is smoother, poor performance on phones.
+		if ( isMobile() ) 
+		{
+			let title_front = document.getElementById("title-front");
+			window.addEventListener('scroll', ()=> {
+				var Y_val = window.scrollY;
+				requestAnimationFrame( ()=> {
+					title_front.style.transform  = 'translateY(' + Y_val*0.15 + 'px';
+				});
+			})
+			return;
+		}
+		
+		let blog_main_art = document.getElementById("blog_main_art");
+		if (blog_main_art === null) return;
+
+		let page        = document.getElementById("page");
+		let hero        = document.getElementById("hero");
+		let title_front = document.getElementById("title-front");
+		let title_back  = document.getElementById("title-back");
+		let blog        = document.getElementById("blog");
+			
+		// blog_main_art.style.position = 'fixed';
+		// title_back.style.position = 'fixed';
+
+		hero.style.maxHeight = 0;
+		blog.style.opacity   = 0;
+		blog.style.scale     = 0;
+
+		var innerW = window.innerWidth;
+		
+		var scroll_padding   = 50;
+		var blog_tf_coef     = innerW > 1280 ? 0.4 : innerW > 768 ? 0.13 : 0.35;
+		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+		var initTitleTopPad  = getPadding(title_front).top;
+
+		window.addEventListener( 'resize', ()=> 
+		{
+			innerW = window.innerWidth;
+			// blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
+			// titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+		})
+		
+		window.addEventListener('scroll', ()=> {
+			var Y_val = window.scrollY;
+			requestAnimationFrame( ()=> 
+			{
+				var imgScrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+				var Y_val_W_norm = Math.min(1, imgScrollspeed/innerW);
+				
+				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
+				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+				if ( imgScrollspeed < innerW + scroll_padding )
+				{
+					blog.style.transform          = 'translate3d(0,' +  imgScrollspeed*blog_tf_coef + 'px, 0)';
+					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px,'+ Y_val + 'px, 0)';
+					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px,' +'0px, 0)';
+					title_back.style.transform    = 'translate3d(0,' + Y_val +'px, 0)';
+					title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad /* - titleScrollY_pad */, 1) + 'px';
+					title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad /* - titleScrollY_pad */, 1) + 'px';
+				}
+			});
+		})
+	}
+
 	var customScrollParallax = () => 
 	{
 		// TODO: Make is smoother. really jittery on phones. 
@@ -415,21 +498,24 @@
 		})
 		
 		var scroll = function (Y_val) {
-			var scrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
-			var Y_val_W_norm = scrollspeed/innerW;
-			
-			blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
-			blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-			if ( scrollspeed < innerW + scroll_padding )
+			requestAnimationFrame( ()=> 
 			{
-				// page.style.position          = 'fixed';
-				page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
-				blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, scrollspeed) + 'px, 0)';
-				blog_main_art.style.transform = 'translate3d(' + scrollspeed + 'px, 0, 0)';
-				title_front.style.transform   = 'translate3d(' + -scrollspeed + 'px, 0, 0)';
-				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-			}
+				var imgScrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
+				var Y_val_W_norm = imgScrollspeed/innerW;
+				
+				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
+				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+				if ( imgScrollspeed < innerW + scroll_padding )
+				{
+					// page.style.position          = 'fixed';
+					page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
+					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, imgScrollspeed) + 'px, 0)';
+					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px, 0, 0)';
+					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px, 0, 0)';
+					title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+					title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				}
+			});
 		};
 		var raf = window.requestAnimationFrame ||
 		window.webkitRequestAnimationFrame ||
@@ -450,7 +536,7 @@
 				return;
 			} else {
 				lastScrollTop = scrollTop;
-	
+				
 				// fire scroll function if scrolls vertically
 				scroll(lastScrollTop);
 				raf(loop);
@@ -462,9 +548,8 @@
 	{
 		if ( isMobile() )
 		{
-			let title     = document.getElementById("title");
-			let font_size = title !== null ? title_front.getAttribute('font-size-mobile') : null;
-			
+			let title_front = document.getElementById("title-front");
+			let font_size = title_front !== null ? title_front.getAttribute('font-size-mobile') : null;
 			if( font_size !== null && screen.width < 768 )
 			{
 				title_front.setAttribute( 'style', 'font-size: ' + font_size );
