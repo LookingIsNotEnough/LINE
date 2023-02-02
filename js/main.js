@@ -16,7 +16,6 @@
 		// mousePos();
 		scrollParallax();
 		// scrollParallax_2();
-		// customScrollParallax();
 		mobileOpt();
 	});
 
@@ -229,7 +228,7 @@
 	// Loading page
 	var loaderPage = ()=> 
 	{
-		$(window).on( 'load', ()=> {
+		$(window).on( 'DOMContentLoaded', ()=> {
 			$(".loader").fadeOut("slow");
 		});
 	};
@@ -336,9 +335,8 @@
 			if (title_front !== null)
 			{
 				window.addEventListener('scroll', ()=> {
-					var Y_val = window.scrollY;
 					requestAnimationFrame( ()=> {
-						title_front.style.transform  = 'translateY(' + Y_val*0.15 + 'px';
+						title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
 					});
 				})
 			}
@@ -356,28 +354,22 @@
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
-		var innerW = window.innerWidth;
-		var innerH = window.innerHeight;
-		
-		var blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
-		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+		var blog_tf_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
+		var titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
 		var imgScrollPad     = 20;
 
 		window.addEventListener( 'resize', ()=> 
 		{
-			innerW           = window.innerWidth;
-			innerH           = window.innerHeight;
-			blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
-			titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+			blog_tf_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
+			titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
 		})
 		
 		window.addEventListener('scroll', ()=> {
-			var Y_val = window.scrollY;
 			requestAnimationFrame( ()=> 
 			{
-				var imgScrollspeed = innerW > 1280 ? Y_val*2 : Y_val;
-				var Y_val_W_norm   = Math.min(1, imgScrollspeed/innerW);
+				var imgScrollspeed = innerWidth > 1280 ? scrollY*2 : scrollY;
+				var Y_val_W_norm   = Math.min(1, imgScrollspeed/innerWidth);
 				
 				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
 				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
@@ -385,10 +377,10 @@
 				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
 				title_back.style.paddingBottom   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
 				
-				if ( imgScrollspeed < innerW+imgScrollPad )
+				if ( imgScrollspeed < innerWidth+imgScrollPad )
 				{
-					page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, imgScrollspeed) + 'px, 0)';
+					page.style.transform          = 'translate3d(0,' + scrollY + 'px, 0)';
+					blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_tf_coef, imgScrollspeed) + 'px, 0)';
 					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px, 0, 0)';
 					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px, 0, 0)';
 				}
@@ -404,9 +396,8 @@
 			let title_front = document.getElementById("title-front");
 			document.getElementById("title-back").style.display = 'none';
 			window.addEventListener('scroll', ()=> {
-				var Y_val = window.scrollY;
 				requestAnimationFrame( ()=> {
-					title_front.style.transform  = 'translateY(' + Y_val*0.15 + 'px';
+					title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
 				});
 			})
 			return;
@@ -425,28 +416,25 @@
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
-		var innerW = window.innerWidth;
 		
-		var blog_tf_coef     = innerW > 1280 ? 0.4 : innerW > 768 ? 0.8 : 0.4;
-		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+		var blog_tf_coef     = innerWidth > 1280 ? 0.4 : innerWidth > 768 ? 0.8 : 0.4;
+		var titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
 		var imgScrollPad     = 20;
 
 		window.addEventListener( 'resize', ()=> 
 		{
-			innerW = window.innerWidth;
-			blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
-			titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
+			blog_tf_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
+			titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
 		})
 		
 		window.addEventListener('scroll', ()=> {
-			var Y_val = window.scrollY;
 			console.log( "scrolling" );
 			requestAnimationFrame( ()=> 
 			{
 				// console.log( "animation update" );
-				var imgScrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
-				var Y_val_W_norm = Math.min(1, imgScrollspeed/innerW);
+				var imgScrollspeed  = innerWidth > 1280 ? scrollY*2 : scrollY;
+				var Y_val_W_norm = Math.min(1, imgScrollspeed/innerWidth);
 				
 				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
 				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
@@ -458,94 +446,15 @@
 				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
 				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
 
-				if ( imgScrollspeed <= innerW+imgScrollPad )
+				if ( imgScrollspeed <= innerWidth+imgScrollPad )
 				{
 					blog.style.transform          = 'translate3d(0,' +  imgScrollspeed*blog_tf_coef + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px,'+ Y_val + 'px, 0)';
+					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px,'+ scrollY + 'px, 0)';
 					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px,' +'0px, 0)';
-					title_back.style.transform    = 'translate3d(0,' + Y_val +'px, 0)';
+					title_back.style.transform    = 'translate3d(0,' + scrollY +'px, 0)';
 				}
 			});
 		})
-	}
-
-	var customScrollParallax = ()=> 
-	{
-		// TODO: Make is smoother. really jittery on phones. 
-		if ( isMobile() ) return;
-		
-		let blog_main_art = document.getElementById("blog_main_art");
-		if (blog_main_art === null) return;
-
-		let page        = document.getElementById("page");
-		let hero        = document.getElementById("hero");
-		let title_front = document.getElementById("title-front");
-		let title_back  = document.getElementById("title-back");
-		let blog        = document.getElementById("blog");
-			
-		hero.style.maxHeight = 0;
-		blog.style.opacity   = 0;
-		blog.style.scale     = 0;
-
-		var innerW = window.innerWidth;
-		var innerH = window.innerHeight;
-		
-		var scroll_padding   = 50;
-		var blog_tf_coef     = innerW > 1280 ? 0.2 : innerW > 768 ? 0.13 : 0.35;
-		var titleScrollY_pad = innerW > 1280 ? 100 : innerW > 768 ? 50 : 30;
-		var initTitleTopPad  = getPadding(title_front).top;
-
-		window.addEventListener( 'resize', ()=> 
-		{
-			innerW = window.innerWidth;
-			innerH = window.innerHeight;
-		})
-		
-		var scroll = function (Y_val) {
-			requestAnimationFrame( ()=> 
-			{
-				var imgScrollspeed  = innerW > 1280 ? Y_val*2 : Y_val;
-				var Y_val_W_norm = imgScrollspeed/innerW;
-				
-				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
-				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-				if ( imgScrollspeed < innerW + scroll_padding )
-				{
-					// page.style.position          = 'fixed';
-					page.style.transform          = 'translate3d(0,' + Y_val + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerH * blog_tf_coef, imgScrollspeed) + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px, 0, 0)';
-					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px, 0, 0)';
-					title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-					title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				}
-			});
-		};
-		var raf = window.requestAnimationFrame ||
-		window.webkitRequestAnimationFrame ||
-		window.mozRequestAnimationFrame ||
-		window.msRequestAnimationFrame ||
-		window.oRequestAnimationFrame;
-		var $window = $(window);
-		var lastScrollTop = $window.scrollTop();
-
-		if (raf) {
-			loop();
-		}
-		
-		function loop() {
-			var scrollTop = $window.scrollTop();
-			if (lastScrollTop === scrollTop) {
-				raf(loop);
-				return;
-			} else {
-				lastScrollTop = scrollTop;
-				
-				// fire scroll function if scrolls vertically
-				scroll(lastScrollTop);
-				raf(loop);
-			}
-		}
 	}
 
 	var mobileOpt = ()=> 
@@ -597,7 +506,7 @@
 			percentH: paddingPercentageH,
 			percentW: paddingPercentageW
 		}
-	 }
+	}
 
 	function easeInCubic(t, b, c, d) {
 		return c*(t/=d)*t*t + b;
