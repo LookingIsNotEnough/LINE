@@ -47,7 +47,7 @@
 			return (isDevice.Android() || isDevice.BlackBerry() || isDevice.iOS() || isDevice.Opera() || isDevice.Windows());
 		}
 	};
-	var isMobile = () => { return ( isDevice.Android() || isDevice.iOS() ) !== null ? true :false; }
+	var isMobile = ()=> { return ( isDevice.Android() || isDevice.iOS() ) !== null ? true :false; }
 
 	var mobileMenuOutsideClick = ()=> 
 	{
@@ -284,7 +284,7 @@
 		const title_col_light = title_back !== null ? title_back.getAttribute('light_col') : 'white';
 		const title_col_dark = title_back !== null ? title_back.getAttribute('dark_col') : 'black';
 
-		const enableDarkMode = () =>
+		const enableDarkMode = ()=>
 		{
 			$('body').addClass('dark-mode');
 			localStorage.setItem("darkMode", "enabled");
@@ -292,7 +292,7 @@
 				title_back.style.color = title_col_light !== null ? title_col_light : 'white';
 		}
 		
-		const disableDarkMode = () => 
+		const disableDarkMode = ()=> 
 		{
 			$('body').removeClass('dark-mode');
 			localStorage.setItem("darkMode", "disabled");
@@ -315,7 +315,7 @@
 		})
 	}
 
-	var mousePos = () => 
+	var mousePos = ()=> 
 	{
 		const root = document.documentElement;
 		$('body').on('mousemove', evt => {
@@ -327,18 +327,21 @@
 			
 		})
 	}
-	var scrollParallax = () => 
+	var scrollParallax = ()=> 
 	{
 		// TODO: Make is smoother, poor performance on phones.
 		if ( isMobile() ) 
 		{
 			let title_front = document.getElementById("title-front");
-			window.addEventListener('scroll', ()=> {
-				var Y_val = window.scrollY;
-				requestAnimationFrame( ()=> {
-					title_front.style.transform  = 'translateY(' + Y_val*0.15 + 'px';
-				});
-			})
+			if (title_front !== null)
+			{
+				window.addEventListener('scroll', ()=> {
+					var Y_val = window.scrollY;
+					requestAnimationFrame( ()=> {
+						title_front.style.transform  = 'translateY(' + Y_val*0.15 + 'px';
+					});
+				})
+			}
 			return;
 		}
 		
@@ -393,7 +396,7 @@
 		})
 	}
 
-	var scrollParallax_2 = () => 
+	var scrollParallax_2 = ()=> 
 	{
 		// TODO: Make is smoother, poor performance on phones.
 		if ( isMobile() ) 
@@ -466,7 +469,7 @@
 		})
 	}
 
-	var customScrollParallax = () => 
+	var customScrollParallax = ()=> 
 	{
 		// TODO: Make is smoother. really jittery on phones. 
 		if ( isMobile() ) return;
@@ -545,7 +548,7 @@
 		}
 	}
 
-	var mobileOpt = () => 
+	var mobileOpt = ()=> 
 	{
 		if ( isMobile() )
 		{

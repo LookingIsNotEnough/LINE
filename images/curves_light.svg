@@ -7,7 +7,7 @@
          stroke-linecap   : round;
          stroke-linejoin  : round;
          stroke-miterlimit: 10;
-         stroke-dasharray : 1000;
+         stroke-dasharray : 1003;
          animation        : dash 15s ease-in-out infinite;
       }
       @keyframes dash {
