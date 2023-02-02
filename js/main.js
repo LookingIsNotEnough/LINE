@@ -229,7 +229,7 @@
 	// Loading page
 	var loaderPage = ()=> 
 	{
-		$(window).on( 'DOMContentLoaded', function() {
+		$(window).on( 'load', ()=> {
 			$(".loader").fadeOut("slow");
 		});
 	};

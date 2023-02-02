@@ -126,7 +126,7 @@ body {
   left      : 0px;
   top       : 0px;
   width     : 100%;
-  height    : 100%;
+  height    : 200%;
   z-index   : 999;
   background-color: var(--bg-col);
 }
@@ -987,12 +987,12 @@ article:first-child::first-letter {
   }
 }
 
-#hero .flexslider .slider-text>.slider-text-inner sy .fh5co-lead {
+#hero .flexslider .slider-text>.slider-text-inner sy .lead {
   font-size: 20px;
   color    : #fff;
 }
 
-#hero .flexslider .slider-text>.slider-text-inner s .fh5co-lead .icon-heart {
+#hero .flexslider .slider-text>.slider-text-inner s .lead .icon-heart {
   color: #d9534f;
 }
 
