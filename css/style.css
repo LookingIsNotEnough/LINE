@@ -20,11 +20,13 @@
 .dark-mode {
   /* Dark theme */
   --bg-col         : rgb(30, 32, 65);
+  /* --bg-col         : rgb(50, 60, 80); */
   --bg-col2        : rgb(40, 43, 78);
   --ascent-col     : rgb(183, 188, 255);
   --shadow-alpha   : rgba(0, 0, 0, 0.55);
   --shadow-alpha-2 : rgba(0, 0, 0, 0.75);
   --font-col       : rgb(241, 242, 255);
+  /* --font-col       : rgb(255, 255, 255); */
   --font-col2      : rgb(224, 226, 255);
   --font-weight    : 400;
   --selection-col  : rgb(0, 0, 0);
@@ -334,11 +336,7 @@ h1, h2, h3 {
   color: var(--UI-font-col);
 }
 
-#title-front {
-  position   : relative;
-  padding: auto;
-}
-#title-back {
+#title-front #title-back {
   position   : relative;
   padding: auto;
 }
@@ -364,10 +362,16 @@ h1, h2, h3 {
 .blog-title-style>.slider-text-inner h1 {
   font-size     : 100px;
   padding       : 20% 0 20% 0;
+  margin        : auto;
   color         : rgb(0, 0, 0);
   font-family   : "Aboreto";
   text-transform: uppercase;
   transform     : translateZ(-200px);
+}
+@media screen and (max-width: 1080px) {
+  .blog-title-style>.slider-text-inner h1 {
+    font-size: 98px;
+  }
 }
 @media screen and (max-width: 980px) {
   .blog-title-style>.slider-text-inner h1 {

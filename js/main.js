@@ -354,14 +354,14 @@
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
 
-		var blog_tf_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
-		var titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
+		var blog_Ypos_coef   = innerWidth >= 1280 ? 0.2 : innerWidth >= 1080 ? 0.1 : innerWidth >= 768 ? 0.13 : 0.35;
+		var titleScrollY_pad = innerWidth >= 1280 ? 100 : innerWidth >= 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
 		var imgScrollPad     = 20;
 
 		window.addEventListener( 'resize', ()=> 
 		{
-			blog_tf_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
+			blog_Ypos_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
 			titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
 		})
 		
@@ -371,16 +371,16 @@
 				var imgScrollspeed = innerWidth > 1280 ? scrollY*2 : scrollY;
 				var Y_val_W_norm   = Math.min(1, imgScrollspeed/innerWidth);
 				
-				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
-				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingBottom   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
+				blog.style.opacity             = Math.min( 1, easeInCubic( Y_val_W_norm*1.3, 0, 1, 1) );
+				blog.style.scale               = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
+				title_front.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingTop    = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingBottom = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
 				
 				if ( imgScrollspeed < innerWidth+imgScrollPad )
 				{
 					page.style.transform          = 'translate3d(0,' + scrollY + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_tf_coef, imgScrollspeed) + 'px, 0)';
+					blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_Ypos_coef, imgScrollspeed) + 'px, 0)';
 					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px, 0, 0)';
 					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px, 0, 0)';
 				}
