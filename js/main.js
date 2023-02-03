@@ -202,26 +202,19 @@
 	{
 		$('.js-gotop').on('click', function(event)
 		{
-			
 			event.preventDefault();
-
 			$('html, body').animate({
 				scrollTop: $('html').offset().top
 			}, 250, 'easeInOutExpo');
 			return false;
 		});
 
-		$(window).scroll(function()
-		{
-			var $win = $(window);
-			if ($win.scrollTop() > 700 /* && $win.onscroll() */) 
-			{
+		const scrollPopUpThresh = isMobile() ? 800 : 2000;
+		$(window).scroll(function() {
+			if (scrollY > scrollPopUpThresh)
 				$('.js-top').addClass('active');
-			} else 
-			{
+			else 
 				$('.js-top').removeClass('active');
-			}
-
 		});
 	};
 
