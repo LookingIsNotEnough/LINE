@@ -328,12 +328,14 @@
 	}
 	var scrollParallax = ()=> 
 	{
+		const title_front = document.getElementById("title-front");
+		const title_back  = document.getElementById("title-back");
 		// TODO: Make is smoother, poor performance on phones.
 		if ( isMobile() ) 
 		{
-			let title_front = document.getElementById("title-front");
 			if (title_front !== null)
 			{
+				title_back.style.display = 'none';
 				window.addEventListener('scroll', ()=> {
 					requestAnimationFrame( ()=> {
 						title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
@@ -343,13 +345,11 @@
 			return;
 		}
 		
-		let blog_main_art = document.getElementById("blog_main_art");
+		const blog_main_art = document.getElementById("blog_main_art");
 		if (blog_main_art === null) return;
 
-		let page        = document.getElementById("page");
-		let blog        = document.getElementById("blog");
-		let title_front = document.getElementById("title-front");
-		let title_back  = document.getElementById("title-back");
+		const page        = document.getElementById("page");
+		const blog        = document.getElementById("blog");
 			
 		blog.style.opacity   = 0;
 		blog.style.scale     = 0;
@@ -358,7 +358,8 @@
 		var titleScrollY_pad = innerWidth >= 1280 ? 100 : innerWidth >= 768 ? 50 : 30;
 		var initTitleTopPad  = getPadding(title_front).top;
 		var imgScrollPad     = 20;
-
+		var imgScrollSpeed, imgScrollPct;
+		
 		window.addEventListener( 'resize', ()=> 
 		{
 			blog_Ypos_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
@@ -368,21 +369,21 @@
 		window.addEventListener('scroll', ()=> {
 			requestAnimationFrame( ()=> 
 			{
-				var imgScrollspeed = innerWidth > 1280 ? scrollY*2 : scrollY;
-				var Y_val_W_norm   = Math.min(1, imgScrollspeed/innerWidth);
+				imgScrollSpeed = innerWidth > 1280 ? scrollY*2 : scrollY;
+				imgScrollPct   = Math.min(1, imgScrollSpeed/innerWidth);
 				
-				blog.style.opacity             = Math.min( 1, easeInCubic( Y_val_W_norm*1.3, 0, 1, 1) );
-				blog.style.scale               = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-				title_front.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingTop    = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingBottom = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
+				blog.style.opacity             = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
+				blog.style.scale               = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
+				title_front.style.paddingTop   = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingTop    = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+				title_back.style.paddingBottom = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad, 1) + 'px';
 				
-				if ( imgScrollspeed < innerWidth+imgScrollPad )
+				if ( imgScrollSpeed < innerWidth+imgScrollPad )
 				{
 					page.style.transform          = 'translate3d(0,' + scrollY + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_Ypos_coef, imgScrollspeed) + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px, 0, 0)';
-					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px, 0, 0)';
+					blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_Ypos_coef, imgScrollSpeed) + 'px, 0)';
+					blog_main_art.style.transform = 'translate3d(' + imgScrollSpeed + 'px, 0, 0)';
+					title_front.style.transform   = 'translate3d(' + -imgScrollSpeed + 'px, 0, 0)';
 				}
 			});
 		})

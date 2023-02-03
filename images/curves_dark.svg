@@ -8,9 +8,9 @@
          stroke-linejoin  : round;
          stroke-miterlimit: 10;
          stroke-dasharray : 1003;
-         animation        : dash 15s ease-in-out infinite;
+         animation        : loop 15s ease-in-out infinite;
       }
-      @keyframes dash {
+      @keyframes loop {
          50% {
             stroke-dashoffset: -1000;
          }
