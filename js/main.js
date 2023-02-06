@@ -437,8 +437,8 @@
 				// console.log( 'blog opacity: ', blog.style.opacity );
 				// console.log( 'blog scale: ', blog.style.scale );
 				// console.log( 'blog transform: ', blog.style.transform );
-				title_front.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
-				title_back.style.paddingTop   = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
+				title_front.style.paddingTop = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
+				title_back.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
 
 				if ( imgScrollspeed <= innerWidth+imgScrollPad )
 				{

@@ -1,3 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Aboreto:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Unbounded:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Oxygen:300,400);
+
 :root {
   /* Light theme */
   --bg-col         : rgb(253, 237, 218);
@@ -341,17 +346,17 @@ h1, h2, h3 {
   padding: auto;
 }
 @media screen and (max-width: 1920px) {
-  #title-front {
+  #title-front #title-back {
     padding: 17% 0 17% 0;
   }
 }
 @media screen and (max-width: 1280px) {
-  #title-front {
+  #title-front #title-back {
     padding: 15% 0 15% 0;
   }
 }
 @media screen and (max-width: 768px) {
-  #title-front {
+  #title-front #title-back {
     padding: 58% 0;
   }
 }
@@ -375,7 +380,7 @@ h1, h2, h3 {
 }
 @media screen and (max-width: 980px) {
   .blog-title-style>.slider-text-inner h1 {
-    font-size: 75px;
+    font-size: 70px;
   }
 }
 

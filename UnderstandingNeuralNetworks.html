@@ -4,11 +4,10 @@
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-231507627-1"></script>
 		<script type="text/javascript">
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'UA-231507627-1');
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-231507627-1');
 		</script>
 
 		<meta charset="utf-8">
@@ -50,11 +49,6 @@
 		<!-- Main -->
 		<script src="js/main.js"></script>
 
-		<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Aboreto:300,400,600,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Unbounded:300,400,600,700" rel="stylesheet">
-		
 		<!-- Animate.css -->
 		<link rel="stylesheet" href="css/animate.css">
 		<!-- Icomoon Icon Fonts-->
@@ -65,17 +59,11 @@
 		<link rel="stylesheet" href="css/flexslider.css">
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/pageTransition.css">
 		<!-- Modernizr JS -->
 		<script src="js/modernizr-2.6.2.min.js"></script>
-      
 		<!-- MathJax -->
       <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-		<!-- FOR IE9 below -->
-		<!--[if lt IE 9]>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
 	</head>
 </html>
 
@@ -150,7 +138,7 @@
 					<h2 class="h1-style" style="text-align: center;" id="what-makes-a-neural-network-tick">What makes a Neural Network tick?</h2>
 					<figure>
 						<p align="center">
-							<img src="images/UNN/NeuralNetworks.png" width=100% height=100%/>
+							<img src="images/UNN/NeuralNetworks.png" alt="" width=100% height=100%/>
 						</p>
 					</figure>
 					<p>Neural networks are function approximators. Just like a mathematical function, they take in an input, do some calculations on it, and output the result.<br>  
@@ -163,7 +151,7 @@
 						the result (their output) to the next layer. By flowing the input data through many layers with multiple neurons, 
 						a neural network can learn to recognize complex patterns and make predictions or decisions based on that data.</p>
 					<figure>	
-						<img class="img-float-left" src="images/UNN/NN_layers-Medium.png" width=50% height=50%/>
+						<img class="img-float-left" src="images/UNN/NN_layers-Medium.png" alt="" width=50% height=50%/>
 					</figure>						
 					
 					<p>You can see in the figure, there's an input layer with some neurons connected to the neurons in the first hidden layer (they're called hidden layers because 
@@ -193,7 +181,7 @@
 					</blockquote>
 					<p>Here we've a simple network with an input layer, a hidden layer, and an output layer with one neuron each.</p>
 						<figure>
-							<img class="img-float-right" src="images/UNN/output_activation-Small.png" width=45% height=45%/>
+							<img class="img-float-right" src="images/UNN/output_activation-Small.png" alt="" width=45% height=45%/>
 						</figure>
 						<p>let's denote,</p>
 					<ul>
@@ -210,7 +198,7 @@
 					</ul>
 					<p><strong>$$a^{\ l}\ =\ \sigma\left(\sum_{ }^{ }w^{\ l}\ a^{\ l-1}+b^{\ l}\right)$$</strong></p>
 					<figure>
-						<img class="img-float-left"  src="images/UNN/layer_activation-Small.png" width=50% height=50%/>
+						<img class="img-float-left"  src="images/UNN/layer_activation-Small.png" alt="" width=50% height=50%/>
 					</figure>
 					
 					<p>As you can see, the activation of a neuron in a layer (\(l\)) is the weighted sum of all activations in the previous layer (\(l-1\)) plus the bias term, 
@@ -240,7 +228,7 @@
 						The closer the output of the loss function is to zero, the closer the predictions are to the labels.<br>Let's explore the training of a neural network.</p>
 					<h2 class="h2-style" id="-gradient-descent">Gradient Descent</h2>
 					<figure>
-						<img style="float: right;" src="images/UNN/Gradient_Desent.gif" width=40% height=40%/>
+						<img style="float: right;" src="images/UNN/Gradient_Desent.gif" alt="" width=40% height=40%/>
 					</figure>
 					
 					<p>Think of the loss function as a mountain range, and you as a hiker traveling through it. You want to reach the lowest point of a valley which also is the lowest point in 
