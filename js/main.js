@@ -5,7 +5,7 @@
 	const html          = document.documentElement;
 	const page          = document.getElementById("page");
 	const blog          = document.getElementById("blog");
-	const bar           = document.getElementById('read-progress');
+	const readBar       = document.getElementById('read-progress');
 	const title_front   = document.getElementById("title-front");
 	const title_back    = document.getElementById("title-back");
 	const blog_main_art = document.getElementById("blog_main_art");
@@ -62,7 +62,7 @@
 
 	var mobileMenuOutsideClick = ()=> 
 	{
-		$(document).click(function (e) 
+		$(document).on('click', function (e) 
 		{
 	    var container = $("#offcanvas, .js-nav-toggle");
 			if (!container.is(e.target) && container.has(e.target).length === 0) 
@@ -123,16 +123,17 @@
 
 	var burgerMenu = ()=> 
 	{
-
 		$('body').on('click', '.js-nav-toggle', function(event)
 		{
 			var $this = $(this);
 			if ( $('body').hasClass('overflow offcanvas') ) 
 			{
 				$('body').removeClass('overflow offcanvas');
+				readBar.style.display = 'none';
 			} else 
 			{
 				$('body').addClass('overflow offcanvas');
+				readBar.style.display = 'block';
 			}
 			$this.toggleClass('active');
 			event.preventDefault();
@@ -393,13 +394,14 @@
 		}
 	}
 
-	function updateProgressBar( inWdPadding=0, inHtPaddingCoef=1 ) {
+	function updateProgressBar( inWdPadding=0, inHtPaddingCoef=1 ) 
+	{
 		maxScrollY = Math.max(
 			body.scrollHeight, body.offsetHeight,
 			html.clientHeight, html.scrollHeight, html.offsetHeight
 		) - innerHeight*inHtPaddingCoef;
 		
-		bar.style.width = `${Math.max(0, Math.min(1,(scrollY-inWdPadding) / maxScrollY)) * 100}%`;
+		readBar.style.width = `${Math.max(0, Math.min(1,(scrollY-inWdPadding) / maxScrollY)) * 100}%`;
 	}
 	function mobileOpt() 
 	{

@@ -67,7 +67,7 @@ body {
   line-height       : 1.7;
   color             : var(--font-col2);
   margin            : 0;
-  padding: 0;
+  padding           : 0;
   background-color  : var(--bg-col);
   -webkit-transition: 0.5s;
   -moz-transition   : 0.5s;
@@ -87,23 +87,6 @@ body {
   height    : 100%;
 }
 
-.offcanvas #page {
-  overflow: hidden;
-  position: absolute;
-}
-
-.offcanvas #page:after {
-  position       : absolute;
-  top            : 0;
-  right          : 0;
-  bottom         : 0;
-  left           : 0;
-  z-index        : 101;
-  backdrop-filter: blur(4px);
-  background     : rgba(0, 0, 0, 0.253);
-  content        : "";
-}
-
 .pace {
   -webkit-pointer-events: none;
   pointer-events        : none;
@@ -120,7 +103,7 @@ body {
   background   : var(--ascent-col);
   position     : fixed;
   border-radius: 10px;
-  z-index      : 3000;
+  z-index      : 6;
   top          : 0;
   right        : 100%;
   width        : 100%;
@@ -132,7 +115,7 @@ body {
   position        : sticky;
   overflow        : visible;
   border-radius   : 0 5px 5px 0;
-  z-index         : 3000;
+  z-index         : 6;
   top             : 0;
   width           : 0;
   height          : 4px;
@@ -146,7 +129,7 @@ body {
   top       : 0px;
   width     : 100%;
   height    : 200%;
-  z-index   : 999;
+  z-index   : 5;
   background-color: var(--bg-col);
 }
 
@@ -507,7 +490,7 @@ article:first-child::first-letter {
   padding       : 6em 3em;
   vertical-align: middle;
   clear         : both;
-  z-index       : 9999;
+  z-index       : 5;
 }
 #blog_main_art li {
   border-radius: 50px;
@@ -661,7 +644,7 @@ article:first-child::first-letter {
   -webkit-box-shadow   : 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
   -moz-box-shadow      : 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
   box-shadow           : 0px 14px 33px -9px rgba(0, 0, 0, 0.75);
-  z-index              : 1002;
+  z-index              : 5;
   visibility           : hidden;
   opacity              : 0;
   position             : absolute;
@@ -857,14 +840,14 @@ article:first-child::first-letter {
   position     : absolute;
   right        : 0px;
   top          : 65px;
-  z-index      : 21;
+  z-index      : 3;
   padding      : 6px 0 0 0;
   display      : block;
   margin       : 0 auto;
   display      : none;
   height       : 44px;
   width        : 44px;
-  z-index      : 2001;
+  z-index      : 8;
   border-bottom: none !important;
 }
 
@@ -917,7 +900,7 @@ article:first-child::first-letter {
 
 #hero .flexslider .flex-control-nav {
   bottom : 80px;
-  z-index: 1000;
+  z-index: 5;
   right  : 20px;
   float  : right;
   width  : auto;
@@ -950,7 +933,7 @@ article:first-child::first-letter {
   display   : table;
   opacity   : 0;
   min-height: 500px;
-  z-index   : 9;
+  z-index   : 2;
 }
 
 #hero .flexslider .slider-text>.slider-text-inner {
@@ -1039,25 +1022,17 @@ article:first-child::first-letter {
 
 #offcanvas {
   position          : absolute;
-  z-index           : 1901;
-  width             : 200px;
+  z-index           : 7;
+  width             : 100%;
+  height            : 0px;
   backdrop-filter   : blur(10px);
-  background        : rgba(0, 0, 0, 0.25);
-  top               : 0;
-  right             : 0;
-  top               : 0;
-  bottom            : 0;
-  padding           : 75px 40px 40px 40px;
+  background-color  : rgba(0, 0, 0, 0.1);
   overflow-y        : auto;
   display           : none;
-  -moz-transform    : translateX(270px);
-  -webkit-transform : translateX(270px);
-  -ms-transform     : translateX(270px);
-  -o-transform      : translateX(270px);
-  transform         : translateX(270px);
-  -webkit-transition: 0.5s;
-  -o-transition     : 0.5s;
-  transition        : 0.5s;
+  -webkit-transition: 0.35s ease-out;
+  -o-transition     : 0.35s ease-out;
+  transition        : 0.35s ease-out;
+  text-align        : center;
 }
 
 @media screen and (max-width: 768px) {
@@ -1067,11 +1042,26 @@ article:first-child::first-letter {
 }
 
 .offcanvas #offcanvas {
-  -moz-transform   : translateX(0px);
-  -webkit-transform: translateX(0px);
-  -ms-transform    : translateX(0px);
-  -o-transform     : translateX(0px);
-  transform        : translateX(0px);
+  padding      : 25vh 40px 0px 40px;
+  height       : 70vh;
+  border-radius: 0 0 10% 10%;
+}
+
+.offcanvas #page {
+  overflow: hidden;
+  position: absolute;
+}
+
+.offcanvas #page:after {
+  position       : absolute;
+  top            : 0;
+  right          : 0;
+  bottom         : 0;
+  left           : 0;
+  z-index        : 4;
+  backdrop-filter: blur(4px);
+  background     : rgba(0, 0, 0, 0.1);
+  content        : "";
 }
 
 #offcanvas a {
@@ -1109,7 +1099,6 @@ article:first-child::first-letter {
   position      : absolute;
   right         : 0px;
   font-family   : 'icomoon';
-  speak         : none;
   font-style    : normal;
   font-weight   : normal;
   font-variant  : normal;
@@ -1138,7 +1127,7 @@ article:first-child::first-letter {
   position          : fixed;
   bottom            : 20px;
   right             : 20px;
-  z-index           : 999;
+  z-index           : 5;
   opacity           : 0;
   visibility        : hidden;
   -webkit-transition: 0.5s;
