@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"svg.preview.background": "editor"
+		"svg.preview.background": "editor",
+		"livePreview.defaultPreviewPath": "/UnderstandingNeuralNetworks.html"
 	}
 }

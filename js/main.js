@@ -1,6 +1,18 @@
-;(function () 
+;(function()
 {
 	'use strict';
+	const body          = document.body;
+	const html          = document.documentElement;
+	const page          = document.getElementById("page");
+	const blog          = document.getElementById("blog");
+	const bar           = document.getElementById('read-progress');
+	const title_front   = document.getElementById("title-front");
+	const title_back    = document.getElementById("title-back");
+	const blog_main_art = document.getElementById("blog_main_art");
+	const dispWd        = [768, 1080, 1280];
+
+	let maxScrollY, imgScrollSpeed, imgScrollPct, blog_Ypos_coef, titleScrollY_pad, initTitleTopPad, imgScrollPad;
+
 	$(function()
 	{
 		darkModeToggle();
@@ -14,7 +26,7 @@
 		loaderPage();
 		counterWayPoint();
 		// mousePos();
-		scrollParallax();
+		scrollFX();
 		// scrollParallax_2();
 		mobileOpt();
 	});
@@ -319,10 +331,9 @@
 			
 		})
 	}
-	var scrollParallax = ()=> 
+	var scrollFX = ()=> 
 	{
-		const title_front = document.getElementById("title-front");
-		const title_back  = document.getElementById("title-back");
+		
 		// TODO: Make is smoother, poor performance on phones.
 		if ( isMobile() ) 
 		{
@@ -332,135 +343,80 @@
 				window.addEventListener('scroll', ()=> {
 					requestAnimationFrame( ()=> {
 						title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
+						updateProgressBar();
 					});
 				})
 			}
 			return;
 		}
 		
-		const blog_main_art = document.getElementById("blog_main_art");
-		if (blog_main_art === null) return;
-
-		const page        = document.getElementById("page");
-		const blog        = document.getElementById("blog");
-			
-		blog.style.opacity   = 0;
-		blog.style.scale     = 0;
-
-		var blog_Ypos_coef   = innerWidth >= 1280 ? 0.2 : innerWidth >= 1080 ? 0.1 : innerWidth >= 768 ? 0.13 : 0.35;
-		var titleScrollY_pad = innerWidth >= 1280 ? 100 : innerWidth >= 768 ? 50 : 30;
-		var initTitleTopPad  = getPadding(title_front).top;
-		var imgScrollPad     = 20;
-		var imgScrollSpeed, imgScrollPct;
+		if ( blog_main_art === null ) return;
 		
+		blog.style.opacity = 0;
+		blog.style.scale   = 0;
+		blog_Ypos_coef     = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[1] ? 0.1 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
+		titleScrollY_pad   = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
+		initTitleTopPad    = getPadding(title_front).top;
+		imgScrollPad       = 20;
+
 		window.addEventListener( 'resize', ()=> 
 		{
-			blog_Ypos_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
-			titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
+			blog_Ypos_coef   = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
+			titleScrollY_pad = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
+			if (innerWidth >= dispWd[2])
+				updateProgressBar( innerWidth/2, 2 );
+			else
+				updateProgressBar( innerWidth, 2 );
 		})
 		
 		window.addEventListener('scroll', ()=> {
 			requestAnimationFrame( ()=> 
 			{
-				imgScrollSpeed = innerWidth > 1280 ? scrollY*2 : scrollY;
-				imgScrollPct   = Math.min(1, imgScrollSpeed/innerWidth);
-				
-				blog.style.opacity             = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
-				blog.style.scale               = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
-				title_front.style.paddingTop   = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingTop    = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-				title_back.style.paddingBottom = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad, 1) + 'px';
-				
-				if ( imgScrollSpeed < innerWidth+imgScrollPad )
-				{
-					page.style.transform          = 'translate3d(0,' + scrollY + 'px, 0)';
-					blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_Ypos_coef, imgScrollSpeed) + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + imgScrollSpeed + 'px, 0, 0)';
-					title_front.style.transform   = 'translate3d(' + -imgScrollSpeed + 'px, 0, 0)';
-				}
+				imgScroll();
+				if (innerWidth >= dispWd[2])
+					updateProgressBar( innerWidth/2, 2 );
+				else
+					updateProgressBar( innerWidth, 2 );
 			});
 		})
 	}
-
-	var scrollParallax_2 = ()=> 
+	function imgScroll()
 	{
-		// TODO: Make is smoother, poor performance on phones.
-		if ( isMobile() ) 
+		imgScrollSpeed = innerWidth >= dispWd[2] ? scrollY*2 : scrollY;
+		imgScrollPct   = Math.min(1, imgScrollSpeed/innerWidth);
+		
+		blog.style.opacity             = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
+		blog.style.scale               = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
+		title_front.style.paddingTop   = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		title_back.style.paddingTop    = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		// title_back.style.paddingBottom = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad, 1) + 'px';
+		// blog_main_art.style.transform = 'translate3d(' + easeOutCubic(imgScrollPct, 0 , innerWidth+imgScrollPad, 1) + 'px, 0, 0)';
+
+		if ( imgScrollSpeed < innerWidth+imgScrollPad )
 		{
-			let title_front = document.getElementById("title-front");
-			document.getElementById("title-back").style.display = 'none';
-			window.addEventListener('scroll', ()=> {
-				requestAnimationFrame( ()=> {
-					title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
-				});
-			})
-			return;
+			page.style.transform          = 'translate3d(0,' + scrollY + 'px, 0)';
+			blog.style.transform          = 'translate3d(0,' + - Math.min( innerHeight * blog_Ypos_coef, imgScrollSpeed) + 'px, 0)';
+			blog_main_art.style.transform = 'translate3d(' + imgScrollSpeed + 'px, 0, 0)';
+			title_front.style.transform   = 'translate3d(' + -imgScrollSpeed + 'px, 0, 0)';
 		}
-		
-		let blog_main_art = document.getElementById("blog_main_art");
-		if (blog_main_art === null) return;
-
-		let title_front = document.getElementById("title-front");
-		let title_back  = document.getElementById("title-back");
-		let blog        = document.getElementById("blog");
-			
-		// blog_main_art.style.position = 'fixed';
-		// title_back.style.position = 'fixed';
-
-		blog.style.opacity   = 0;
-		blog.style.scale     = 0;
-
-		
-		var blog_tf_coef     = innerWidth > 1280 ? 0.4 : innerWidth > 768 ? 0.8 : 0.4;
-		var titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
-		var initTitleTopPad  = getPadding(title_front).top;
-		var imgScrollPad     = 20;
-
-		window.addEventListener( 'resize', ()=> 
-		{
-			blog_tf_coef     = innerWidth > 1280 ? 0.2 : innerWidth > 768 ? 0.13 : 0.35;
-			titleScrollY_pad = innerWidth > 1280 ? 100 : innerWidth > 768 ? 50 : 30;
-		})
-		
-		window.addEventListener('scroll', ()=> {
-			console.log( "scrolling" );
-			requestAnimationFrame( ()=> 
-			{
-				// console.log( "animation update" );
-				var imgScrollspeed  = innerWidth > 1280 ? scrollY*2 : scrollY;
-				var Y_val_W_norm = Math.min(1, imgScrollspeed/innerWidth);
-				
-				blog.style.opacity = Math.min( 1, easeInCubic( Y_val_W_norm, 0, 1, 1) );
-				blog.style.scale   = Math.min( 1, easeOutCubic( Y_val_W_norm, 0, 1, 1) );
-
-				// console.log( /* 'Y_val_W_norm: ', */ Y_val_W_norm );
-				// console.log( 'blog opacity: ', blog.style.opacity );
-				// console.log( 'blog scale: ', blog.style.scale );
-				// console.log( 'blog transform: ', blog.style.transform );
-				title_front.style.paddingTop = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
-				title_back.style.paddingTop  = initTitleTopPad - easeOutCubic(Y_val_W_norm, 0, initTitleTopPad, 1) + 'px';
-
-				if ( imgScrollspeed <= innerWidth+imgScrollPad )
-				{
-					blog.style.transform          = 'translate3d(0,' +  imgScrollspeed*blog_tf_coef + 'px, 0)';
-					blog_main_art.style.transform = 'translate3d(' + imgScrollspeed + 'px,'+ scrollY + 'px, 0)';
-					title_front.style.transform   = 'translate3d(' + -imgScrollspeed + 'px,' +'0px, 0)';
-					title_back.style.transform    = 'translate3d(0,' + scrollY +'px, 0)';
-				}
-			});
-		})
 	}
 
-	var mobileOpt = ()=> 
+	function updateProgressBar( inWdPadding=0, inHtPaddingCoef=1 ) {
+		maxScrollY = Math.max(
+			body.scrollHeight, body.offsetHeight,
+			html.clientHeight, html.scrollHeight, html.offsetHeight
+		) - innerHeight*inHtPaddingCoef;
+		
+		bar.style.width = `${Math.max(0, (scrollY-inWdPadding) / (maxScrollY)) * 100}%`;
+	}
+	function mobileOpt() 
 	{
 		if ( isMobile() )
 		{
 			let title_front = document.getElementById("title-front");
 			let font_size = title_front !== null ? title_front.getAttribute('font-size-mobile') : null;
-			if( font_size !== null && screen.width < 768 )
-			{
+			if( font_size !== null && screen.width < innerWidth >= dispWd[0] )
 				title_front.setAttribute( 'style', 'font-size: ' + font_size );
-			}
 		}
 	}
 
@@ -507,6 +463,10 @@
 	}
 	function easeOutCubic(t, b, c, d) {
 		return c*((t=t/d-1)*t*t + 1) + b;
+	}
+	function easeInOutQuad(t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t + b;
+		return -c/2 * ((--t)*(t-2) - 1) + b;
 	}
 	function easeOutQuint(t, b, c, d) {
 		return c*((t=t/d-1)*t*t*t*t + 1) + b;

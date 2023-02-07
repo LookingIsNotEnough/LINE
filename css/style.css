@@ -25,13 +25,11 @@
 .dark-mode {
   /* Dark theme */
   --bg-col         : rgb(30, 32, 65);
-  /* --bg-col         : rgb(50, 60, 80); */
   --bg-col2        : rgb(40, 43, 78);
   --ascent-col     : rgb(183, 188, 255);
   --shadow-alpha   : rgba(0, 0, 0, 0.55);
   --shadow-alpha-2 : rgba(0, 0, 0, 0.75);
   --font-col       : rgb(241, 242, 255);
-  /* --font-col       : rgb(255, 255, 255); */
   --font-col2      : rgb(224, 226, 255);
   --font-weight    : 400;
   --selection-col  : rgb(0, 0, 0);
@@ -45,7 +43,7 @@
 }
 
 .theme-toggle:after {
-  transition : 100ms;
+  transition : 0.1s;
   font-family: 'icomoon';
   font-weight: normal;
   font-style : normal;
@@ -70,6 +68,7 @@ body {
   color           : var(--font-col2);
   margin          : 0;
   background-color: var(--bg-col);
+  transition      : 0.5s;
 }
 
 .blur-back {
@@ -82,8 +81,6 @@ body {
   overflow-x: hidden;
   width     : 100%;
   height    : 100%;
-  background-color: var(--bg-col);
-  transition: background-color 0.5s;
 }
 
 .offcanvas #page {
@@ -106,10 +103,9 @@ body {
 .pace {
   -webkit-pointer-events: none;
   pointer-events        : none;
-
-  -webkit-user-select: none;
-  -moz-user-select   : none;
-  user-select        : none;
+  -webkit-user-select   : none;
+  -moz-user-select      : none;
+  user-select           : none;
 }
 
 .pace-inactive {
@@ -126,6 +122,18 @@ body {
   right  : 100%;
   width  : 100%;
   height : 3px;
+}
+#read-progress {
+  display         : block;
+  background-color: var(--ascent-col);
+  position        : sticky;
+  overflow        : hidden;
+  border-radius   : 0 5px 5px 0;
+  /* box-shadow      : 0 0 3px var(--shadow-alpha-2); */
+  z-index         : 3000;
+  top             : 0;
+  width           : 0;
+  height          : 4px;
 }
 
 .loader {
@@ -1182,7 +1190,7 @@ article:first-child::first-letter {
 }
 
 .social-icons {
-  margin : 0;
+  margin : auto;
   padding: 0;
 }
 
