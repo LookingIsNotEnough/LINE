@@ -363,20 +363,14 @@
 		{
 			blog_Ypos_coef   = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
 			titleScrollY_pad = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
-			if (innerWidth >= dispWd[2])
-				updateProgressBar( innerWidth/2, 2 );
-			else
-				updateProgressBar( innerWidth, 2 );
+			updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
 		})
 		
 		window.addEventListener('scroll', ()=> {
 			requestAnimationFrame( ()=> 
 			{
 				imgScroll();
-				if (innerWidth >= dispWd[2])
-					updateProgressBar( innerWidth/2, 2 );
-				else
-					updateProgressBar( innerWidth, 2 );
+				updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
 			});
 		})
 	}
@@ -385,12 +379,10 @@
 		imgScrollSpeed = innerWidth >= dispWd[2] ? scrollY*2 : scrollY;
 		imgScrollPct   = Math.min(1, imgScrollSpeed/innerWidth);
 		
-		blog.style.opacity             = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
-		blog.style.scale               = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
-		title_front.style.paddingTop   = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-		title_back.style.paddingTop    = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-		// title_back.style.paddingBottom = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad, 1) + 'px';
-		// blog_main_art.style.transform = 'translate3d(' + easeOutCubic(imgScrollPct, 0 , innerWidth+imgScrollPad, 1) + 'px, 0, 0)';
+		blog.style.opacity           = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
+		blog.style.scale             = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
+		title_front.style.paddingTop = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		title_back.style.paddingTop  = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
 
 		if ( imgScrollSpeed < innerWidth+imgScrollPad )
 		{
@@ -407,7 +399,7 @@
 			html.clientHeight, html.scrollHeight, html.offsetHeight
 		) - innerHeight*inHtPaddingCoef;
 		
-		bar.style.width = `${Math.max(0, (scrollY-inWdPadding) / (maxScrollY)) * 100}%`;
+		bar.style.width = `${Math.max(0, Math.min(1,(scrollY-inWdPadding) / maxScrollY)) * 100}%`;
 	}
 	function mobileOpt() 
 	{

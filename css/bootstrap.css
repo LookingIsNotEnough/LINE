@@ -1925,13 +1925,12 @@ tbody.collapse.in {
   display: block;
 }
 .nav > li > a {
-  position: relative;
+  position: absolute;
   display: block;
   padding: 10px 15px;
 }
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
 }
 .nav > li.disabled > a {
   color: #777777;
