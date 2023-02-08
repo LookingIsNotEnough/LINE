@@ -1021,7 +1021,7 @@ article:first-child::first-letter {
   overflow          : hidden;
   position          : absolute;
   z-index           : 7;
-  width             : 320px;
+  width             : 80%;
   height            : 360px;
   backdrop-filter   : blur(10px);
   background-color  : var(--hamburger-menu-col);
