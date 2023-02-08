@@ -1077,7 +1077,7 @@ article:first-child::first-letter {
 
 #offcanvas a:hover {
   letter-spacing: 3px;
-  font-size: 30px;
+  /* font-size: 30px; */
 }
 
 #offcanvas ul {

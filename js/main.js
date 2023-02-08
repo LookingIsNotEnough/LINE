@@ -27,7 +27,6 @@
 		counterWayPoint();
 		// mousePos();
 		scrollFX();
-		// scrollParallax_2();
 		mobileOpt();
 	});
 
