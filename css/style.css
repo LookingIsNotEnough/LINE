@@ -772,31 +772,25 @@ article:first-child::first-letter {
 }
 
 .nav-toggle i {
-  position      : sticky;
-  display       : inline-block;
-  width         : 25px;
-  height        : 2px;
-  color         : #ff0000;
-  font          : bold 14px/.4 Helvetica;
-  text-transform: uppercase;
-  text-indent   : -55px;
-  background    : #252525;
-  transition    : all .2s ease-out;
+  position   : sticky;
+  display    : inline-block;
+  width      : 25px;
+  height     : 2px;
+  text-indent: -55px;
+  transition : all .2s ease-out;
 }
 
 .nav-toggle i::before,
 .nav-toggle i::after {
-  content: '';
-  width: 25px;
-  height: 2px;
-  background: #252525;
-  position: absolute;
-  left: 0;
+  content   : '';
+  left      : 0;
+  width     : 25px;
+  height    : 2px;
+  position  : absolute;
   transition: all .2s ease-out;
 }
 
 .nav-toggle.nav-white>i {
-  color: #fff;
   background: var(--UI-font-col);
 }
 
@@ -1033,9 +1027,9 @@ article:first-child::first-letter {
   background-color  : var(--hamburger-menu-col);
   overflow-y        : auto;
   display           : none;
-  -webkit-transition: 0.35s ease-out;
-  -o-transition     : 0.35s ease-out;
-  transition        : 0.35s ease-in-out;
+  -webkit-transition: 0.25s ease-out;
+  -o-transition     : 0.25s ease-out;
+  transition        : 0.25s ease-in-out;
   text-align        : center;
   padding           : 110px 0;
   border-radius     : 50px;
@@ -1073,10 +1067,15 @@ article:first-child::first-letter {
 
 #offcanvas a {
   color: var(--UI-font-col);
+  letter-spacing: 3px;
+}
+#offcanvas i {
+  color: var(--UI-font-col);
+  letter-spacing: 0px;
 }
 
 #offcanvas a:hover {
-  letter-spacing: 3px;
+  letter-spacing: 6px;
   /* font-size: 30px; */
 }
 
