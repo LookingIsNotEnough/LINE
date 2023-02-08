@@ -18,7 +18,7 @@
 		darkModeToggle();
 		mobileMenuOutsideClick();
 		offcanvasMenu();
-		burgerMenu();
+		hamburgerMenu();
 		contentWayPoint();
 		sliderMain();
 		dropdown();
@@ -62,7 +62,7 @@
 
 	var mobileMenuOutsideClick = ()=> 
 	{
-		$(document).on('click', function (e) 
+		$(document).on('click', (e) => 
 		{
 	    var container = $("#offcanvas, .js-nav-toggle");
 			if (!container.is(e.target) && container.has(e.target).length === 0) 
@@ -71,6 +71,7 @@
 				{
 					$('body').removeClass('offcanvas');
 					$('.js-nav-toggle').removeClass('active');
+					body.style.overflow = '';
 				}
 			}
 		});
@@ -121,23 +122,23 @@
 		});
 	};
 
-	var burgerMenu = ()=> 
+	var hamburgerMenu = ()=> 
 	{
 		$('body').on('click', '.js-nav-toggle', function(event)
 		{
 			var $this = $(this);
-			if ( $('body').hasClass('overflow offcanvas') ) 
+			if ( $('body').hasClass('overflow offcanvas') )
 			{
 				$('body').removeClass('overflow offcanvas');
-				readBar.style.display = 'none';
-			} else 
+				body.style.overflow = '';
+			} 
+			else 
 			{
 				$('body').addClass('overflow offcanvas');
-				readBar.style.display = 'block';
+				body.style.overflow = 'hidden';
 			}
 			$this.toggleClass('active');
 			event.preventDefault();
-
 		});
 	};
 
@@ -236,6 +237,10 @@
 	{
 		$(window).on( 'DOMContentLoaded', ()=> {
 			$(".loader").fadeOut("slow");
+		});
+
+		$(window).on( 'load', ()=> {
+			$('#blog_main_art').fadeIn("slow");
 		});
 	};
 

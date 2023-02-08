@@ -8,6 +8,7 @@
   --bg-col         : rgb(253, 237, 218);
   --bg-col2        : rgb(253, 230, 202);
   --ascent-col     : rgb(250, 126, 25);
+  --hamburger-menu-col : #ffd8a963;
   --shadow-alpha   : rgba(0, 0, 0, 0.45);
   --shadow-alpha-2 : rgba(0, 0, 0, 0.55);
   --font-col       : rgb(80, 80, 80);
@@ -27,6 +28,7 @@
   --bg-col         : rgb(30, 32, 65);
   --bg-col2        : rgb(40, 43, 78);
   --ascent-col     : rgb(183, 188, 255);
+  --hamburger-menu-col : rgba(61, 64, 126, 0.705);
   --shadow-alpha   : rgba(0, 0, 0, 0.55);
   --shadow-alpha-2 : rgba(0, 0, 0, 0.75);
   --font-col       : rgb(241, 242, 255);
@@ -499,6 +501,12 @@ article:first-child::first-letter {
   color        : none;
 }
 
+@media screen and (max-width: 1820px) {
+  #hero #blog_main_art {
+    margin : auto 10px;
+  }
+}
+
 #blog_thumbnail {
   padding         : 6em 3em;
   vertical-align  : middle;
@@ -515,6 +523,7 @@ article:first-child::first-letter {
 }
 
 .nav {
+  /* position: fixed; */
   margin: 5em 0 2em 0;
 }
 
@@ -743,11 +752,11 @@ article:first-child::first-letter {
 }
 
 .nav-toggle {
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
+  width          : 25px;
+  height         : 25px;
+  cursor         : pointer;
   text-decoration: none;
-  top: 25px !important;
+  top            : 25px !important;
 }
 
 .nav-toggle.active i::before,
@@ -763,16 +772,16 @@ article:first-child::first-letter {
 }
 
 .nav-toggle i {
-  position: relative;
-  display: inline-block;
-  width: 25px;
-  height: 2px;
-  color: #ff0000;
-  font: bold 14px/.4 Helvetica;
+  position      : sticky;
+  display       : inline-block;
+  width         : 25px;
+  height        : 2px;
+  color         : #ff0000;
+  font          : bold 14px/.4 Helvetica;
   text-transform: uppercase;
-  text-indent: -55px;
-  background: #252525;
-  transition: all .2s ease-out;
+  text-indent   : -55px;
+  background    : #252525;
+  transition    : all .2s ease-out;
 }
 
 .nav-toggle i::before,
@@ -817,23 +826,23 @@ article:first-child::first-letter {
 }
 
 .nav-toggle.active i::before {
-  top: 0;
+  top              : 0;
   -webkit-transform: rotateZ(45deg);
-  -moz-transform: rotateZ(45deg);
-  -ms-transform: rotateZ(45deg);
-  -o-transform: rotateZ(45deg);
-  transform: rotateZ(45deg);
-  background: #fff;
+  -moz-transform   : rotateZ(45deg);
+  -ms-transform    : rotateZ(45deg);
+  -o-transform     : rotateZ(45deg);
+  transform        : rotateZ(45deg);
+  background-color : var(--UI-font-col);
 }
 
 .nav-toggle.active i::after {
-  bottom: 0;
+  bottom           : 0;
   -webkit-transform: rotateZ(-45deg);
-  -moz-transform: rotateZ(-45deg);
-  -ms-transform: rotateZ(-45deg);
-  -o-transform: rotateZ(-45deg);
-  transform: rotateZ(-45deg);
-  background: #fff;
+  -moz-transform   : rotateZ(-45deg);
+  -ms-transform    : rotateZ(-45deg);
+  -o-transform     : rotateZ(-45deg);
+  transform        : rotateZ(-45deg);
+  background-color : var(--UI-font-col);
 }
 
 .nav-toggle {
@@ -861,12 +870,6 @@ article:first-child::first-letter {
   background: center;
   max-width : 1820px;
   margin    : auto;
-}
-
-@media screen and (max-width: 1820px) {
-  #hero #blog_main_art {
-    margin : auto 10px;
-  }
 }
 
 #hero .btn {
@@ -1021,18 +1024,24 @@ article:first-child::first-letter {
 }
 
 #offcanvas {
+  overflow          : hidden;
   position          : absolute;
   z-index           : 7;
-  width             : 100%;
-  height            : 0px;
+  width             : 320px;
+  height            : 360px;
   backdrop-filter   : blur(10px);
-  background-color  : rgba(0, 0, 0, 0.1);
+  background-color  : var(--hamburger-menu-col);
   overflow-y        : auto;
   display           : none;
   -webkit-transition: 0.35s ease-out;
   -o-transition     : 0.35s ease-out;
-  transition        : 0.35s ease-out;
+  transition        : 0.35s ease-in-out;
   text-align        : center;
+  padding           : 110px 0;
+  border-radius     : 50px;
+  left              : 50%;
+  transform         : translate3d(-50%,-50%,0) scale(0);
+  outline           : 2px solid var(--hamburger-menu-col);
 }
 
 @media screen and (max-width: 768px) {
@@ -1040,32 +1049,30 @@ article:first-child::first-letter {
     display: block;
   }
 }
-
 .offcanvas #offcanvas {
-  padding      : 25vh 40px 0px 40px;
-  height       : 70vh;
-  border-radius: 0 0 10% 10%;
+  transform : translate3d(-50%,50%,0) scale(1);
+  box-shadow: 0px 0px 30px var(--shadow-alpha-2);
 }
-
 .offcanvas #page {
-  overflow: hidden;
-  position: absolute;
+  overflow  : hidden;
+  position  : absolute;
+  transition: 0.5s;
 }
-
+ 
 .offcanvas #page:after {
-  position       : absolute;
-  top            : 0;
-  right          : 0;
-  bottom         : 0;
-  left           : 0;
-  z-index        : 4;
-  backdrop-filter: blur(4px);
-  background     : rgba(0, 0, 0, 0.1);
-  content        : "";
+  content         : "";
+  position        : absolute;
+  top             : 0;
+  right           : 0;
+  bottom          : 0;
+  left            : 0;
+  z-index         : 4;
+  /* backdrop-filter : blur(4px);
+  background-color: rgba(0, 0, 0, 0.1); */
 }
 
 #offcanvas a {
-  color: rgb(255, 255, 255);
+  color: var(--UI-font-col);
 }
 
 #offcanvas a:hover {
