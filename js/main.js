@@ -3,15 +3,15 @@
 	'use strict';
 	const body          = document.body;
 	const html          = document.documentElement;
-	const page          = document.getElementById("page");
-	const blog          = document.getElementById("blog");
+	const page          = document.getElementById('page');
+	const blog          = document.getElementById('blog');
 	const readBar       = document.getElementById('read-progress');
-	const title_front   = document.getElementById("title-front");
-	const title_back    = document.getElementById("title-back");
-	const blog_main_art = document.getElementById("blog_main_art");
+	const title_front   = document.getElementById('title-front');
+	const title_back    = document.getElementById('title-back');
+	const blog_main_art = document.getElementById('blog_main_art');
 	const dispWd        = [768, 1080, 1280];
 
-	let maxScrollY, imgScrollSpeed, imgScrollPct, blog_Ypos_coef, titleScrollY_pad, initTitleTopPad, imgScrollPad;
+	let maxScrollY, imgScrollSpeed, imgScrollPct, blog_Ypos_coef, titleScrollY_pad, initTitleTopPad, imgScrollPad, scrollPopUpThresh;
 
 	$(function()
 	{
@@ -20,12 +20,12 @@
 		hamburgerMenu();
 		contentWayPoint();
 		sliderMain();
+		scrollEvent();
 		dropdown();
 		goToTop();
 		loaderPage();
 		counterWayPoint();
 		// mousePos();
-		scrollFX();
 		mobileOpt();
 	});
 
@@ -207,8 +207,60 @@
 
 	};
 
+	var scrollEvent = ()=> 
+	{
+		
+		// TODO: Make is smoother, poor performance on phones.
+		if ( isMobile() )
+		{
+			if (title_front !== null)
+			{
+				title_back.style.display = 'none';
+				window.addEventListener('scroll', ()=> {
+					requestAnimationFrame( ()=> {
+						title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
+						updateProgressBar();
+					});
+				})
+			}
+			return;
+		}
+		
+		if ( blog_main_art === null ) return;
+		
+		blog.style.opacity = 0;
+		blog.style.scale   = 0;
+		blog_Ypos_coef     = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[1] ? 0.1 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
+		titleScrollY_pad   = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
+		initTitleTopPad    = getPadding(title_front).top;
+		imgScrollPad       = 20;
+
+		window.addEventListener( 'resize', ()=> 
+		{
+			blog_Ypos_coef   = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
+			titleScrollY_pad = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
+			updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
+		})
+		let timer;
+		window.addEventListener('scroll', ()=> {
+			requestAnimationFrame( ()=> 
+			{
+				clearTimeout(timer);
+				imgScroll();
+				updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
+				showScrollPopUp();
+				timer = setTimeout( ()=>{
+					hideScrollPopUp();
+					$('#read-progress').fadeOut('slow');
+
+				}, 3000 );
+			});
+		})
+	}
+
 	var goToTop = ()=> 
 	{
+		scrollPopUpThresh = isMobile() ? 800 : 2000;
 		$('.js-gotop').on('click', function(event)
 		{
 			event.preventDefault();
@@ -217,15 +269,19 @@
 			}, 250, 'easeInOutExpo');
 			return false;
 		});
-
-		const scrollPopUpThresh = isMobile() ? 800 : 2000;
-		$(window).scroll(function() {
-			if (scrollY > scrollPopUpThresh)
-				$('.js-top').addClass('active');
-			else 
-				$('.js-top').removeClass('active');
-		});
 	};
+
+	function showScrollPopUp()
+	{
+		if (scrollY > scrollPopUpThresh)
+			$('.js-top').addClass('active');
+		else 
+			hideScrollPopUp();
+	}
+	function hideScrollPopUp()
+	{ 
+		$('.js-top').removeClass('active'); 
+	}
 
 	// Loading page
 	var loaderPage = ()=> 
@@ -255,7 +311,7 @@
 			{
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) 
 				{
-					setTimeout( counter , 400);					
+					setTimeout( counter() , 400);					
 					$(this.element).addClass('animated');
 				}
 			} , 
@@ -332,58 +388,15 @@
 			
 		})
 	}
-	var scrollFX = ()=> 
-	{
-		
-		// TODO: Make is smoother, poor performance on phones.
-		if ( isMobile() ) 
-		{
-			if (title_front !== null)
-			{
-				title_back.style.display = 'none';
-				window.addEventListener('scroll', ()=> {
-					requestAnimationFrame( ()=> {
-						title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
-						updateProgressBar();
-					});
-				})
-			}
-			return;
-		}
-		
-		if ( blog_main_art === null ) return;
-		
-		blog.style.opacity = 0;
-		blog.style.scale   = 0;
-		blog_Ypos_coef     = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[1] ? 0.1 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
-		titleScrollY_pad   = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
-		initTitleTopPad    = getPadding(title_front).top;
-		imgScrollPad       = 20;
-
-		window.addEventListener( 'resize', ()=> 
-		{
-			blog_Ypos_coef   = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
-			titleScrollY_pad = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
-			updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
-		})
-		
-		window.addEventListener('scroll', ()=> {
-			requestAnimationFrame( ()=> 
-			{
-				imgScroll();
-				updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
-			});
-		})
-	}
 	function imgScroll()
 	{
 		imgScrollSpeed = innerWidth >= dispWd[2] ? scrollY*2 : scrollY;
-		imgScrollPct   = Math.min(1, imgScrollSpeed/innerWidth);
+		imgScrollPct   = Math.min( 1, imgScrollSpeed/innerWidth );
 		
 		blog.style.opacity           = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
 		blog.style.scale             = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
-		title_front.style.paddingTop = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
-		title_back.style.paddingTop  = initTitleTopPad - easeOutCubic(imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1) + 'px';
+		title_front.style.paddingTop = initTitleTopPad - easeOutCubic( imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1 ) + 'px';
+		title_back.style.paddingTop  = initTitleTopPad - easeOutCubic( imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1 ) + 'px';
 
 		if ( imgScrollSpeed < innerWidth+imgScrollPad )
 		{
@@ -396,6 +409,7 @@
 
 	function updateProgressBar( inWdPadding=0, inHtPaddingCoef=1 ) 
 	{
+		$('#read-progress').fadeIn('fast');
 		maxScrollY = Math.max(
 			body.scrollHeight, body.offsetHeight,
 			html.clientHeight, html.scrollHeight, html.offsetHeight
