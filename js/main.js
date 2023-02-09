@@ -209,7 +209,7 @@
 
 	var scrollEvent = ()=> 
 	{
-		
+		let timer;
 		// TODO: Make is smoother, poor performance on phones.
 		if ( isMobile() )
 		{
@@ -218,8 +218,14 @@
 				title_back.style.display = 'none';
 				window.addEventListener('scroll', ()=> {
 					requestAnimationFrame( ()=> {
+						clearTimeout(timer);
 						title_front.style.transform  = 'translateY(' + scrollY*0.15 + 'px';
 						updateProgressBar();
+						showScrollPopUp();
+						timer = setTimeout( ()=>{
+							hideScrollPopUp();
+							$('#read-progress').removeClass('active');
+						}, 5000 );
 					});
 				})
 			}
@@ -241,7 +247,6 @@
 			titleScrollY_pad = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
 			updateProgressBar( innerWidth >= dispWd[2] ? innerWidth/2 : innerWidth, 2 );
 		})
-		let timer;
 		window.addEventListener('scroll', ()=> {
 			requestAnimationFrame( ()=> 
 			{
@@ -252,7 +257,6 @@
 				timer = setTimeout( ()=>{
 					hideScrollPopUp();
 					$('#read-progress').removeClass('active');
-
 				}, 5000 );
 			});
 		})
