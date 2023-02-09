@@ -16,7 +16,6 @@
 	$(function()
 	{
 		darkModeToggle();
-		mobileMenuOutsideClick();
 		offcanvasMenu();
 		hamburgerMenu();
 		contentWayPoint();
@@ -58,24 +57,6 @@
 		}
 	};
 	var isMobile = ()=> { return ( isDevice.Android() || isDevice.iOS() ) !== null ? true :false; }
-
-	var mobileMenuOutsideClick = ()=> 
-	{
-		$(document).on('click', (e) => 
-		{
-	    var container = $("#offcanvas, .js-nav-toggle");
-			if (!container.is(e.target) && container.has(e.target).length === 0) 
-			{
-				if ( $('body').hasClass('offcanvas') ) 
-				{
-					$('body').removeClass('offcanvas');
-					$('.js-nav-toggle').removeClass('active');
-					body.style.overflow = '';
-				}
-			}
-		});
-	};
-
 
 	var offcanvasMenu = ()=> 
 	{
@@ -138,6 +119,21 @@
 			}
 			$this.toggleClass('active');
 			event.preventDefault();
+		});
+
+		// Remove menu is clicked on the document/outside the menu
+		$(document).on('click', (e) => 
+		{
+	    var container = $("#offcanvas, .js-nav-toggle");
+			if (!container.is(e.target) && container.has(e.target).length === 0) 
+			{
+				if ( $('body').hasClass('offcanvas') ) 
+				{
+					$('body').removeClass('offcanvas');
+					$('.js-nav-toggle').removeClass('active');
+					body.style.overflow = '';
+				}
+			}
 		});
 	};
 
