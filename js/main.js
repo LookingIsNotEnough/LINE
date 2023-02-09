@@ -251,7 +251,7 @@
 				showScrollPopUp();
 				timer = setTimeout( ()=>{
 					hideScrollPopUp();
-					$('#read-progress').fadeOut('slow');
+					$('#read-progress').removeClass('active');
 
 				}, 3000 );
 			});
@@ -409,7 +409,7 @@
 
 	function updateProgressBar( inWdPadding=0, inHtPaddingCoef=1 ) 
 	{
-		$('#read-progress').fadeIn('fast');
+		$('#read-progress').addClass('active');
 		maxScrollY = Math.max(
 			body.scrollHeight, body.offsetHeight,
 			html.clientHeight, html.scrollHeight, html.offsetHeight

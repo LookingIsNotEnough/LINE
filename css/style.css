@@ -120,9 +120,12 @@ body {
   z-index         : 6;
   top             : 0;
   width           : 0;
+  height          : 0;
+  transition      : 0.15s ease-out;
+}
+#read-progress.active {
   height          : 5px;
 }
-
 .loader {
   position  : fixed;
   left      : 0;
@@ -1136,16 +1139,14 @@ article:first-child::first-letter {
   bottom            : 20px;
   right             : 20px;
   z-index           : 5;
-  opacity           : 0;
-  visibility        : hidden;
-  -webkit-transition: 0.5s;
-  -o-transition     : 0.5s;
-  transition        : 0.25s;
+  -webkit-transition: 0.25s;
+  -o-transition     : 0.25s;
+  transition        : 0.25s ease-out;
+  transform: translate3d(0, 100px,0);
 }
 
 .gototop.active {
-  opacity   : 1;
-  visibility: visible;
+  transform: translate3d(0,0,0);
 }
 
 .gototop a {
