@@ -253,7 +253,7 @@
 					hideScrollPopUp();
 					$('#read-progress').removeClass('active');
 
-				}, 3000 );
+				}, 5000 );
 			});
 		})
 	}
