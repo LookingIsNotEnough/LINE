@@ -104,7 +104,7 @@ body {
 .pace .pace-progress {
   background   : var(--ascent-col);
   position     : fixed;
-  border-radius: 10px;
+  border-radius: 0 5px 5px 0;
   z-index      : 6;
   top          : 0;
   right        : 100%;
