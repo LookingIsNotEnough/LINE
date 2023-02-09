@@ -7,12 +7,13 @@
   /* Light theme */
   --bg-col         : rgb(253, 237, 218);
   --bg-col2        : rgb(253, 230, 202);
+  /* --bg-col2        : #F0DBDB; */
   --ascent-col     : rgb(250, 126, 25);
   --hamburger-menu-col : #ffd8a963;
   --shadow-alpha   : rgba(0, 0, 0, 0.45);
   --shadow-alpha-2 : rgba(0, 0, 0, 0.55);
-  --font-col       : rgb(80, 80, 80);
-  --font-col2      : rgb(104, 104, 104);
+  --font-col       : rgb(49, 49, 49);
+  --font-col2      : rgb(83, 83, 83);
   --font-weight    : 500;
   --selection-col  : rgb(255, 255, 255);
   --h-style-col    : rgb(20, 20, 20);
@@ -31,7 +32,7 @@
   --hamburger-menu-col : rgba(61, 64, 126, 0.705);
   --shadow-alpha   : rgba(0, 0, 0, 0.55);
   --shadow-alpha-2 : rgba(0, 0, 0, 0.75);
-  --font-col       : rgb(241, 242, 255);
+  --font-col       : rgb(247, 247, 255);
   --font-col2      : rgb(224, 226, 255);
   --font-weight    : 400;
   --selection-col  : rgb(0, 0, 0);
@@ -320,10 +321,15 @@ h1, h2, h3 {
 }
 
 .blog-text-style {
-  font-size  : 20px;
-  font-weight: var(--font-weight);
-  color      : var(--font-col);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* background-color: var(--bg-col2);
+  border-radius   : 20px 150px 20px 20px;
+  padding         : 10vb 3vb;
+  box-shadow      : 0 0 10px var(--bg-col2); */
+  font-size       : 20px;
+  line-height     : 1.7em;
+  font-weight     : var(--font-weight);
+  color           : var(--font-col);
+  font-family     : 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .blog-text-style a {
@@ -333,6 +339,13 @@ h1, h2, h3 {
 
 .blog-text-style a:hover {
   color: var(--UI-font-col);
+}
+@media screen and (max-width: 768px) {
+  .blog-text-style {
+    font-size  : 15px;
+    line-height: 1.7em;
+    font-weight: var(--font-weight);
+  }
 }
 
 #title-front #title-back {
@@ -387,23 +400,21 @@ h1, h2, h3 {
 }
 
 .h1-style, .h2-style, .h3-style {
-  font-size  : 33px;
-  padding-top: 22px;
-  padding-bottom: 20px;
-  font-weight: 500;
-  color      : var(--h-style-col);
-  font-family: Helvetica;
+  font-size     : 33px;
+  padding-top   : 35px;
+  padding-bottom: 10px;
+  font-weight   : 500;
+  color         : var(--h-style-col);
+  font-family   : Helvetica;
   /* text-transform: uppercase; */
 }
 
 .h2-style {
   font-size  : 30px;
-  padding-top: 20px;
 }
 
 .h3-style {
   font-size  : 27px;
-  padding-top: 15px;
 }
 
 .blockquote-style {
@@ -411,37 +422,45 @@ h1, h2, h3 {
   color           : var(--font-col2);
   border-radius   : 8px 40px 40px 40px;
   border-left     : 0px;
+  /* line-height: 2em; */
   /* transform       : translateX(30vb); */
 }
 
-article>p, article>ul, .h1-style, .h2-style, .h3-style, .blockquote-style {
-  margin-right: 10vb;
-  margin-left : 10vb;
+/* article {
+  background-color: var(--bg-col2);
+  border-radius   : 20px 150px 20px 20px;
+  padding         : 10vb 3vb;
+  box-shadow      : 0 0 10px var(--bg-col2);
+} */
+article>p, article>ul, h1, h2, h3, .blockquote-style {
+  margin : 0 10vb;
 }
 @media screen and (max-width: 1280px) {
-  article>p, article>ul, .h1-style, .h2-style, .h3-style, .blockquote-style {
-    margin-right: 7vb;
-    margin-left : 7vb;
+  article>p, article>ul, h1, h2, h3, .blockquote-style {
+    margin : 0 7vb;
   }
 }
 @media screen and (max-width: 1080px) {
-  article>p, article>ul, .h1-style, .h2-style, .h3-style, .blockquote-style {
-    margin-right: 4vb;
-    margin-left : 4vb;
+  article>p, article>ul, h1, h2, h3, .blockquote-style {
+    margin : 0 4vb;
   }
 }
 @media screen and (max-width: 768px) {
-  article>p, article>ul, .h1-style, .h2-style, .h3-style, .blockquote-style {
+  article>p, article>ul, h1, h2, h3, .blockquote-style {
     margin-right: 0vb;
     margin-left : 0vb;
   }
+  /* article {
+    padding      : 10vb 1vb;
+    border-radius: 10px 120px 10px 10px;
+  } */
 }
 article:first-child::first-letter {
   float       : left;
   padding     : 5px 30px 15px;
   margin-top  : -50px;
   margin-right: 16px;
-  font-family : "Hubot Sans", "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family : "Segoe UI";
   font-size   : 105px;
   line-height : 1.1em;
   color       : #6080ff;
@@ -454,12 +473,12 @@ article:first-child::first-letter {
 
 .img-float-left {
   float  : left;
-  padding: 0px 20px 5px 0px;
+  padding: 20px 20px 5px 0px;
 }
 
 .img-float-right {
   float  : right;
-  padding: 0px 0px 5px 20px;
+  padding: 20px 0px 5px 20px;
 }
 
 /* Optimizing for phones */
@@ -476,11 +495,6 @@ article:first-child::first-letter {
     padding: 0 0 20px 0;
     width  : 100%;
     height : 100%
-  }
-
-  .blog-text-style {
-    font-size  : 15px;
-    font-weight: var(--font-weight);
   }
 
   .h1-style {

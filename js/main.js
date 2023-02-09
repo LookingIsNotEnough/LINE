@@ -10,9 +10,10 @@
 	const title_back    = document.getElementById('title-back');
 	const blog_main_art = document.getElementById('blog_main_art');
 	const dispWd        = [768, 1080, 1280];
+	const imgScrollPad  = 20;
 
-	let maxScrollY, imgScrollSpeed, imgScrollPct, blog_Ypos_coef, titleScrollY_pad, initTitleTopPad, imgScrollPad, scrollPopUpThresh;
-
+	let maxScrollY, imgScrollSpeed, imgScrollPct, blog_Ypos_coef, titleScrollY_pad, initTitleTopPad, scrollPopUpThresh;
+	
 	$(function()
 	{
 		darkModeToggle();
@@ -239,7 +240,6 @@
 		blog_Ypos_coef     = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[1] ? 0.1 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
 		titleScrollY_pad   = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
 		initTitleTopPad    = getPadding(title_front).top;
-		imgScrollPad       = 20;
 
 		window.addEventListener( 'resize', ()=> 
 		{
