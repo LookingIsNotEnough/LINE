@@ -120,7 +120,7 @@ body {
   z-index         : 6;
   top             : 0;
   width           : 0;
-  height          : 4px;
+  height          : 5px;
   margin          : 0;
   padding         : 0;
 }
@@ -546,7 +546,12 @@ article:first-child::first-letter {
 .nav .top-menu {
   padding: 34px 30px;
 }
-
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: wheat;
+}
 @media screen and (max-width: 768px) {
   .nav .top-menu {
     padding: 28px 1em;
