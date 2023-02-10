@@ -237,6 +237,7 @@
 		
 		blog.style.opacity = 0;
 		blog.style.scale   = 0;
+		title_back.style.paddingBottom  = 0;
 		blog_Ypos_coef     = innerWidth >= dispWd[2] ? 0.2 : innerWidth >= dispWd[1] ? 0.1 : innerWidth >= dispWd[0] ? 0.13 : 0.35;
 		titleScrollY_pad   = innerWidth >= dispWd[2] ? 100 : innerWidth >= dispWd[0] ? 50 : 30;
 		initTitleTopPad    = getPadding(title_front).top;
