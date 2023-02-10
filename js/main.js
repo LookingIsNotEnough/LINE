@@ -395,9 +395,8 @@
 	}
 	function imgScroll()
 	{
-		imgScrollSpeed = innerWidth >= dispWd[2] ? scrollY*2 : scrollY;
-		imgScrollPct   = Math.min( 1, imgScrollSpeed/innerWidth );
-		
+		imgScrollSpeed               = innerWidth >= dispWd[2] ? scrollY*2 : scrollY;
+		imgScrollPct                 = Math.min( 1, imgScrollSpeed/innerWidth );
 		blog.style.opacity           = Math.min( 1, easeInCubic( imgScrollPct*1.3, 0, 1, 1) );
 		blog.style.scale             = Math.min( 1, easeOutCubic( imgScrollPct, 0, 1, 1) );
 		title_front.style.paddingTop = initTitleTopPad - easeOutCubic( imgScrollPct, 0, initTitleTopPad - titleScrollY_pad, 1 ) + 'px';

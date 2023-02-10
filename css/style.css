@@ -5,44 +5,59 @@
 
 :root {
   /* Light theme */
-  --bg-col         : rgb(253, 237, 218);
-  --bg-col2        : rgb(253, 230, 202);
-  /* --bg-col2        : #F0DBDB; */
-  --ascent-col     : rgb(250, 126, 25);
-  --hamburger-menu-col : #ffd8a963;
-  --shadow-alpha   : rgba(0, 0, 0, 0.45);
-  --shadow-alpha-2 : rgba(0, 0, 0, 0.55);
-  --font-col       : rgb(49, 49, 49);
-  --font-col2      : rgb(83, 83, 83);
-  --font-weight    : 500;
-  --selection-col  : rgb(255, 255, 255);
-  --h-style-col    : rgb(20, 20, 20);
-  --UI-font-col    : rgb(0, 0, 0);
-  --UI-inactive-col: rgba(0, 0, 0, 0.3);
-  --UI-border-col  : rgba(0, 0, 0, 0.05);
-  --gototop-bg-col : rgba(255, 197, 126, 0.2);
-  --theme-icon     : "\ea04";
-  --main-art       : url(images/curves_light.svg);
+  --bg-col            : rgb(253, 237, 218);
+  --bg-col2           : rgb(255, 233, 209);
+  --bg-col3           : rgb(253, 228, 199);
+  --ascent-col        : rgb(250, 126, 25);
+  --hamburger-menu-col: #ffd8a963;
+  --shadow-alpha      : rgba(0, 0, 0, 0.45);
+  --shadow-alpha-2    : rgba(0, 0, 0, 0.55);
+  --font-col          : rgb(46, 46, 46);
+  --font-col2         : rgb(61, 61, 61);
+  --font-weight       : 500;
+  --selection-col     : rgb(255, 255, 255);
+  --h-style-col       : rgb(20, 20, 20);
+  --UI-font-col       : rgb(0, 0, 0);
+  --UI-inactive-col   : rgba(0, 0, 0, 0.3);
+  --UI-border-col     : rgba(0, 0, 0, 0.05);
+  --gototop-bg-col    : rgba(255, 197, 126, 0.2);
+  --theme-icon        : "\ea04";
+  --main-art          : url(images/curves_light.svg);
 }
 .dark-mode {
   /* Dark theme */
-  --bg-col         : rgb(30, 32, 65);
-  --bg-col2        : rgb(40, 43, 78);
-  --ascent-col     : rgb(183, 188, 255);
-  --hamburger-menu-col : rgba(61, 64, 126, 0.705);
-  --shadow-alpha   : rgba(0, 0, 0, 0.55);
-  --shadow-alpha-2 : rgba(0, 0, 0, 0.75);
-  --font-col       : rgb(247, 247, 255);
-  --font-col2      : rgb(224, 226, 255);
-  --font-weight    : 400;
-  --selection-col  : rgb(0, 0, 0);
-  --h-style-col    : rgb(255, 255, 255);
-  --UI-font-col    : rgb(255, 255, 255);
-  --UI-inactive-col: rgba(161, 169, 255, 0.5);
-  --UI-border-col  : rgba(255, 255, 255, 0.05);
-  --gototop-bg-col : rgba(126, 141, 255, 0.2);
-  --theme-icon     : "\e0a1";
-  --main-art       : url(images/curves_dark.svg);
+  --bg-col            : rgb(30, 32, 65);
+  --bg-col2           : rgb(40, 43, 78);
+  --bg-col3           : rgb(44, 47, 85);
+  --ascent-col        : rgb(183, 188, 255);
+  --hamburger-menu-col: rgba(61, 64, 126, 0.705);
+  --shadow-alpha      : rgba(0, 0, 0, 0.55);
+  --shadow-alpha-2    : rgba(0, 0, 0, 0.75);
+  --font-col          : rgb(255, 255, 255);
+  --font-col2         : rgb(232, 233, 255);
+  --font-weight       : 400;
+  --selection-col     : rgb(0, 0, 0);
+  --h-style-col       : rgb(255, 255, 255);
+  --UI-font-col       : rgb(255, 255, 255);
+  --UI-inactive-col   : rgba(161, 169, 255, 0.5);
+  --UI-border-col     : rgba(255, 255, 255, 0.05);
+  --gototop-bg-col    : rgba(126, 141, 255, 0.2);
+  --theme-icon        : "\e0a1";
+  --main-art          : url(images/curves_dark.svg);
+
+
+  /* position        : relative;
+  left            : 0;
+  right           : 0;
+  top             : 0;
+  bottom          : 0;
+  width           : 250vw;
+  height          : 250vw;
+  border-radius   : 50%;
+  background-color: rgb(30, 32, 65);
+  display         : flex;
+  flex            : 0 0 auto;
+  overflow        : hidden; */
 }
 
 .theme-toggle:after {
@@ -321,10 +336,12 @@ h1, h2, h3 {
 }
 
 .blog-text-style {
-  /* background-color: var(--bg-col2);
-  border-radius   : 20px 150px 20px 20px;
-  padding         : 10vb 3vb;
-  box-shadow      : 0 0 10px var(--bg-col2); */
+  /* background: linear-gradient( 180deg, var(--bg-col) 1%,var(--bg-col2) 3%, var(--bg-col2) 96%, var(--bg-col) 99%); */
+  background-color: var(--bg-col2);
+  border-radius   : 150px 150px 20px 20px;
+  margin          : 0vw 3vw;
+  /* box-shadow      : 0 0 100px var(--shadow-alpha); */
+  /* outline         : 3px solid var(--ascent-col); */
   font-size       : 20px;
   line-height     : 1.7em;
   font-weight     : var(--font-weight);
@@ -339,13 +356,6 @@ h1, h2, h3 {
 
 .blog-text-style a:hover {
   color: var(--UI-font-col);
-}
-@media screen and (max-width: 768px) {
-  .blog-text-style {
-    font-size  : 15px;
-    line-height: 1.7em;
-    font-weight: var(--font-weight);
-  }
 }
 
 #title-front #title-back {
@@ -362,9 +372,23 @@ h1, h2, h3 {
     padding: 15% 0 15% 0;
   }
 }
+@media screen and (max-width: 1080px) {
+  .blog-text-style {
+  border-radius: 120px 120px 20px 20px;
+  margin       : 0vw 2vw;
+  }
+}
 @media screen and (max-width: 768px) {
   #title-front #title-back {
     padding: 58% 0;
+  }
+  .blog-text-style {
+    font-size    : 15px;
+    line-height  : 1.7em;
+    font-weight  : var(--font-weight);
+    margin-top   : 35em;
+    /* padding-top: 10vw; */
+    border-radius: 70px 70px 20px 20px;
   }
 }
 
@@ -418,7 +442,7 @@ h1, h2, h3 {
 }
 
 .blockquote-style {
-  background-color: var(--bg-col2);
+  background-color: var(--bg-col3);
   color           : var(--font-col2);
   border-radius   : 8px 40px 40px 40px;
   border-left     : 0px;
@@ -428,21 +452,22 @@ h1, h2, h3 {
 
 /* article {
   background-color: var(--bg-col2);
-  border-radius   : 20px 150px 20px 20px;
-  padding         : 10vb 3vb;
-  box-shadow      : 0 0 10px var(--bg-col2);
+  border-radius   : 150px 150px 20px 20px;
+  padding          : 10vw 3vw;
 } */
 article>p, article>ul, h1, h2, h3, .blockquote-style {
-  margin : 0 10vb;
+  margin : 0.6em 10vb;
 }
 @media screen and (max-width: 1280px) {
   article>p, article>ul, h1, h2, h3, .blockquote-style {
-    margin : 0 7vb;
+    margin-right: 7vb;
+    margin-left : 7vb;
   }
 }
 @media screen and (max-width: 1080px) {
   article>p, article>ul, h1, h2, h3, .blockquote-style {
-    margin : 0 4vb;
+    margin-right: 4vb;
+    margin-left : 4vb;
   }
 }
 @media screen and (max-width: 768px) {
@@ -450,10 +475,9 @@ article>p, article>ul, h1, h2, h3, .blockquote-style {
     margin-right: 0vb;
     margin-left : 0vb;
   }
-  /* article {
-    padding      : 10vb 1vb;
-    border-radius: 10px 120px 10px 10px;
-  } */
+  article {
+    padding : 1vb 0vb;
+  }
 }
 article:first-child::first-letter {
   float       : left;
@@ -1047,7 +1071,7 @@ article:first-child::first-letter {
   border        : none;
 }
 
-#hero .flexslider .slider-text>.slider-text-inner .btn.btn-learn {
+#hero .flexslider .slider-text>.slider-text-itailernner .btn.btn-learn {
   background: #fff;
 }
 
