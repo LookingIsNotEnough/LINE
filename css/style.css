@@ -5,9 +5,9 @@
 
 :root {
   /* Light theme */
-  --bg-col            : rgb(253, 237, 218);
-  --bg-col2           : rgb(255, 233, 209);
-  --bg-col3           : rgb(253, 228, 199);
+  --bg-col            : rgb(255, 234, 212);
+  --bg-col2           : rgb(253, 237, 218);
+  --bg-col3           : rgb(255, 232, 208);
   --ascent-col        : rgb(250, 126, 25);
   --hamburger-menu-col: #ffd8a963;
   --shadow-alpha      : rgba(0, 0, 0, 0.45);
@@ -34,7 +34,7 @@
   --shadow-alpha      : rgba(0, 0, 0, 0.55);
   --shadow-alpha-2    : rgba(0, 0, 0, 0.75);
   --font-col          : rgb(255, 255, 255);
-  --font-col2         : rgb(232, 233, 255);
+  --font-col2         : rgb(242, 243, 255);
   --font-weight       : 400;
   --selection-col     : rgb(0, 0, 0);
   --h-style-col       : rgb(255, 255, 255);
